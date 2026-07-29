@@ -1,8 +1,32 @@
+/* Tokens live on the page rather than :root so this route carries its own
+   palette without touching the site-wide brand system. */
 .page {
+  --gw-cream: #fdfaf4;
+  --gw-parchment: #f6efe0;
+  --gw-ink: #2a2723;
+  --gw-ink-hover: #3d3833;
+  --gw-gold: #b8935f;
+  --gw-gold-hover: #c9a370;
+  --gw-muted: #6b645a;
+  --gw-muted-soft: #8c8479;
+  --gw-muted-faint: #a8a096;
+  --gw-mark-empty: #b5ada1;
+
+  /* Space-separated channels so opacity can vary at each use site. */
+  --gw-ink-rgb: 42 39 35;
+  --gw-parchment-rgb: 246 239 224;
+
+  --gw-gutter: clamp(20px, 5vw, 72px);
+  --gw-section-y: clamp(56px, 7vw, 100px);
+
   font-family: var(--font-karla), Helvetica, Arial, sans-serif;
   color: var(--gw-ink);
   background: var(--gw-cream);
   overflow-x: hidden;
+}
+
+.page a {
+  text-decoration: none;
 }
 
 .srOnly {
@@ -58,6 +82,11 @@
 
 .navLink {
   color: var(--gw-muted);
+}
+
+.navLink:hover {
+  color: var(--gw-ink);
+  text-decoration: underline;
 }
 
 /* ---------------------------------------------------------------- buttons */
