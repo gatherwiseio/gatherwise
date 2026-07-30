@@ -57,13 +57,17 @@
   max-width: 100%;
 }
 
-.gwv2 a {
+/* :where() keeps these base link rules at element-only specificity (0,0,1),
+   matching the design's original bare `a` rules. Without it, `.gwv2 a`
+   (0,1,1) outranks the single-class `.gw-btn--*` color rules and the button
+   labels inherit ink-on-ink — invisible until hover. */
+:where(.gwv2) a {
   color: var(--gw-ink);
   text-decoration-color: rgb(var(--gw-ink-rgb) / 0.35);
   text-underline-offset: 3px;
 }
 
-.gwv2 a:hover {
+:where(.gwv2) a:hover {
   color: var(--gw-gold);
   text-decoration-color: var(--gw-gold);
 }
