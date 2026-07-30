@@ -238,40 +238,32 @@ const PAGE_HTML = `
         <h2 class="gw-heading gw-heading--section">Everything a planner needs, <span class="gw-heading__accent">in one place</span>.</h2>
       </div>
 
-      <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0">
-        <figure style="margin: 0">
-          <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 24px 56px -38px rgb(var(--gw-ink-rgb) / 0.5)">
-            <div style="height: 24px; background: var(--gw-cream); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: flex; align-items: center; gap: 5px; padding: 0 10px">
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            </div>
+      <div class="ev-tabs" style="margin: clamp(30px, 4vw, 44px) 0 0">
+        <input type="radio" name="ev-tab" id="ev-tab-checklists" class="ev-radio" checked>
+        <input type="radio" name="ev-tab" id="ev-tab-vendors" class="ev-radio">
+        <input type="radio" name="ev-tab" id="ev-tab-budget" class="ev-radio">
+        <div class="ev-tablist" role="tablist" aria-label="Product screenshots">
+          <label class="ev-tab" for="ev-tab-checklists">Client checklists</label>
+          <label class="ev-tab" for="ev-tab-vendors">Vendor management</label>
+          <label class="ev-tab" for="ev-tab-budget">Budget management</label>
+        </div>
+        <div class="ev-frame">
+          <div class="ev-chrome">
+            <span class="ev-dot"></span><span class="ev-dot"></span><span class="ev-dot"></span>
+            <span class="ev-url ev-url--checklists">app.gatherwise.io/checklists</span>
+            <span class="ev-url ev-url--vendors">app.gatherwise.io/vendors</span>
+            <span class="ev-url ev-url--budget">app.gatherwise.io/budget</span>
+          </div>
+          <figure class="ev-panel ev-panel--checklists" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763627985886x561011803363365300/checklists.png" alt="A client checklist in Gatherwise with tasks, comments from the couple and file attachments." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-          </div>
-          <figcaption style="font-size: 13px; color: var(--gw-muted-soft); margin: 10px 0 0; letter-spacing: 0.02em">Client checklists</figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 24px 56px -38px rgb(var(--gw-ink-rgb) / 0.5)">
-            <div style="height: 24px; background: var(--gw-cream); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: flex; align-items: center; gap: 5px; padding: 0 10px">
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            </div>
+          </figure>
+          <figure class="ev-panel ev-panel--vendors" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1764021115690x589582533571415500/vendor.png" alt="Vendor management in Gatherwise listing vendors, linked budgets and booking status." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-          </div>
-          <figcaption style="font-size: 13px; color: var(--gw-muted-soft); margin: 10px 0 0; letter-spacing: 0.02em">Vendor management</figcaption>
-        </figure>
-        <figure style="margin: 0">
-          <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 24px 56px -38px rgb(var(--gw-ink-rgb) / 0.5)">
-            <div style="height: 24px; background: var(--gw-cream); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: flex; align-items: center; gap: 5px; padding: 0 10px">
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            </div>
+          </figure>
+          <figure class="ev-panel ev-panel--budget" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763886279635x400659780785638660/budget.png" alt="Budget management in Gatherwise showing budget, actual spend, paid and outstanding by category." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-          </div>
-          <figcaption style="font-size: 13px; color: var(--gw-muted-soft); margin: 10px 0 0; letter-spacing: 0.02em">Budget management</figcaption>
-        </figure>
+          </figure>
+        </div>
       </div>
 
       <div style="display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: clamp(34px, 4vw, 52px) 0 0; background: rgb(var(--gw-ink-rgb) / 0.12); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
@@ -363,7 +355,7 @@ const PAGE_HTML = `
   </section>
 
   <!-- mobile / event day -->
-  <section id="mobile" style="background: var(--gw-ink); color: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
+  <section id="mobile" style="background: var(--gw-ink); color: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter) 0">
     <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center">
       <div>
         <p class="gw-eyebrow" style="margin: 0 0 18px">Event planning app</p>
@@ -373,7 +365,7 @@ const PAGE_HTML = `
           <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763629012028x916350660990181800/App%20Store.png" alt="Download Gatherwise on the App Store" style="height: 48px; width: auto; display: block">
         </a>
       </div>
-      <figure style="margin: 0; display: flex; justify-content: center">
+      <figure style="margin: 0; display: flex; justify-content: center; align-self: end">
         <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763628803505x608196859878909200/mobile-screens.png" alt="Two Gatherwise phone screens showing day-of notifications and a client message thread." style="display: block; width: 100%; max-width: 420px; height: auto">
       </figure>
     </div>

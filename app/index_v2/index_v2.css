@@ -663,3 +663,100 @@
   line-height: 1.6;
   font-family: var(--gw-font-body);
 }
+
+/* ============================================================================
+   "Everything in one place" tabbed screenshot viewer — pure CSS (hidden radio
+   inputs + :checked sibling selectors), no JS. One large frame instead of three
+   small thumbnails, so the app screenshots are actually legible.
+   ========================================================================== */
+
+.gwv2 .ev-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gwv2 .ev-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14);
+  margin-bottom: 20px;
+}
+
+.gwv2 .ev-tab {
+  cursor: pointer;
+  font-family: var(--gw-font-body);
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: var(--gw-muted-soft);
+  padding: 12px 6px;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.gwv2 .ev-tab:hover {
+  color: var(--gw-ink);
+}
+
+.gwv2 .ev-frame {
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.16);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 44px 100px -54px rgb(var(--gw-ink-rgb) / 0.6);
+}
+
+.gwv2 .ev-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 13px;
+  background: var(--gw-cream);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+}
+
+.gwv2 .ev-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgb(var(--gw-ink-rgb) / 0.16);
+}
+
+.gwv2 .ev-url {
+  margin-left: 6px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--gw-muted-soft);
+  display: none;
+}
+
+.gwv2 .ev-panel {
+  display: none;
+}
+
+/* active tab styling, per checked radio */
+.gwv2 #ev-tab-checklists:checked ~ .ev-tablist .ev-tab[for="ev-tab-checklists"],
+.gwv2 #ev-tab-vendors:checked ~ .ev-tablist .ev-tab[for="ev-tab-vendors"],
+.gwv2 #ev-tab-budget:checked ~ .ev-tablist .ev-tab[for="ev-tab-budget"] {
+  color: var(--gw-ink);
+  font-weight: 600;
+  border-bottom-color: var(--gw-gold);
+}
+
+/* show the matching panel + chrome URL */
+.gwv2 #ev-tab-checklists:checked ~ .ev-frame .ev-panel--checklists,
+.gwv2 #ev-tab-vendors:checked ~ .ev-frame .ev-panel--vendors,
+.gwv2 #ev-tab-budget:checked ~ .ev-frame .ev-panel--budget {
+  display: block;
+}
+
+.gwv2 #ev-tab-checklists:checked ~ .ev-frame .ev-url--checklists,
+.gwv2 #ev-tab-vendors:checked ~ .ev-frame .ev-url--vendors,
+.gwv2 #ev-tab-budget:checked ~ .ev-frame .ev-url--budget {
+  display: inline;
+}
