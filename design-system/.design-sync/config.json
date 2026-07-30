@@ -1,0 +1,14 @@
+{
+  "pkg": "@gatherwise/design-system",
+  "globalName": "GatherwiseDS",
+  "projectId": "7b6ae697-5535-4036-b3b2-e38758f5d214",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "styles.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "Heading": { "cardMode": "column" },
+    "PricingColumn": { "cardMode": "column" },
+    "WinCard": { "cardMode": "column" }
+  }
+}
