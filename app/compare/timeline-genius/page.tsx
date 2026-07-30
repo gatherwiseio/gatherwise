@@ -394,7 +394,7 @@ export default function Page() {
           <div className={styles.narrow}>
             <div className={styles.eyebrow}>Pricing snapshot</div>
             <h2 className={`${styles.sectionTitle} ${styles.pricingTitle}`}>
-              Roughly the same price. Very different amount of work covered.
+              Similar price. Very different amount of work covered.
             </h2>
 
             <div className={styles.pricingCard}>
