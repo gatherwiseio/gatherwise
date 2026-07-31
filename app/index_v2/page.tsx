@@ -242,17 +242,10 @@ const PAGE_HTML = `
         <input type="radio" name="ev-tab" id="ev-tab-checklists" class="ev-radio" checked>
         <input type="radio" name="ev-tab" id="ev-tab-vendors" class="ev-radio">
         <input type="radio" name="ev-tab" id="ev-tab-budget" class="ev-radio">
-        <div class="ev-tablist" role="tablist" aria-label="Product screenshots">
-          <label class="ev-tab" for="ev-tab-checklists">Client checklists</label>
-          <label class="ev-tab" for="ev-tab-vendors">Vendor management</label>
-          <label class="ev-tab" for="ev-tab-budget">Budget management</label>
-        </div>
         <div class="ev-frame">
           <div class="ev-chrome">
             <span class="ev-dot"></span><span class="ev-dot"></span><span class="ev-dot"></span>
-            <span class="ev-url ev-url--checklists">app.gatherwise.io/checklists</span>
-            <span class="ev-url ev-url--vendors">app.gatherwise.io/vendors</span>
-            <span class="ev-url ev-url--budget">app.gatherwise.io/budget</span>
+            <span class="ev-url">app.gatherwise.io</span>
           </div>
           <figure class="ev-panel ev-panel--checklists" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763627985886x561011803363365300/checklists.png" alt="A client checklist in Gatherwise with tasks, comments from the couple and file attachments." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
@@ -264,32 +257,35 @@ const PAGE_HTML = `
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763886279635x400659780785638660/budget.png" alt="Budget management in Gatherwise showing budget, actual spend, paid and outstanding by category." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
           </figure>
         </div>
-      </div>
 
-      <div style="display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: clamp(34px, 4vw, 52px) 0 0; background: rgb(var(--gw-ink-rgb) / 0.12); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Client checklists</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Tasks your couples can comment on, with attachments in the thread.</p>
-        </div>
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Guest management</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Guest lists, RSVPs and meal choices that feed straight into seating.</p>
-        </div>
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Vendor management</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Contacts, linked budgets, collaboration and booking status per event.</p>
-        </div>
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Budgets</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Budget, actual, paid and still due — by category, per event.</p>
-        </div>
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Client portal</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Clients log in to see timelines, layouts and tasks — and collaborate there.</p>
-        </div>
-        <div style="background: var(--gw-cream); padding: 26px 24px">
-          <h3 style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; margin: 0 0 8px">Event templates</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: var(--gw-muted); margin: 0">Reuse your run of show, tasks and checklists on the next booking.</p>
+        <div class="ev-grid" role="radiogroup" aria-label="Choose a feature to preview">
+          <label class="ev-block ev-block--tab" for="ev-tab-checklists">
+            <h3 class="ev-block__title">Client checklists</h3>
+            <p class="ev-block__text">Tasks your couples can comment on, with attachments in the thread.</p>
+            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
+          </label>
+          <div class="ev-block">
+            <h3 class="ev-block__title">Guest management</h3>
+            <p class="ev-block__text">Guest lists, RSVPs and meal choices that feed straight into seating.</p>
+          </div>
+          <label class="ev-block ev-block--tab" for="ev-tab-vendors">
+            <h3 class="ev-block__title">Vendor management</h3>
+            <p class="ev-block__text">Contacts, linked budgets, collaboration and booking status per event.</p>
+            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
+          </label>
+          <label class="ev-block ev-block--tab" for="ev-tab-budget">
+            <h3 class="ev-block__title">Budgets</h3>
+            <p class="ev-block__text">Budget, actual, paid and still due — by category, per event.</p>
+            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
+          </label>
+          <div class="ev-block">
+            <h3 class="ev-block__title">Client portal</h3>
+            <p class="ev-block__text">Clients log in to see timelines, layouts and tasks — and collaborate there.</p>
+          </div>
+          <div class="ev-block">
+            <h3 class="ev-block__title">Event templates</h3>
+            <p class="ev-block__text">Reuse your run of show, tasks and checklists on the next booking.</p>
+          </div>
         </div>
       </div>
     </div>

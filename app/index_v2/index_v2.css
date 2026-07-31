@@ -678,31 +678,6 @@
   pointer-events: none;
 }
 
-.gwv2 .ev-tablist {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px 6px;
-  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14);
-  margin-bottom: 20px;
-}
-
-.gwv2 .ev-tab {
-  cursor: pointer;
-  font-family: var(--gw-font-body);
-  font-size: 14.5px;
-  letter-spacing: 0.02em;
-  font-weight: 500;
-  color: var(--gw-muted-soft);
-  padding: 12px 6px;
-  margin-bottom: -1px;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.gwv2 .ev-tab:hover {
-  color: var(--gw-ink);
-}
-
 .gwv2 .ev-frame {
   border: 1px solid rgb(var(--gw-ink-rgb) / 0.16);
   border-radius: 4px;
@@ -732,31 +707,79 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--gw-muted-soft);
-  display: none;
 }
 
 .gwv2 .ev-panel {
   display: none;
 }
 
-/* active tab styling, per checked radio */
-.gwv2 #ev-tab-checklists:checked ~ .ev-tablist .ev-tab[for="ev-tab-checklists"],
-.gwv2 #ev-tab-vendors:checked ~ .ev-tablist .ev-tab[for="ev-tab-vendors"],
-.gwv2 #ev-tab-budget:checked ~ .ev-tablist .ev-tab[for="ev-tab-budget"] {
-  color: var(--gw-ink);
-  font-weight: 600;
-  border-bottom-color: var(--gw-gold);
+/* feature blocks — 3 of the 6 double as tabs for the viewer above */
+.gwv2 .ev-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin: clamp(34px, 4vw, 52px) 0 0;
+  background: rgb(var(--gw-ink-rgb) / 0.12);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
 }
 
-/* show the matching panel + chrome URL */
+.gwv2 .ev-block {
+  position: relative;
+  display: block;
+  background: var(--gw-cream);
+  padding: 26px 24px;
+}
+
+.gwv2 .ev-block__title {
+  font-family: var(--gw-font-display);
+  font-size: 21px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: var(--gw-ink);
+  transition: color 0.15s ease;
+}
+
+.gwv2 .ev-block__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gw-muted);
+  margin: 0;
+}
+
+.gwv2 .ev-block--tab {
+  cursor: pointer;
+}
+
+.gwv2 .ev-block__cue {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gw-gold);
+}
+
+.gwv2 .ev-block--tab:hover .ev-block__title {
+  color: var(--gw-gold);
+}
+
+/* active (selected) block: gold top bar + gold title */
+.gwv2 #ev-tab-checklists:checked ~ .ev-grid .ev-block[for="ev-tab-checklists"],
+.gwv2 #ev-tab-vendors:checked ~ .ev-grid .ev-block[for="ev-tab-vendors"],
+.gwv2 #ev-tab-budget:checked ~ .ev-grid .ev-block[for="ev-tab-budget"] {
+  box-shadow: inset 0 3px 0 var(--gw-gold);
+}
+
+.gwv2 #ev-tab-checklists:checked ~ .ev-grid .ev-block[for="ev-tab-checklists"] .ev-block__title,
+.gwv2 #ev-tab-vendors:checked ~ .ev-grid .ev-block[for="ev-tab-vendors"] .ev-block__title,
+.gwv2 #ev-tab-budget:checked ~ .ev-grid .ev-block[for="ev-tab-budget"] .ev-block__title {
+  color: var(--gw-gold);
+}
+
+/* show the matching panel */
 .gwv2 #ev-tab-checklists:checked ~ .ev-frame .ev-panel--checklists,
 .gwv2 #ev-tab-vendors:checked ~ .ev-frame .ev-panel--vendors,
 .gwv2 #ev-tab-budget:checked ~ .ev-frame .ev-panel--budget {
   display: block;
-}
-
-.gwv2 #ev-tab-checklists:checked ~ .ev-frame .ev-url--checklists,
-.gwv2 #ev-tab-vendors:checked ~ .ev-frame .ev-url--vendors,
-.gwv2 #ev-tab-budget:checked ~ .ev-frame .ev-url--budget {
-  display: inline;
 }
