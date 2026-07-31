@@ -23,6 +23,28 @@ export type ComparisonGroup = {
 
 export const comparisonGroups: ComparisonGroup[] = [
   {
+    title: "Pricing",
+    rows: [
+      {
+        capability: "Pricing model",
+        gatherwise: {
+          kind: "price",
+          lead: "From ",
+          amount: "$29/mo",
+          trail: " for planning + sales tools",
+          tone: "muted",
+        },
+        aislePlanner: {
+          kind: "price",
+          lead: "From ",
+          amount: "$69.99/mo",
+          trail: " for planning + sales tools",
+          tone: "soft",
+        },
+      },
+    ],
+  },
+  {
     title: "Platform & mobile",
     rows: [
       {
@@ -104,34 +126,18 @@ export const comparisonGroups: ComparisonGroup[] = [
     ],
   },
   {
-    title: "Pricing",
-    rows: [
-      {
-        capability: "Pricing model",
-        gatherwise: {
-          kind: "price",
-          lead: "From ",
-          amount: "$29/mo",
-          trail: " for planning + sales tools",
-          tone: "muted",
-        },
-        aislePlanner: {
-          kind: "price",
-          lead: "From ",
-          amount: "$69.99/mo",
-          trail: " for planning + sales tools",
-          tone: "soft",
-        },
-      },
-    ],
-  },
-  {
     title: "Other",
     rows: [
       {
         capability: "AI-assisted proposal creation",
         gatherwise: { kind: "yes" },
         aislePlanner: { kind: "no" },
+      },
+      {
+        capability: "Notes",
+        detail: "Keep private notes on a client or event",
+        gatherwise: { kind: "yes" },
+        aislePlanner: { kind: "yes" },
       },
       {
         capability: "Vendor payments linked to the checklist",
@@ -157,6 +163,12 @@ export const comparisonGroups: ComparisonGroup[] = [
       {
         capability: "Seating charts & floor plans",
         gatherwise: { kind: "yes" },
+        aislePlanner: { kind: "yes" },
+      },
+      {
+        capability: "Moodboard",
+        detail: "Visual inspiration board for a client",
+        gatherwise: { kind: "no", note: "AI moodboard — coming soon" },
         aislePlanner: { kind: "yes" },
       },
       {

@@ -143,10 +143,11 @@ export default function Page() {
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
             <div className={`${styles.eyebrow} ${styles.heroEyebrow}`}>
-              Gatherwise vs. Aisle Planner
+              The #1 Aisle Planner alternative
             </div>
             <h1 className={styles.heroTitle}>
-              Gatherwise or Aisle Planner? An honest look at both.
+              Replace Aisle Planner with one platform that grows with your
+              business.
             </h1>
             <p className={styles.heroLede}>
               Aisle Planner has served the events industry for years, across
@@ -162,9 +163,6 @@ export default function Page() {
                 See the full comparison
               </a>
             </div>
-            <p className={styles.heroTagline}>
-              Effortless event planning starts here.
-            </p>
           </div>
 
           <div className={styles.preview}>
@@ -370,36 +368,51 @@ export default function Page() {
           </div>
         </section>
 
-        <section className={styles.aisleFit}>
-          <div className={styles.aisleFitCard}>
-            <div className={styles.eyebrow}>
-              Where Aisle Planner may fit better
-            </div>
-            <h2 className={styles.aisleFitTitle}>
-              We would rather you pick the right tool than pick us.
-            </h2>
-            <p className={styles.aisleFitText}>
-              If a long-established name matters to you, Aisle Planner has
-              earned it. Their design and floor-plan tools are genuinely mature,
-              and because they also build for venues, caterers, florists and
-              photographers, a planner who runs one of those businesses
-              alongside their planning work can keep everything on a single
-              platform. Those are good reasons to choose them, and we will say
-              so.
-            </p>
-            <p className={styles.aisleFitClose}>
-              If instead you want modern software built specifically for how
-              planners work today, that is what Gatherwise is for.
-            </p>
-          </div>
-        </section>
-
         <section id="pricing" className={styles.pricing}>
           <div className={styles.narrow}>
-            <div className={styles.eyebrow}>Pricing snapshot</div>
+            <div className={styles.eyebrow}>Why Gatherwise</div>
             <h2 className={`${styles.sectionTitle} ${styles.pricingTitle}`}>
-              For most planners, Aisle Planner costs about 3× as much.
+              A lower price is only the start.
             </h2>
+            <p className={styles.pricingIntro}>
+              Price is a real advantage — for many planners Aisle Planner costs
+              about 3× as much — but it isn&apos;t the main reason to choose
+              Gatherwise.
+            </p>
+
+            <div className={styles.reasonsGrid}>
+              <div className={styles.reasonCard}>
+                <h3 className={styles.reasonTitle}>More affordable pricing</h3>
+                <p className={styles.reasonText}>
+                  Significantly more value at a lower cost — about $1,272 a year
+                  less than Aisle Planner for a planner running 30 events.
+                </p>
+              </div>
+              <div className={styles.reasonCard}>
+                <h3 className={styles.reasonTitle}>Built only for planners</h3>
+                <p className={styles.reasonText}>
+                  Aisle Planner serves the whole events industry. We&apos;re
+                  focused entirely on the workflows and needs of event and
+                  wedding planners.
+                </p>
+              </div>
+              <div className={styles.reasonCard}>
+                <h3 className={styles.reasonTitle}>Real, hands-on support</h3>
+                <p className={styles.reasonText}>
+                  When you need help you&apos;re talking directly to our team —
+                  not filing a ticket and waiting days for a reply.
+                </p>
+              </div>
+              <div className={styles.reasonCard}>
+                <h3 className={styles.reasonTitle}>
+                  Fast, customer-driven innovation
+                </h3>
+                <p className={styles.reasonText}>
+                  We ship features based on planner feedback. Instead of waiting
+                  months or years, the platform is constantly evolving.
+                </p>
+              </div>
+            </div>
 
             <div className={styles.pricingCard}>
               <div className={styles.pricingCardHead}>
