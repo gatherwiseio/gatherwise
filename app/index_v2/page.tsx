@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla } from "next/font/google";
+import HeroTrialEnhancer from "./HeroTrialEnhancer";
 import "./index_v2.css";
 
 // Scoped to this route: the homepage design uses its own editorial type pairing
@@ -94,7 +95,7 @@ const PAGE_HTML = `
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 0; max-width: 30em">
           <input id="hero-email" type="email" placeholder="you@yourstudio.com" autocomplete="email" aria-label="Work email" style="flex: 1 1 200px; min-width: 0; height: 52px; padding: 0 16px; font-family: var(--gw-font-body); font-size: 15.5px; color: var(--gw-ink); background: #fff; border: 1px solid rgb(var(--gw-ink-rgb) / 0.22); border-radius: var(--gw-radius)">
-          <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="height: 52px; flex: 0 0 auto">Start free trial</a>
+          <a id="hero-trial-btn" class="gw-btn gw-btn--large" href="${SIGNUP}" style="height: 52px; flex: 0 0 auto">Start free trial</a>
         </div>
 
         <p style="font-size: 13.5px; line-height: 1.6; color: var(--gw-muted-soft); margin: 16px 0 0; letter-spacing: 0.01em">14-day free trial · Cancel anytime</p>
@@ -599,9 +600,12 @@ const PAGE_HTML = `
 
 export default function Page() {
   return (
-    <div
-      className={`${cormorant.variable} ${karla.variable} gwv2`}
-      dangerouslySetInnerHTML={{ __html: PAGE_HTML }}
-    />
+    <>
+      <div
+        className={`${cormorant.variable} ${karla.variable} gwv2`}
+        dangerouslySetInnerHTML={{ __html: PAGE_HTML }}
+      />
+      <HeroTrialEnhancer />
+    </>
   );
 }
