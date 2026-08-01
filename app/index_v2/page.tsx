@@ -131,25 +131,25 @@ const PAGE_HTML = `
 
       <figure style="margin: clamp(32px, 4vw, 52px) 0 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.16); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 44px 100px -54px rgb(var(--gw-ink-rgb) / 0.6)">
-          <img loading="lazy" src="/index_v2/timeline.png" width="1548" height="1009" alt="A day-of wedding timeline in Gatherwise — event days with timed items, each tagged with the client team, vendors and guests." style="display: block; width: 100%; height: auto">
+          <img loading="lazy" src="/index_v2/timeline.png" width="1549" height="1003" alt="A day-of wedding timeline in Gatherwise — event days with timed items, each tagged with the client team, vendors and guests." style="display: block; width: 100%; height: auto">
         </div>
       </figure>
 
       <div style="display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: clamp(32px, 4vw, 48px) 0 0; background: rgb(var(--gw-ink-rgb) / 0.15)">
         <div class="gw-win">
           <div class="gw-win__number" aria-hidden="true">01</div>
-          <h3 class="gw-win__title">Move one block, not twelve</h3>
-          <p class="gw-win__text">Ceremony runs long? Drag it. Everything downstream shifts, and the version every vendor sees updates with it.</p>
+          <h3 class="gw-win__title">Share a live link or a PDF</h3>
+          <p class="gw-win__text">Export any timeline as a PDF, or share it as a live link. Tweak the run of show and the link updates itself — so you're not re-sending a new file every time something moves.</p>
         </div>
         <div class="gw-win">
           <div class="gw-win__number" aria-hidden="true">02</div>
-          <h3 class="gw-win__title">One click per vendor</h3>
-          <p class="gw-win__text">Export a clean timeline for each responsible party — hair and makeup, photo, catering, the couple — filtered to what they need.</p>
+          <h3 class="gw-win__title">A custom version per vendor</h3>
+          <p class="gw-win__text">Filter the timeline to each vendor and export their own version — the caterer sees catering, the band sees the band. No one wades through the parts that aren't theirs.</p>
         </div>
         <div class="gw-win">
           <div class="gw-win__number" aria-hidden="true">03</div>
-          <h3 class="gw-win__title">One version of the truth</h3>
-          <p class="gw-win__text">No more "which PDF is current." The timeline lives in one place and the exports come out of it.</p>
+          <h3 class="gw-win__title">Invite, collaborate, version freely</h3>
+          <p class="gw-win__text">Invite clients and vendors to view and collaborate on the timeline — and create as many versions as you want, for different days, parties or what-ifs.</p>
         </div>
       </div>
 
