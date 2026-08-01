@@ -112,7 +112,7 @@ const PAGE_HTML = `
 
       <figure style="margin: 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <img src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1765470815825x300707809592979140/gw.webp" width="1536" height="930" alt="The Gatherwise planner dashboard showing an event's timeline, tasks, vendors and budget side by side." style="display: block; width: 100%; height: auto; aspect-ratio: 1536 / 930; object-fit: cover">
+          <img src="/index_v2/hero-tasks.png" width="1526" height="1004" alt="The Gatherwise task board for a wedding — tasks grouped into sections with assignees and due dates." style="display: block; width: 100%; height: auto; aspect-ratio: 1526 / 1004; object-fit: cover">
         </div>
       </figure>
     </div>
