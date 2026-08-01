@@ -144,6 +144,10 @@
   .gwv2 [data-hero-grid] {
     grid-template-columns: minmax(320px, 0.88fr) minmax(0, 1.3fr) !important;
   }
+  /* layouts section: give the screenshot column ~15% more width than the copy */
+  .gwv2 [data-layout-grid] {
+    grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr) !important;
+  }
 }
 
 /* ============================================================================
@@ -851,7 +855,12 @@
 
 @media (min-width: 861px) {
   .gwv2 .gw-screenrow {
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 2fr 1fr;
+  }
+  /* reversed rows mirror the columns so the screenshot always sits in the
+     wider (2fr) track, keeping all three screens the same, larger size */
+  .gwv2 .gw-screenrow--rev {
+    grid-template-columns: 1fr 2fr;
   }
   .gwv2 .gw-screenrow--rev .gw-screenrow__media {
     order: 2;

@@ -125,8 +125,8 @@ const PAGE_HTML = `
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">Event timeline software</p>
-        <h2 class="gw-heading gw-heading--section">The day-of timeline, <span class="gw-heading__accent">drag and drop</span> — then one click per vendor.</h2>
-        <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Build the run of show once. Move a block and everything after it shifts with it. When it's final, export the version each responsible party actually needs — the photographer's, the caterer's, the couple's — without rebuilding a thing in a document.</p>
+        <h2 class="gw-heading gw-heading--section">The day-of timeline, <span class="gw-heading__accent">drag and drop</span>.</h2>
+        <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Share it the way each person needs it — a clean PDF, or a live link that updates itself as you tweak, so you're never re-sending. Filter the timeline so each vendor sees only their part, and invite clients and vendors to collaborate across as many versions as the event calls for.</p>
       </div>
 
       <figure style="margin: clamp(32px, 4vw, 52px) 0 0">
@@ -169,35 +169,35 @@ const PAGE_HTML = `
       <div style="display: grid; gap: clamp(32px, 4vw, 56px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start; margin: clamp(32px, 4vw, 48px) 0 0">
         <ol style="list-style: none; margin: 0; padding: 0; display: grid; gap: 0">
           <li style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding-bottom: 22px; border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.14); margin-left: 13px; padding-left: 24px; position: relative">
-            <span aria-hidden="true" style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
+            <span aria-hidden="true" style="position: absolute; left: -6px; top: 11px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
             <div style="grid-column: 1 / -1">
               <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 6px">Lead inquiry form</h3>
               <p style="font-size: 15.5px; line-height: 1.65; color: var(--gw-muted); margin: 0">Put a form on your site. Inquiries arrive as real leads, not another email to triage.</p>
             </div>
           </li>
           <li style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding-bottom: 22px; border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.14); margin-left: 13px; padding-left: 24px; position: relative">
-            <span aria-hidden="true" style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
+            <span aria-hidden="true" style="position: absolute; left: -6px; top: 11px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
             <div style="grid-column: 1 / -1">
               <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 6px">Questionnaire</h3>
               <p style="font-size: 15.5px; line-height: 1.65; color: var(--gw-muted); margin: 0">Ask the discovery questions once, in writing. Answers land on the couple's record.</p>
             </div>
           </li>
           <li style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding-bottom: 22px; border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.14); margin-left: 13px; padding-left: 24px; position: relative">
-            <span aria-hidden="true" style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
+            <span aria-hidden="true" style="position: absolute; left: -6px; top: 11px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
             <div style="grid-column: 1 / -1">
               <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 6px">Proposal</h3>
               <p style="font-size: 15.5px; line-height: 1.65; color: var(--gw-muted); margin: 0">Send the scope and the price from the same place the work will live.</p>
             </div>
           </li>
           <li style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding-bottom: 22px; border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.14); margin-left: 13px; padding-left: 24px; position: relative">
-            <span aria-hidden="true" style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
+            <span aria-hidden="true" style="position: absolute; left: -6px; top: 11px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
             <div style="grid-column: 1 / -1">
               <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 6px">Contract</h3>
               <p style="font-size: 15.5px; line-height: 1.65; color: var(--gw-muted); margin: 0">Signed and stored against the event, not in a folder you'll search for in June.</p>
             </div>
           </li>
           <li style="display: grid; grid-template-columns: auto 1fr; gap: 18px; margin-left: 13px; padding-left: 24px; position: relative">
-            <span aria-hidden="true" style="position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
+            <span aria-hidden="true" style="position: absolute; left: -6px; top: 11px; width: 11px; height: 11px; border-radius: 50%; background: var(--gw-gold)"></span>
             <div style="grid-column: 1 / -1">
               <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 6px">Invoice &amp; paid</h3>
               <p style="font-size: 15.5px; line-height: 1.65; color: var(--gw-muted); margin: 0">Send invoices, auto-remind clients, take payment. Deposits and balances tracked per event.</p>
@@ -207,7 +207,7 @@ const PAGE_HTML = `
 
         <div class="gw-event">
           <div class="gw-event__head">
-            <div class="gw-event__title">Nguyen × Whitemore, Sept 12</div>
+            <div class="gw-event__title">Nguyen × Whitmore, Sept 12</div>
             <div class="gw-event__tag">One record</div>
           </div>
           <div class="gw-event__rows">
@@ -296,7 +296,7 @@ const PAGE_HTML = `
 
   <!-- beautiful layouts -->
   <section id="layouts" style="padding: var(--gw-section-y) var(--gw-gutter)">
-    <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
+    <div data-layout-grid="" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
       <div>
         <p class="gw-eyebrow" style="margin: 0 0 18px">Seating chart software</p>
         <h2 class="gw-heading gw-heading--section">Seating charts and floor plans <span class="gw-heading__accent">worth sharing</span>.</h2>
