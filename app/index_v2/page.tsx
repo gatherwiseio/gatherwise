@@ -114,54 +114,9 @@ const PAGE_HTML = `
 
       <figure style="margin: 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <img src="/index_v2/hero-tasks.png" width="1526" height="1004" alt="The Gatherwise task board for a wedding — tasks grouped into sections with assignees and due dates." style="display: block; width: 100%; height: auto; aspect-ratio: 1526 / 1004; object-fit: cover">
+          <img src="/index_v2/hero-tasks.png" width="1524" height="1004" alt="The Gatherwise task board for a wedding — tasks grouped into sections with assignees and due dates." style="display: block; width: 100%; height: auto; aspect-ratio: 1524 / 1004; object-fit: cover">
         </div>
       </figure>
-    </div>
-  </section>
-
-  <!-- all-in-one platform -->
-  <section id="all-in-one" style="padding: 0 var(--gw-gutter) var(--gw-section-y)">
-    <div style="max-width: 1180px; margin: 0 auto">
-      <div style="max-width: 44em">
-        <p class="gw-eyebrow" style="margin: 0 0 18px">One platform, not ten tabs</p>
-        <h2 class="gw-heading gw-heading--section">Replace the whole stack with <span class="gw-heading__accent">one platform</span>.</h2>
-        <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">The PDFs, spreadsheets, docs, forms and one-off planning apps you juggle for every event — all replaced by a single place built for planners.</p>
-      </div>
-
-      <div class="gw-flow" style="margin: clamp(30px, 4vw, 46px) 0 0">
-        <div class="gw-flow__tools">
-          <span class="gw-tool">PDF</span>
-          <span class="gw-tool">Excel &amp; Sheets</span>
-          <span class="gw-tool">Word</span>
-          <span class="gw-tool">Gmail</span>
-          <span class="gw-tool">Google Forms</span>
-          <span class="gw-tool">HoneyBook</span>
-          <span class="gw-tool">Aisle Planner</span>
-          <span class="gw-tool">Timeline Genius</span>
-        </div>
-        <span class="gw-flow__arrow" aria-hidden="true">→</span>
-        <div class="gw-flow__hub">
-          <img src="${LOGO}" alt="Gatherwise" style="height: 30px; width: auto; display: block">
-          <span class="gw-flow__hub-note">One platform</span>
-        </div>
-      </div>
-
-      <ul class="gw-offer">
-        <li class="gw-offer__item">${CHECK}<span>Leads &amp; CRM</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Proposals</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Contracts</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Invoices</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Questionnaires</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Timelines</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Floor plans &amp; layouts</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Checklists</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Notes</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Guest lists</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Vendor management</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Budgets</span></li>
-        <li class="gw-offer__item">${CHECK}<span>Templates</span></li>
-      </ul>
     </div>
   </section>
 
@@ -305,7 +260,7 @@ const PAGE_HTML = `
             <span class="ev-url">app.gatherwise.io</span>
           </div>
           <figure class="ev-panel ev-panel--checklists" style="margin: 0">
-            <img loading="lazy" src="/index_v2/everything-preview.png" width="1521" height="1008" alt="A Gatherwise task open in the client checklist — assignee, due date, a vendor pricing table and an @mention in the comments." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top">
+            <img loading="lazy" src="/index_v2/everything-preview.png" width="1502" height="893" alt="Vendor management in Gatherwise — vendors listed by category with booked status and payment progress." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top">
           </figure>
           <figure class="ev-panel ev-panel--vendors" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1764021115690x589582533571415500/vendor.png" alt="Vendor management in Gatherwise listing vendors, linked budgets and booking status." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
@@ -364,7 +319,7 @@ const PAGE_HTML = `
       </div>
       <figure style="margin: 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1782233675167x742639443203669800/layout-mockup-center.png" alt="A Gatherwise reception floor plan with round tables, a head table and seated guests." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
+          <img loading="lazy" src="/index_v2/layout-preview.png" width="1212" height="692" alt="A Gatherwise reception seating chart — round guest tables, dance floor, lounge, bar and welcome area drawn to the room." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
         </div>
       </figure>
     </div>
@@ -574,8 +529,8 @@ const PAGE_HTML = `
 
       <div style="margin: clamp(28px, 3vw, 40px) 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
-          <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">Is this built for wedding planners specifically?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
-          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Yes — weddings are what it's shaped around, which is why it has day-of timelines, seating and floor plans, and guest lists rather than a generic pipeline. Planners who run corporate and social events use it for the same reasons.</p>
+          <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">Is this only for wedding planners?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
+          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">It's built for event and wedding planners. Weddings are a core use case — which is why it has day-of timelines, seating and floor plans, and guest lists rather than a generic pipeline — but the same tools fit corporate events, galas, showers and social events just as well. Most wedding planners run those too, and it's one place for all of them.</p>
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">How does the 14-day free trial work?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
@@ -591,11 +546,11 @@ const PAGE_HTML = `
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">Do my clients need an account to view timelines and layouts?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
-          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Clients log in to the client portal to comment on tasks, attach files and collaborate. If you just need someone to <em>see</em> a timeline or layout — a vendor, a venue contact — you export and send it, no account needed.</p>
+          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Your couples get their own client portal — but there's no password to set up or remember. You send them a secure <strong style="color: var(--gw-ink); font-weight: 600">magic link</strong>, they tap it, and they're in. It's the same idea as the "email me a login link" button you've used on other sites: one tap, no password to forget. Inside, they can follow timelines and layouts, comment on tasks, and share files. And if you only need someone to <em>see</em> a timeline or layout — a vendor or a venue contact — you can export and send it, with no login at all.</p>
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">Is there a mobile app?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
-          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Yes, on iOS — real-time notifications, client messages, and your event information on the floor. It's the day-of companion to the full app, not a replacement for it.</p>
+          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Yes. On iPhone, download it <a href="${APPSTORE}" ${EXT}>on the App Store</a> — real-time notifications, client messages, and your event information with you on the floor. It's the day-of companion to the full app, not a replacement for it. There's an Android version too — email <a href="mailto:support@gatherwise.io">support@gatherwise.io</a> and we'll get you set up.</p>
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">What happens in my slow season — can I change plans?</h3><span aria-hidden="true" style="color: var(--gw-gold); font-family: var(--gw-font-body); font-size: 20px; flex: none">+</span></summary>
