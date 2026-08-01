@@ -391,27 +391,27 @@ const PAGE_HTML = `
             <tr>
               <th scope="row" class="gw-cmp__feature">Drag-and-drop day-of timelines, exported per vendor</th>
               <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
-              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">—</span></td>
             </tr>
             <tr>
               <th scope="row" class="gw-cmp__feature">Seating charts and floor plans drawn to the room</th>
               <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
-              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">—</span></td>
             </tr>
             <tr>
               <th scope="row" class="gw-cmp__feature">Guest lists, RSVPs and meal choices</th>
               <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
-              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">—</span></td>
             </tr>
             <tr>
               <th scope="row" class="gw-cmp__feature">Budgets, invoices and payments per event</th>
               <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
-              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span><span class="gw-mark__note">Spreadsheet</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">—</span><span class="gw-mark__note">Spreadsheet</span></td>
             </tr>
             <tr>
               <th scope="row" class="gw-cmp__feature">A client portal your couples actually use</th>
               <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
-              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span><span class="gw-mark__note">Emailed files</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">—</span><span class="gw-mark__note">Emailed files</span></td>
             </tr>
             <tr>
               <th scope="row" class="gw-cmp__feature">Leads, proposals, contracts and a pipeline</th>
@@ -479,76 +479,79 @@ const PAGE_HTML = `
         <p style="font-family: var(--gw-font-display); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.3; color: var(--gw-ink); margin: 22px 0 0">Every plan includes every feature. The tiers only change how much you can run at once.</p>
       </div>
 
-      <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0; align-items: start">
+      <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0; align-items: stretch">
 
-        <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div class="gw-price">
-            <div class="gw-price__head">
-              <span class="gw-price__plan">Starter</span>
-              <span class="gw-price__amount">$29<span class="gw-price__unit">/mo</span></span>
-            </div>
-            <div class="gw-price__pills">
-              <span class="gw-pill">15 active projects</span>
-              <span class="gw-pill">1 admin + 1 team member</span>
-              <span class="gw-pill">1 questionnaire</span>
-              <span class="gw-pill">Every feature included</span>
-            </div>
-            <span class="gw-price__foot">For a solo planner with a full but finite season.</span>
+        <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.1); border-radius: 12px; padding: clamp(26px, 2.8vw, 34px); display: flex; flex-direction: column; gap: 20px">
+          <div>
+            <div class="gw-price__plan">Starter</div>
+            <p style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted); margin: 10px 0 0; min-height: 44px">For a solo planner with a full but finite season.</p>
           </div>
-          <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="width: 100%">Sign up</a>
+          <div style="display: flex; align-items: baseline; gap: 5px">
+            <span style="font-family: var(--gw-font-display); font-size: 44px; font-weight: 500; color: var(--gw-ink); line-height: 1">$29</span>
+            <span style="font-size: 15px; color: var(--gw-muted-soft)">/month</span>
+          </div>
+          <a class="gw-btn gw-btn--ghost" href="${SIGNUP}" style="width: 100%">Sign up</a>
+          <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}15 active projects</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 admin + 1 team member</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 questionnaire</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+          </ul>
         </div>
 
-        <div style="background: var(--gw-cream); border: 1px solid var(--gw-gold); box-shadow: 0 30px 70px -44px rgb(var(--gw-ink-rgb) / 0.55); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 26px">
-            <span class="gw-chip gw-chip--solid">Most popular</span>
+        <div style="background: var(--gw-cream); border: 1.5px solid var(--gw-gold); border-radius: 12px; box-shadow: 0 30px 70px -44px rgb(var(--gw-ink-rgb) / 0.55); padding: clamp(26px, 2.8vw, 34px); display: flex; flex-direction: column; gap: 20px">
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+              <div class="gw-price__plan">Professional</div>
+              <span class="gw-chip gw-chip--solid">Most popular</span>
+            </div>
+            <p style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted); margin: 10px 0 0; min-height: 44px">For a small studio running several couples at once.</p>
           </div>
-          <div class="gw-price">
-            <div class="gw-price__head">
-              <span class="gw-price__plan">Professional</span>
-              <span class="gw-price__amount">$59<span class="gw-price__unit">/mo</span></span>
-            </div>
-            <div class="gw-price__pills">
-              <span class="gw-pill">50 active projects</span>
-              <span class="gw-pill">2 admins + 2 team members</span>
-              <span class="gw-pill">3 questionnaires</span>
-              <span class="gw-pill">Every feature included</span>
-            </div>
-            <span class="gw-price__foot">For a small studio running several couples at once.</span>
+          <div style="display: flex; align-items: baseline; gap: 5px">
+            <span style="font-family: var(--gw-font-display); font-size: 44px; font-weight: 500; color: var(--gw-ink); line-height: 1">$59</span>
+            <span style="font-size: 15px; color: var(--gw-muted-soft)">/month</span>
           </div>
           <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="width: 100%">Sign up</a>
+          <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}50 active projects</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}3 questionnaires</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+          </ul>
         </div>
 
-        <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div class="gw-price">
-            <div class="gw-price__head">
-              <span class="gw-price__plan">Elite</span>
-              <span class="gw-price__amount">$149<span class="gw-price__unit">/mo</span></span>
-            </div>
-            <div class="gw-price__pills">
-              <span class="gw-pill">Unlimited projects</span>
-              <span class="gw-pill">Unlimited admins &amp; team</span>
-              <span class="gw-pill">Unlimited questionnaires</span>
-              <span class="gw-pill">Every feature included</span>
-            </div>
-            <span class="gw-price__foot">For a team with no ceiling on the season.</span>
+        <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.1); border-radius: 12px; padding: clamp(26px, 2.8vw, 34px); display: flex; flex-direction: column; gap: 20px">
+          <div>
+            <div class="gw-price__plan">Elite</div>
+            <p style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted); margin: 10px 0 0; min-height: 44px">For a team with no ceiling on the season.</p>
           </div>
-          <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="width: 100%">Sign up</a>
+          <div style="display: flex; align-items: baseline; gap: 5px">
+            <span style="font-family: var(--gw-font-display); font-size: 44px; font-weight: 500; color: var(--gw-ink); line-height: 1">$149</span>
+            <span style="font-size: 15px; color: var(--gw-muted-soft)">/month</span>
+          </div>
+          <a class="gw-btn gw-btn--ghost" href="${SIGNUP}" style="width: 100%">Sign up</a>
+          <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited projects</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited admins &amp; team</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited questionnaires</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+          </ul>
         </div>
       </div>
 
-      <div style="margin: clamp(28px, 3vw, 40px) 0 0; background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 34px)">
-        <h3 class="gw-eyebrow" style="margin: 0 0 18px">Included on every plan</h3>
-        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px 26px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr))">
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Task checklists</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Vendor management</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Payment processing</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Event templates</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Guest management</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
+      <div style="margin: clamp(34px, 4vw, 48px) 0 0; padding: clamp(28px, 3vw, 36px) 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
+        <h3 class="gw-eyebrow" style="margin: 0 0 18px">Every plan includes</h3>
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px 26px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Task checklists</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Vendor management</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Payment processing</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Event templates</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Guest management</li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
         </ul>
       </div>
 
@@ -656,7 +659,7 @@ const PAGE_HTML = `
   <div class="gw-footer">
     <span>© 2026 Gatherwise, Inc.</span>
     <div class="gw-footer__end">
-      <span>Built for event and wedding planners — solo or with a team.</span>
+      <span>Built for event and wedding planners.</span>
       <span class="gw-social">
         <a class="gwv2-social" href="${INSTAGRAM}" ${EXT} aria-label="Gatherwise on Instagram">${IG_ICON}</a>
         <a class="gwv2-social" href="${FACEBOOK}" ${EXT} aria-label="Gatherwise on Facebook">${FB_ICON}</a>
