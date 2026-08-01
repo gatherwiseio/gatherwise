@@ -131,19 +131,7 @@ const PAGE_HTML = `
 
       <figure style="margin: clamp(32px, 4vw, 52px) 0 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.16); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 44px 100px -54px rgb(var(--gw-ink-rgb) / 0.6)">
-          <div style="display: flex; align-items: center; gap: 6px; padding: 10px 13px; background: var(--gw-cream); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1)">
-            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            <span style="width: 9px; height: 9px; border-radius: 50%; background: rgb(var(--gw-ink-rgb) / 0.16)"></span>
-            <span style="margin-left: 12px; font-size: 11px; letter-spacing: 0.06em; color: var(--gw-muted-soft)">app.gatherwise.io/timeline</span>
-          </div>
-          <div role="img" aria-label="Placeholder for a screenshot of the drag-and-drop day-of timeline." style="aspect-ratio: 16 / 9; display: grid; place-items: center; background: repeating-linear-gradient(135deg, rgb(var(--gw-ink-rgb) / 0.03) 0 12px, transparent 12px 24px); border: 1px dashed var(--gw-gold); margin: 12px; text-align: center; padding: 24px">
-            <div>
-              <p class="gw-eyebrow" style="margin: 0 0 10px">Screenshot needed</p>
-              <p style="font-family: var(--gw-font-display); font-size: clamp(22px, 3vw, 34px); color: var(--gw-ink); margin: 0; line-height: 1.15">day-of timeline — drag and drop</p>
-              <p style="font-size: 13.5px; color: var(--gw-muted-soft); margin: 12px 0 0">16:9 · mid-drag, with the per-vendor export menu open</p>
-            </div>
-          </div>
+          <img loading="lazy" src="/index_v2/timeline.png" width="1548" height="1009" alt="A day-of wedding timeline in Gatherwise — event days with timed items, each tagged with the client team, vendors and guests." style="display: block; width: 100%; height: auto">
         </div>
       </figure>
 
