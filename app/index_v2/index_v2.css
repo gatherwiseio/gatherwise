@@ -753,10 +753,24 @@
 .gwv2 .ev-grid {
   display: grid;
   gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* 3 across on desktop so the six blocks fill two full rows (no empty cells);
+     2 on tablet, 1 on mobile — each count divides six evenly. */
+  grid-template-columns: repeat(3, 1fr);
   margin: clamp(34px, 4vw, 52px) 0 0;
   background: rgb(var(--gw-ink-rgb) / 0.12);
   border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+}
+
+@media (max-width: 860px) {
+  .gwv2 .ev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .gwv2 .ev-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .gwv2 .ev-block {

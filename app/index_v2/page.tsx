@@ -31,10 +31,12 @@ export const metadata: Metadata = {
 // Auth CTAs all route to the signup entry point.
 const SIGNUP = "https://app.gatherwise.io/login?m=signup";
 const DEMO = "https://calendly.com/ajl5/30min";
-const CONTACT = "https://calendly.com/alex-gatherwise/30min?back=1";
-const DOCS = "https://gatherwise.io/docs";
-const LEGAL = "https://gatherwise.io/legal";
-const ABOUT = "https://gatherwise.io/";
+const CONTACT_EMAIL = "mailto:hello@gatherwise.io";
+// Help center + legal pages will live on the app subdomain. These paths are
+// placeholders and will 404 until those routes exist.
+const HELP = "https://app.gatherwise.io/help";
+const PRIVACY = "https://app.gatherwise.io/privacy";
+const TERMS = "https://app.gatherwise.io/terms";
 const APPSTORE = "https://apps.apple.com/us/app/gatherwise/id6755325275";
 const INSTAGRAM = "https://www.instagram.com/gatherwiseio/";
 const FACEBOOK =
@@ -362,7 +364,7 @@ const PAGE_HTML = `
       </div>
       <figure style="margin: 0">
         <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763628268864x189125627234465020/layout.png" alt="A Gatherwise reception floor plan with round tables, a head table and seated guests." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
+          <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1782233675167x742639443203669800/layout-mockup-center.png" alt="A Gatherwise reception floor plan with round tables, a head table and seated guests." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
         </div>
       </figure>
     </div>
@@ -430,7 +432,7 @@ const PAGE_HTML = `
         <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">On the day, it's <span class="gw-heading__accent">in your hand</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: rgb(var(--gw-parchment-rgb) / 0.75); margin: 20px 0 0; max-width: 30em; text-wrap: pretty">Real-time notifications, client messages, and the timeline, guest list and vendor contacts with you on the floor.</p>
         <a href="${APPSTORE}" ${EXT} style="display: inline-block; margin: 28px 0 0; text-decoration: none">
-          <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763629012028x916350660990181800/App%20Store.png" alt="Download Gatherwise on the App Store" style="height: 48px; width: auto; display: block">
+          <img loading="lazy" src="/index_v2/app-store-badge.svg" width="135" height="40" alt="Download Gatherwise on the App Store" style="height: 44px; width: auto; display: block">
         </a>
       </div>
       <figure style="margin: 0; display: flex; justify-content: center; align-self: end">
@@ -631,26 +633,24 @@ const PAGE_HTML = `
       <a class="gwv2-footlink" href="#sales" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Proposals &amp; invoicing</a>
       <a class="gwv2-footlink" href="#everything" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">All features</a>
       <a class="gwv2-footlink" href="#mobile" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Mobile app</a>
-      <a class="gwv2-footlink" href="#pricing" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Pricing</a>
     </nav>
     <nav aria-label="Resources" style="display: grid; gap: 12px; align-content: start">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Resources</h2>
-      <a class="gwv2-footlink" href="${DOCS}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Docs</a>
-      <a class="gwv2-footlink" href="${DOCS}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Help center</a>
+      <a class="gwv2-footlink" href="#pricing" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Pricing</a>
+      <a class="gwv2-footlink" href="${HELP}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Help center</a>
       <a class="gwv2-footlink" href="#faq" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">FAQ</a>
       <a class="gwv2-footlink" href="${DEMO}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Book a demo</a>
     </nav>
     <nav aria-label="Company" style="display: grid; gap: 12px; align-content: start">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Company</h2>
-      <a class="gwv2-footlink" href="${ABOUT}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">About</a>
-      <a class="gwv2-footlink" href="${CONTACT}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Contact</a>
+      <a class="gwv2-footlink" href="${CONTACT_EMAIL}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Contact</a>
       <a class="gwv2-footlink" href="${SIGNUP}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Log In</a>
       <a class="gwv2-footlink" href="${SIGNUP}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Start free trial</a>
     </nav>
     <nav aria-label="Legal" style="display: grid; gap: 12px; align-content: start">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Legal</h2>
-      <a class="gwv2-footlink" href="${LEGAL}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Privacy</a>
-      <a class="gwv2-footlink" href="${LEGAL}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Terms</a>
+      <a class="gwv2-footlink" href="${PRIVACY}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Privacy</a>
+      <a class="gwv2-footlink" href="${TERMS}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Terms</a>
     </nav>
   </div>
   <div class="gw-footer">
