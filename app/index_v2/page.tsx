@@ -305,7 +305,7 @@ const PAGE_HTML = `
             <span class="ev-url">app.gatherwise.io</span>
           </div>
           <figure class="ev-panel ev-panel--checklists" style="margin: 0">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763627985886x561011803363365300/checklists.png" alt="A client checklist in Gatherwise with tasks, comments from the couple and file attachments." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
+            <img loading="lazy" src="/index_v2/everything-preview.png" width="1521" height="1008" alt="A Gatherwise task open in the client checklist — assignee, due date, a vendor pricing table and an @mention in the comments." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top">
           </figure>
           <figure class="ev-panel ev-panel--vendors" style="margin: 0">
             <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1764021115690x589582533571415500/vendor.png" alt="Vendor management in Gatherwise listing vendors, linked budgets and booking status." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
