@@ -36,9 +36,19 @@ export default function HeroTrialEnhancer() {
     btn.addEventListener("click", sync);
     sync();
 
+    // Sticky header: add a faint bottom border once the page is scrolled past
+    // the top, so the header separates from the content beneath it.
+    const header = document.querySelector<HTMLElement>("header[data-nav]");
+    const onScroll = () => {
+      header?.classList.toggle("is-scrolled", window.scrollY > 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => {
       input.removeEventListener("input", sync);
       btn.removeEventListener("click", sync);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 

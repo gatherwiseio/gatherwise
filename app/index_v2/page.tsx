@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Karla } from "next/font/google";
+import { Cormorant_Garamond, Albert_Sans } from "next/font/google";
 import HeroTrialEnhancer from "./HeroTrialEnhancer";
 import "./index_v2.css";
 
 // Scoped to this route: the homepage design uses its own editorial type pairing
-// (Cormorant Garamond + Karla) rather than the site-wide brand fonts. The CSS
-// variables are consumed by index_v2.css via --gw-font-display / --gw-font-body.
+// (Cormorant Garamond display + Albert Sans body) rather than the site-wide
+// brand fonts. The CSS variables are consumed by index_v2.css via
+// --gw-font-display / --gw-font-body.
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
@@ -13,8 +14,8 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const karla = Karla({
-  variable: "--font-karla",
+const albertSans = Albert_Sans({
+  variable: "--font-albert-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -45,13 +46,21 @@ const EXT = `target="_blank" rel="noopener noreferrer"`;
 const LOGO =
   "https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1715799780276x587257126953273300/logo-no-background.png";
 
+// Phosphor "CheckCircle" (regular). Inlined so the checklists across the page use
+// a real icon instead of a bare "✓" glyph. currentColor lets each use site tint it.
+const CHECK = `<svg class="gw-check" viewBox="0 0 256 256" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>`;
+
+// Phosphor social glyphs for the footer bar (comment 16).
+const IG_ICON = `<svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg>`;
+const FB_ICON = `<svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,0,0,112,231.37V152H88a8,8,0,0,1,0-16h24V112a40,40,0,0,1,40-40h16a8,8,0,0,1,0,16H152a24,24,0,0,0-24,24v24h32a8,8,0,0,1,0,16H128v79.37A104,104,0,0,0,128,24Z"></path></svg>`;
+
 const PAGE_HTML = `
 <a href="#main" class="gwv2-skip" style="position: absolute; left: -9999px; top: 0; background: var(--gw-ink); color: var(--gw-parchment); padding: 12px 18px; font-size: 14px; z-index: 100">Skip to content</a>
 
 <header data-nav="" style="position: sticky; top: 0; z-index: 50; background: var(--gw-cream); padding: 16px var(--gw-gutter); transition: padding .18s ease, box-shadow .18s ease, background .18s ease">
   <div style="max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; position: relative">
     <a href="#main" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none">
-      <img src="${LOGO}" alt="Gatherwise" style="height: 30px; width: auto; display: block">
+      <img src="${LOGO}" alt="Gatherwise" style="height: 26px; width: auto; display: block">
     </a>
     <nav data-desktop-nav="" aria-label="Primary" style="display: flex; align-items: center; gap: 30px">
       <div style="display: flex; align-items: center; gap: 26px; font-size: 14.5px; letter-spacing: 0.01em">
@@ -87,7 +96,7 @@ const PAGE_HTML = `
 
   <!-- hero -->
   <section style="padding: clamp(40px, 6vw, 76px) var(--gw-gutter) clamp(48px, 6vw, 84px)">
-    <div data-hero-grid="" style="max-width: 1300px; margin: 0 auto; display: grid; gap: clamp(36px, 5vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
+    <div data-hero-grid="" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(36px, 5vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
       <div>
         <p class="gw-eyebrow" style="margin: 0 0 20px">EVENT PLANNING SOFTWARE FOR EVENT PROS</p>
         <h1 class="gw-heading gw-heading--display"><span class="gw-heading__accent">Effortless</span> event planning starts here.</h1>
@@ -109,8 +118,53 @@ const PAGE_HTML = `
     </div>
   </section>
 
+  <!-- all-in-one platform -->
+  <section id="all-in-one" style="padding: 0 var(--gw-gutter) var(--gw-section-y)">
+    <div style="max-width: 1180px; margin: 0 auto">
+      <div style="max-width: 44em">
+        <p class="gw-eyebrow" style="margin: 0 0 18px">One platform, not ten tabs</p>
+        <h2 class="gw-heading gw-heading--section">Replace the whole stack with <span class="gw-heading__accent">one platform</span>.</h2>
+        <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">The PDFs, spreadsheets, docs, forms and one-off planning apps you juggle for every event — all replaced by a single place built for planners.</p>
+      </div>
+
+      <div class="gw-flow" style="margin: clamp(30px, 4vw, 46px) 0 0">
+        <div class="gw-flow__tools">
+          <span class="gw-tool">PDF</span>
+          <span class="gw-tool">Excel &amp; Sheets</span>
+          <span class="gw-tool">Word</span>
+          <span class="gw-tool">Gmail</span>
+          <span class="gw-tool">Google Forms</span>
+          <span class="gw-tool">HoneyBook</span>
+          <span class="gw-tool">Aisle Planner</span>
+          <span class="gw-tool">Timeline Genius</span>
+        </div>
+        <span class="gw-flow__arrow" aria-hidden="true">→</span>
+        <div class="gw-flow__hub">
+          <img src="${LOGO}" alt="Gatherwise" style="height: 30px; width: auto; display: block">
+          <span class="gw-flow__hub-note">One platform</span>
+        </div>
+      </div>
+
+      <ul class="gw-offer">
+        <li class="gw-offer__item">${CHECK}<span>Leads &amp; CRM</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Proposals</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Contracts</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Invoices</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Questionnaires</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Timelines</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Floor plans &amp; layouts</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Checklists</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Notes</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Guest lists</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Vendor management</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Budgets</span></li>
+        <li class="gw-offer__item">${CHECK}<span>Templates</span></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- smart timelines -->
-  <section id="timelines" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter); border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08)">
+  <section id="timelines" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">Event timeline software</p>
@@ -232,7 +286,7 @@ const PAGE_HTML = `
   </section>
 
   <!-- everything in one place -->
-  <section id="everything" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter); border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08)">
+  <section id="everything" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">All-in-one event management</p>
@@ -262,7 +316,7 @@ const PAGE_HTML = `
         <div class="ev-grid" role="radiogroup" aria-label="Choose a feature to preview">
           <label class="ev-block ev-block--tab" for="ev-tab-checklists">
             <h3 class="ev-block__title">Client checklists</h3>
-            <p class="ev-block__text">Tasks your couples can comment on, with attachments in the thread.</p>
+            <p class="ev-block__text">Tasks your couples can comment on — <strong style="font-weight: 600; color: var(--gw-ink)">@mention</strong> the couple or a teammate, with attachments in the thread.</p>
             <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
           </label>
           <div class="ev-block">
@@ -300,9 +354,9 @@ const PAGE_HTML = `
         <h2 class="gw-heading gw-heading--section">Seating charts and floor plans <span class="gw-heading__accent">worth sharing</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Lay out tables against the real room, seat the guest list you already have, and send vendors and clients a clean, modern layout in one click — not a photo of a sketch.</p>
         <ul style="list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 10px">
-          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Tables and floor plans drawn to the room</li>
-          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Seats pulled from your guest list and meal choices</li>
-          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Share with vendors and clients in one click</li>
+          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)">${CHECK}Tables and floor plans drawn to the room</li>
+          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)">${CHECK}Seats pulled from your guest list and meal choices</li>
+          <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55; color: var(--gw-ink)">${CHECK}Share with vendors and clients in one click</li>
         </ul>
         <p style="margin: 28px 0 0"><a class="gw-btn gw-btn--link" href="${SIGNUP}">Try it free</a></p>
       </div>
@@ -315,38 +369,55 @@ const PAGE_HTML = `
   </section>
 
   <!-- built for planners -->
-  <section id="why" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter); border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08); border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08)">
+  <section id="why" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">Not a generic CRM</p>
         <h2 class="gw-heading gw-heading--section">Built for the way <span class="gw-heading__accent">planners</span> actually work.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Generic client-management tools are good at pipelines and bad at events. They have no seating, no floor plans, no guest lists, no day-of timeline — so that half of the job ends up back in spreadsheets and documents.</p>
       </div>
-      <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0">
-        <div class="gw-poscard">
-          <div class="gw-eyebrow">Gatherwise</div>
-          <h3 class="gw-poscard__title">Event planning software</h3>
-          <p class="gw-poscard__text">One record per event, holding the sales side and the production side together.</p>
-          <ul class="gw-poscard__list">
-            <li class="gw-poscard__item"><span class="gw-poscard__bullet" aria-hidden="true">✓</span>Drag-and-drop day-of timelines, exported per vendor</li>
-            <li class="gw-poscard__item"><span class="gw-poscard__bullet" aria-hidden="true">✓</span>Seating charts and floor plans drawn to the room</li>
-            <li class="gw-poscard__item"><span class="gw-poscard__bullet" aria-hidden="true">✓</span>Guest lists, RSVPs and meal choices</li>
-            <li class="gw-poscard__item"><span class="gw-poscard__bullet" aria-hidden="true">✓</span>Budgets, invoices and payments per event</li>
-            <li class="gw-poscard__item"><span class="gw-poscard__bullet" aria-hidden="true">✓</span>A client portal your couples actually use</li>
-          </ul>
-        </div>
-        <div class="gw-poscard gw-poscard--alt">
-          <div class="gw-eyebrow gw-eyebrow--muted">A generic client-management tool</div>
-          <h3 class="gw-poscard__title">Contacts and a pipeline</h3>
-          <p class="gw-poscard__text">Fine for tracking a deal. Then the actual event happens somewhere else.</p>
-          <ul class="gw-poscard__list">
-            <li class="gw-poscard__item gw-poscard__item--alt"><span class="gw-poscard__bullet gw-poscard__bullet--alt" aria-hidden="true">•</span>No day-of timeline</li>
-            <li class="gw-poscard__item gw-poscard__item--alt"><span class="gw-poscard__bullet gw-poscard__bullet--alt" aria-hidden="true">•</span>No seating charts or floor plans</li>
-            <li class="gw-poscard__item gw-poscard__item--alt"><span class="gw-poscard__bullet gw-poscard__bullet--alt" aria-hidden="true">•</span>No guest lists or meal choices</li>
-            <li class="gw-poscard__item gw-poscard__item--alt"><span class="gw-poscard__bullet gw-poscard__bullet--alt" aria-hidden="true">•</span>Event budgets live in a spreadsheet</li>
-            <li class="gw-poscard__item gw-poscard__item--alt"><span class="gw-poscard__bullet gw-poscard__bullet--alt" aria-hidden="true">•</span>Clients get emailed attachments</li>
-          </ul>
-        </div>
+      <div style="overflow-x: auto; margin: clamp(30px, 4vw, 44px) 0 0">
+        <table class="gw-cmp">
+          <thead>
+            <tr>
+              <th scope="col" class="gw-cmp__feature">What running an event actually takes</th>
+              <th scope="col" class="gw-cmp__col gw-cmp__col--gw">Gatherwise</th>
+              <th scope="col" class="gw-cmp__col">A generic CRM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">Drag-and-drop day-of timelines, exported per vendor</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">Seating charts and floor plans drawn to the room</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">Guest lists, RSVPs and meal choices</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">Budgets, invoices and payments per event</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span><span class="gw-mark__note">Spreadsheet</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">A client portal your couples actually use</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--no" aria-label="No">✕</span><span class="gw-mark__note">Emailed files</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="gw-cmp__feature">Leads, proposals, contracts and a pipeline</th>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+              <td class="gw-cmp__cell"><span class="gw-mark gw-mark--yes" aria-label="Yes">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -397,7 +468,7 @@ const PAGE_HTML = `
   </section>
 
   <!-- pricing -->
-  <section id="pricing" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter); border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08)">
+  <section id="pricing" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">Pricing</p>
@@ -409,9 +480,6 @@ const PAGE_HTML = `
       <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0; align-items: start">
 
         <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 26px">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1773284079566x357118163132713150/tier-starter.svg" alt="" style="height: 34px; width: auto">
-          </div>
           <div class="gw-price">
             <div class="gw-price__head">
               <span class="gw-price__plan">Starter</span>
@@ -429,8 +497,7 @@ const PAGE_HTML = `
         </div>
 
         <div style="background: var(--gw-cream); border: 1px solid var(--gw-gold); box-shadow: 0 30px 70px -44px rgb(var(--gw-ink-rgb) / 0.55); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 26px">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1773284092251x187625892602347520/tier-professional.svg" alt="" style="height: 34px; width: auto">
+          <div style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 26px">
             <span class="gw-chip gw-chip--solid">Most popular</span>
           </div>
           <div class="gw-price">
@@ -450,9 +517,6 @@ const PAGE_HTML = `
         </div>
 
         <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 32px); display: grid; gap: 22px; align-content: start">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 26px">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1773284103472x485964426262794000/tier-elite.svg" alt="" style="height: 34px; width: auto">
-          </div>
           <div class="gw-price">
             <div class="gw-price__head">
               <span class="gw-price__plan">Elite</span>
@@ -473,16 +537,16 @@ const PAGE_HTML = `
       <div style="margin: clamp(28px, 3vw, 40px) 0 0; background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.12); padding: clamp(24px, 2.6vw, 34px)">
         <h3 class="gw-eyebrow" style="margin: 0 0 18px">Included on every plan</h3>
         <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px 26px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr))">
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Client lead inquiry form</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Unlimited clients</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Timeline creation</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Task checklists</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Vendor management</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Client invoicing</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Payment processing</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Event templates</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Guest management</li>
-          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)"><span aria-hidden="true" style="color: var(--gw-gold)">✓</span>Seating and layout</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Task checklists</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Vendor management</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Payment processing</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Event templates</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Guest management</li>
+          <li style="display: flex; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
         </ul>
       </div>
 
@@ -539,13 +603,15 @@ const PAGE_HTML = `
   <!-- closing CTA -->
   <section class="gw-cta">
     <div class="gw-cta__inner">
-      <h2 class="gw-cta__title">Trusted by Planners across the U.S. and Canada</h2>
-      <p class="gw-cta__text">Join planners across the U.S. and Canada who trust Gatherwise to impress clients, stay organized, and save hours.</p>
+      <div class="gw-cta__lead">
+        <h2 class="gw-cta__title">Trusted by Planners across the U.S. and Canada</h2>
+        <p class="gw-cta__text">Join planners across the U.S. and Canada who trust Gatherwise to impress clients, stay organized, and save hours.</p>
+        <p class="gw-cta__fine">14-day free trial · No credit card required · Cancel anytime</p>
+      </div>
       <div class="gw-cta__actions">
         <a class="gw-btn gw-btn--gold" href="${SIGNUP}">Start 14-day trial</a>
         <a class="gw-btn gw-btn--ghost" href="${DEMO}" ${EXT}>Book a demo</a>
       </div>
-      <p class="gw-cta__fine">14-day free trial · No credit card required · Cancel anytime</p>
     </div>
   </section>
 
@@ -553,14 +619,10 @@ const PAGE_HTML = `
 
 <!-- footer -->
 <footer style="background: var(--gw-ink); color: rgb(var(--gw-parchment-rgb) / 0.7); padding: clamp(48px, 6vw, 72px) var(--gw-gutter) 0; border-top: 1px solid rgb(var(--gw-parchment-rgb) / 0.14)">
-  <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: 36px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); padding-bottom: 44px">
-    <div style="grid-column: 1 / -1; min-width: 200px; max-width: 420px">
-      <img loading="lazy" src="${LOGO}" alt="Gatherwise" style="height: 28px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.9">
+  <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: 36px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); padding-bottom: 44px">
+    <div style="grid-column: span 2; min-width: 220px">
+      <img loading="lazy" src="${LOGO}" alt="Gatherwise" style="height: 26px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.9">
       <p style="font-size: 15px; line-height: 1.65; color: rgb(var(--gw-parchment-rgb) / 0.6); margin: 18px 0 0; max-width: 26em">Event planning software and CRM for planners — solo or with a team. Timelines, seating, guests, vendors, budgets and billing in one place.</p>
-      <div style="display: flex; gap: 14px; margin: 22px 0 0">
-        <a class="gwv2-social" href="${INSTAGRAM}" ${EXT} style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none; border-bottom: 1px solid rgb(var(--gw-parchment-rgb) / 0.25); padding-bottom: 2px">Instagram</a>
-        <a class="gwv2-social" href="${FACEBOOK}" ${EXT} style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none; border-bottom: 1px solid rgb(var(--gw-parchment-rgb) / 0.25); padding-bottom: 2px">Facebook</a>
-      </div>
     </div>
     <nav aria-label="Product" style="display: grid; gap: 12px; align-content: start">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Product</h2>
@@ -593,7 +655,13 @@ const PAGE_HTML = `
   </div>
   <div class="gw-footer">
     <span>© 2026 Gatherwise, Inc.</span>
-    <span>Built for event and wedding planners — solo or with a team.</span>
+    <div class="gw-footer__end">
+      <span>Built for event and wedding planners — solo or with a team.</span>
+      <span class="gw-social">
+        <a class="gwv2-social" href="${INSTAGRAM}" ${EXT} aria-label="Gatherwise on Instagram">${IG_ICON}</a>
+        <a class="gwv2-social" href="${FACEBOOK}" ${EXT} aria-label="Gatherwise on Facebook">${FB_ICON}</a>
+      </span>
+    </div>
   </div>
 </footer>
 `;
@@ -602,7 +670,7 @@ export default function Page() {
   return (
     <>
       <div
-        className={`${cormorant.variable} ${karla.variable} gwv2`}
+        className={`${cormorant.variable} ${albertSans.variable} gwv2`}
         dangerouslySetInnerHTML={{ __html: PAGE_HTML }}
       />
       <HeroTrialEnhancer />

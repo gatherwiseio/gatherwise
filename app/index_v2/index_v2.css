@@ -29,10 +29,10 @@
 
   /* type — wired to next/font (loaded in page.tsx) with the DS fallbacks */
   --gw-font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --gw-font-body: var(--font-karla), "Karla", Helvetica, Arial, sans-serif;
+  --gw-font-body: var(--font-albert-sans), "Albert Sans", Helvetica, Arial, sans-serif;
 
   /* rhythm */
-  --gw-radius: 2px;
+  --gw-radius: 5px;
   --gw-gutter: clamp(20px, 5vw, 72px);
   --gw-section-y: clamp(56px, 7vw, 100px);
 
@@ -111,6 +111,13 @@
 .gwv2 .gwv2-social:hover {
   color: var(--gw-gold);
   border-color: var(--gw-gold);
+}
+
+/* sticky header gains a faint bottom border once the page is scrolled past the
+   top — slightly lighter (0.06) than the section separators (0.08). The
+   is-scrolled class is toggled by HeroTrialEnhancer. */
+.gwv2 header[data-nav].is-scrolled {
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.06);
 }
 
 /* --------------------------------------------------------- responsive rules
@@ -246,15 +253,16 @@
 
 .gw-btn--ghost {
   background: transparent;
-  border: 1px solid rgb(var(--gw-parchment-rgb) / 0.35);
-  color: var(--gw-parchment);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.3);
+  color: var(--gw-ink);
   padding: 17px 32px;
   font-size: 15.5px;
   font-weight: 600;
 }
 
 .gw-btn--ghost:hover {
-  border-color: var(--gw-parchment);
+  border-color: var(--gw-ink);
+  color: var(--gw-ink);
 }
 
 .gw-btn--link {
@@ -514,10 +522,13 @@
 }
 
 .gw-price__plan {
-  font-size: 12.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gw-gold);
+  font-family: var(--gw-font-display);
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+  color: var(--gw-ink);
 }
 
 .gw-price__plan--alt {
@@ -538,19 +549,34 @@
 
 .gw-price__pills {
   display: grid;
-  gap: 4px;
+  gap: 0;
 }
 
 .gw-pill {
   display: flex;
   align-items: center;
-  height: 42px;
-  padding: 0 14px;
-  font-size: 13.5px;
-  font-weight: 600;
-  background: var(--gw-gold);
-  color: var(--gw-cream);
+  gap: 10px;
+  min-height: 40px;
+  padding: 9px 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--gw-ink);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
   font-family: var(--gw-font-body);
+}
+
+.gw-pill::before {
+  content: "✓";
+  flex: none;
+  color: var(--gw-gold);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.gw-price__pills .gw-pill:last-child {
+  border-bottom: 0;
 }
 
 .gw-pill--ink {
@@ -606,44 +632,54 @@
 /* ------------------------------------------------------------- CTA section */
 
 .gw-cta {
-  background: var(--gw-ink);
-  color: var(--gw-parchment);
-  padding: clamp(64px, 8vw, 120px) var(--gw-gutter);
-  text-align: center;
+  background: var(--gw-parchment);
+  color: var(--gw-ink);
+  padding: clamp(52px, 7vw, 92px) var(--gw-gutter);
   font-family: var(--gw-font-body);
 }
 
 .gw-cta__inner {
-  max-width: 720px;
+  max-width: 1180px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.gw-cta__lead {
+  max-width: 640px;
+  flex: 1 1 420px;
 }
 
 .gw-cta__title {
   font-family: var(--gw-font-display);
   font-weight: 500;
-  font-size: clamp(36px, 5vw, 58px);
-  line-height: 1.06;
-  margin: 0 0 20px;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.08;
+  margin: 0 0 16px;
 }
 
 .gw-cta__text {
   font-size: 17.5px;
   line-height: 1.7;
-  color: rgb(var(--gw-parchment-rgb) / 0.75);
-  margin: 0 0 36px;
+  color: var(--gw-muted);
+  margin: 0 0 16px;
 }
 
 .gw-cta__actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px 20px;
-  margin-bottom: 26px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 220px;
 }
 
 .gw-cta__fine {
   font-size: 13px;
-  color: rgb(var(--gw-parchment-rgb) / 0.55);
+  color: var(--gw-muted-soft);
   margin: 0;
   letter-spacing: 0.02em;
 }
@@ -774,6 +810,182 @@
 .gwv2 #ev-tab-checklists:checked ~ .ev-grid .ev-block[for="ev-tab-checklists"] .ev-block__title,
 .gwv2 #ev-tab-vendors:checked ~ .ev-grid .ev-block[for="ev-tab-vendors"] .ev-block__title,
 .gwv2 #ev-tab-budget:checked ~ .ev-grid .ev-block[for="ev-tab-budget"] .ev-block__title {
+  color: var(--gw-gold);
+}
+
+/* ============================================================================
+   Additions from the MarkLayer review (Steph)
+   ========================================================================== */
+
+/* Phosphor circle-check used in the checklists in place of a bare "✓" glyph */
+.gwv2 .gw-check {
+  flex: none;
+  color: var(--gw-gold);
+  vertical-align: middle;
+}
+
+/* ---- "Replace the whole stack" — tools flowing into one platform --------- */
+.gwv2 .gw-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px clamp(18px, 3vw, 34px);
+}
+
+.gwv2 .gw-flow__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1 1 420px;
+}
+
+.gwv2 .gw-tool {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gw-muted);
+  background: var(--gw-cream);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+  border-radius: var(--gw-radius);
+}
+
+.gwv2 .gw-flow__arrow {
+  font-size: 26px;
+  color: var(--gw-gold);
+  flex: none;
+}
+
+.gwv2 .gw-flow__hub {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: none;
+  padding: 18px 22px;
+  background: var(--gw-ink);
+  border-radius: var(--gw-radius);
+  box-shadow: 0 24px 60px -34px rgb(var(--gw-ink-rgb) / 0.6);
+}
+
+.gwv2 .gw-flow__hub img {
+  filter: brightness(0) invert(1);
+}
+
+.gwv2 .gw-flow__hub-note {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+@media (max-width: 640px) {
+  .gwv2 .gw-flow__arrow {
+    transform: rotate(90deg);
+  }
+  .gwv2 .gw-flow__hub {
+    align-self: stretch;
+  }
+}
+
+/* ---- offerings snapshot grid --------------------------------------------- */
+.gwv2 .gw-offer {
+  list-style: none;
+  margin: clamp(28px, 3.5vw, 40px) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px 26px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+
+.gwv2 .gw-offer__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15.5px;
+  color: var(--gw-ink);
+}
+
+.gwv2 .gw-offer__item .gw-check {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---- comparison table (Built for planners) ------------------------------- */
+.gwv2 .gw-cmp {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--gw-font-body);
+  min-width: 520px;
+}
+
+.gwv2 .gw-cmp th,
+.gwv2 .gw-cmp td {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+  text-align: left;
+}
+
+.gwv2 .gw-cmp thead th {
+  font-family: var(--gw-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.18);
+}
+
+.gwv2 .gw-cmp__feature {
+  font-weight: 500;
+  font-size: 15.5px;
+  color: var(--gw-ink);
+}
+
+.gwv2 tbody .gw-cmp__feature {
+  font-weight: 400;
+  color: var(--gw-muted);
+}
+
+.gwv2 .gw-cmp__col {
+  width: 150px;
+  text-align: center;
+}
+
+.gwv2 .gw-cmp__col--gw {
+  color: var(--gw-gold);
+}
+
+.gwv2 .gw-cmp__cell {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---- footer copyright bar: social icons on the right --------------------- */
+.gwv2 .gw-footer__end {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.gwv2 .gw-social {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.gwv2 .gw-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: rgb(var(--gw-parchment-rgb) / 0.55);
+  border: 0;
+}
+
+.gwv2 .gw-social a:hover {
   color: var(--gw-gold);
 }
 
