@@ -831,6 +831,33 @@
    Additions from the MarkLayer review (Steph)
    ========================================================================== */
 
+/* "Everything a planner needs" — three stacked screen rows (screenshot + copy),
+   alternating sides on desktop, always image-first when stacked on mobile. */
+.gwv2 .gw-screenrow {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.gwv2 .gw-screenrow__media {
+  margin: 0;
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.14);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55);
+}
+
+@media (min-width: 861px) {
+  .gwv2 .gw-screenrow {
+    grid-template-columns: 1.15fr 1fr;
+  }
+  .gwv2 .gw-screenrow--rev .gw-screenrow__media {
+    order: 2;
+  }
+}
+
 /* Phosphor circle-check used in the checklists in place of a bare "✓" glyph */
 .gwv2 .gw-check {
   flex: none;

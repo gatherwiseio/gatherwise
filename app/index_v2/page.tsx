@@ -219,7 +219,7 @@ const PAGE_HTML = `
 
         <div class="gw-event">
           <div class="gw-event__head">
-            <div class="gw-event__title">Farkas × Whitmore, Sept 12</div>
+            <div class="gw-event__title">Nguyen × Whitemore, Sept 12</div>
             <div class="gw-event__tag">One record</div>
           </div>
           <div class="gw-event__rows">
@@ -250,53 +250,56 @@ const PAGE_HTML = `
         <h2 class="gw-heading gw-heading--section">Everything a planner needs, <span class="gw-heading__accent">in one place</span>.</h2>
       </div>
 
-      <div class="ev-tabs" style="margin: clamp(30px, 4vw, 44px) 0 0">
-        <input type="radio" name="ev-tab" id="ev-tab-checklists" class="ev-radio" checked>
-        <input type="radio" name="ev-tab" id="ev-tab-vendors" class="ev-radio">
-        <input type="radio" name="ev-tab" id="ev-tab-budget" class="ev-radio">
-        <div class="ev-frame">
-          <div class="ev-chrome">
-            <span class="ev-dot"></span><span class="ev-dot"></span><span class="ev-dot"></span>
-            <span class="ev-url">app.gatherwise.io</span>
+      <div style="display: grid; gap: clamp(44px, 6vw, 80px); margin: clamp(36px, 5vw, 60px) 0 0">
+
+        <div class="gw-screenrow">
+          <figure class="gw-screenrow__media">
+            <img loading="lazy" src="/index_v2/everything-checklists.png" width="1512" height="1008" alt="A Gatherwise task open in the client checklist — assignee, due date, description and an @mention in the comments." style="display: block; width: 100%; height: auto">
+          </figure>
+          <div class="gw-screenrow__body">
+            <p class="gw-eyebrow" style="margin: 0 0 14px">Client checklists</p>
+            <h3 class="gw-heading gw-heading--sub" style="margin: 0">Tasks your couples actually keep up with.</h3>
+            <p style="font-size: 16.5px; line-height: 1.7; color: var(--gw-muted); margin: 16px 0 0; max-width: 34em; text-wrap: pretty">Assign tasks, set due dates, and <strong style="font-weight: 600; color: var(--gw-ink)">@mention</strong> the couple or a teammate — with comments and attachments right in the thread, so nothing ends up in a separate inbox.</p>
           </div>
-          <figure class="ev-panel ev-panel--checklists" style="margin: 0">
-            <img loading="lazy" src="/index_v2/everything-preview.png" width="1502" height="893" alt="Vendor management in Gatherwise — vendors listed by category with booked status and payment progress." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top">
-          </figure>
-          <figure class="ev-panel ev-panel--vendors" style="margin: 0">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1764021115690x589582533571415500/vendor.png" alt="Vendor management in Gatherwise listing vendors, linked budgets and booking status." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-          </figure>
-          <figure class="ev-panel ev-panel--budget" style="margin: 0">
-            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763886279635x400659780785638660/budget.png" alt="Budget management in Gatherwise showing budget, actual spend, paid and outstanding by category." style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-          </figure>
         </div>
 
-        <div class="ev-grid" role="radiogroup" aria-label="Choose a feature to preview">
-          <label class="ev-block ev-block--tab" for="ev-tab-checklists">
-            <h3 class="ev-block__title">Client checklists</h3>
-            <p class="ev-block__text">Tasks your couples can comment on — <strong style="font-weight: 600; color: var(--gw-ink)">@mention</strong> the couple or a teammate, with attachments in the thread.</p>
-            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
-          </label>
-          <div class="ev-block">
-            <h3 class="ev-block__title">Guest management</h3>
-            <p class="ev-block__text">Guest lists, RSVPs and meal choices that feed straight into seating.</p>
+        <div class="gw-screenrow gw-screenrow--rev">
+          <figure class="gw-screenrow__media">
+            <img loading="lazy" src="/index_v2/everything-vendors.png" width="1502" height="893" alt="Vendor management in Gatherwise — vendors listed by category with booked status and payment progress." style="display: block; width: 100%; height: auto">
+          </figure>
+          <div class="gw-screenrow__body">
+            <p class="gw-eyebrow" style="margin: 0 0 14px">Vendor management</p>
+            <h3 class="gw-heading gw-heading--sub" style="margin: 0">Every vendor — considered, booked and paid.</h3>
+            <p style="font-size: 16.5px; line-height: 1.7; color: var(--gw-muted); margin: 16px 0 0; max-width: 34em; text-wrap: pretty">Track vendors by category and booking status, with linked budgets, notes, files and payment progress against each event — not scattered across your inbox.</p>
           </div>
-          <label class="ev-block ev-block--tab" for="ev-tab-vendors">
-            <h3 class="ev-block__title">Vendor management</h3>
-            <p class="ev-block__text">Contacts, linked budgets, collaboration and booking status per event.</p>
-            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
-          </label>
-          <label class="ev-block ev-block--tab" for="ev-tab-budget">
-            <h3 class="ev-block__title">Budgets</h3>
-            <p class="ev-block__text">Budget, actual, paid and still due — by category, per event.</p>
-            <span class="ev-block__cue" aria-hidden="true">Preview ↑</span>
-          </label>
-          <div class="ev-block">
-            <h3 class="ev-block__title">Client portal</h3>
-            <p class="ev-block__text">Clients log in to see timelines, layouts and tasks — and collaborate there.</p>
+        </div>
+
+        <div class="gw-screenrow">
+          <figure class="gw-screenrow__media">
+            <img loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1763886279635x400659780785638660/budget.png" alt="Budget management in Gatherwise showing budget, actual spend, paid and outstanding by category." style="display: block; width: 100%; height: auto">
+          </figure>
+          <div class="gw-screenrow__body">
+            <p class="gw-eyebrow" style="margin: 0 0 14px">Budgets</p>
+            <h3 class="gw-heading gw-heading--sub" style="margin: 0">Budget vs. actual, paid vs. still due.</h3>
+            <p style="font-size: 16.5px; line-height: 1.7; color: var(--gw-muted); margin: 16px 0 0; max-width: 34em; text-wrap: pretty">The whole picture by category, per event — what you planned, what's actually been spent, what's paid and what's still outstanding.</p>
           </div>
-          <div class="ev-block">
-            <h3 class="ev-block__title">Event templates</h3>
-            <p class="ev-block__text">Reuse your run of show, tasks and checklists on the next booking.</p>
+        </div>
+      </div>
+
+      <div style="margin: clamp(40px, 5vw, 64px) 0 0; padding-top: clamp(28px, 3vw, 36px); border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
+        <p class="gw-eyebrow" style="margin: 0 0 20px">Also in every event</p>
+        <div style="display: grid; gap: 26px 30px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))">
+          <div>
+            <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 8px; color: var(--gw-ink)">Guest management</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: var(--gw-muted); margin: 0">Guest lists, RSVPs and meal choices that feed straight into seating.</p>
+          </div>
+          <div>
+            <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 8px; color: var(--gw-ink)">Client portal</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: var(--gw-muted); margin: 0">Couples sign in with a magic link to follow timelines, layouts and tasks — and collaborate there.</p>
+          </div>
+          <div>
+            <h3 style="font-family: var(--gw-font-display); font-size: 22px; font-weight: 500; margin: 0 0 8px; color: var(--gw-ink)">Event templates</h3>
+            <p style="font-size: 15px; line-height: 1.65; color: var(--gw-muted); margin: 0">Reuse your run of show, tasks and checklists on the next booking.</p>
           </div>
         </div>
       </div>
