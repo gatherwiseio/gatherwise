@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import Analytics from "./analytics";
 
 const beVietnam = Be_Vietnam_Pro({
   variable: "--font-be-vietnam",
@@ -34,6 +35,7 @@ export default function RootLayout({
       className={`${beVietnam.variable} ${sourceSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Analytics />
         {children}
       </body>
     </html>
