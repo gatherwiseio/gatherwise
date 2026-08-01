@@ -469,11 +469,11 @@ export default function Page() {
               and see how it feels.
             </p>
             <div className={styles.ctaActions}>
-              <a href="#trial" className={styles.btnGold}>
-                Start free trial
-              </a>
               <a href="#comparison" className={styles.btnGhost}>
                 Talk to a human first
+              </a>
+              <a href="#trial" className={styles.btnGold}>
+                Start free trial
               </a>
             </div>
             <p className={styles.ctaFine}>Cancel anytime</p>

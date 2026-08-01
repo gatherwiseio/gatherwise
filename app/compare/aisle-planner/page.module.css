@@ -597,12 +597,16 @@
   max-width: 22em;
 }
 
-/* The 1px gap plus card background paints the hairline rules between cards. */
+/* The 1px gap plus card background paints the hairline rules between cards.
+   The negative inline margin bleeds the grid outward by one card's padding so
+   the first card's "01" and text line up with the section title above, while
+   every card keeps its internal padding. */
 .winsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1px;
   background: rgb(var(--gw-parchment-rgb) / 0.16);
+  margin-inline: calc(-1 * clamp(24px, 2.6vw, 34px));
 }
 
 .winCard {

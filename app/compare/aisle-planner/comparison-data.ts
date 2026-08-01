@@ -95,7 +95,7 @@ export const comparisonGroups: ComparisonGroup[] = [
     title: "Task checklist",
     rows: [
       {
-        capability: "Robust notification system",
+        capability: "Notification system",
         detail:
           "@mentions, comment notifications, mobile push, and daily and weekly task-due reminders",
         gatherwise: { kind: "yes" },
