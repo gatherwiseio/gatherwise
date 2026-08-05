@@ -133,7 +133,7 @@ export default function Page() {
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
-          <a href="#trial" className={styles.btnPrimary}>
+          <a href="https://app.gatherwise.io/login?m=signup" className={styles.btnPrimary}>
             Start free trial
           </a>
         </nav>
@@ -156,7 +156,7 @@ export default function Page() {
               event and wedding planners work today.
             </p>
             <div className={styles.heroActions}>
-              <a href="#trial" className={styles.btnPrimaryLarge}>
+              <a href="https://app.gatherwise.io/login?m=signup" className={styles.btnPrimaryLarge}>
                 Start free trial
               </a>
               <a href="#comparison" className={styles.linkQuiet}>
@@ -472,7 +472,7 @@ export default function Page() {
               <a href="#comparison" className={styles.btnGhost}>
                 Talk to a human first
               </a>
-              <a href="#trial" className={styles.btnGold}>
+              <a href="https://app.gatherwise.io/login?m=signup" className={styles.btnGold}>
                 Start free trial
               </a>
             </div>
