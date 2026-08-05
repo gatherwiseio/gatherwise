@@ -28,8 +28,9 @@ export const metadata: Metadata = {
 };
 
 // --- Link map (from the handoff / gatherwise.io) ------------------------------
-// Auth CTAs all route to the signup entry point.
+// Signup CTAs route to the signup entry point; "Log In" goes to plain /login.
 const SIGNUP = "https://app.gatherwise.io/login?m=signup";
+const LOGIN = "https://app.gatherwise.io/login";
 const DEMO = "https://calendly.com/ajl5/30min";
 const CONTACT_EMAIL = "mailto:hello@gatherwise.io";
 // Help center + legal pages will live on the app subdomain. These paths are
@@ -71,7 +72,7 @@ const PAGE_HTML = `
         <a class="gwv2-navlink" href="${DEMO}" ${EXT} style="text-decoration: none; color: var(--gw-muted)">Book Demo</a>
       </div>
       <div style="display: flex; align-items: center; gap: 16px">
-        <a href="${SIGNUP}" style="text-decoration: none; font-size: 14.5px; font-weight: 600; color: var(--gw-ink)">Log In</a>
+        <a href="${LOGIN}" style="text-decoration: none; font-size: 14.5px; font-weight: 600; color: var(--gw-ink)">Log In</a>
         <a class="gw-btn gw-btn--primary" href="${SIGNUP}">Start free trial</a>
       </div>
     </nav>
@@ -87,7 +88,7 @@ const PAGE_HTML = `
         <a href="#timelines" style="text-decoration: none; padding: 12px 2px; font-size: 16px; color: var(--gw-ink)">Features</a>
         <a href="#pricing" style="text-decoration: none; padding: 12px 2px; font-size: 16px; color: var(--gw-ink)">Pricing</a>
         <a href="${DEMO}" ${EXT} style="text-decoration: none; padding: 12px 2px; font-size: 16px; color: var(--gw-ink)">Book Demo</a>
-        <a href="${SIGNUP}" style="text-decoration: none; padding: 12px 2px; font-size: 16px; color: var(--gw-ink)">Log In</a>
+        <a href="${LOGIN}" style="text-decoration: none; padding: 12px 2px; font-size: 16px; color: var(--gw-ink)">Log In</a>
         <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="margin-top: 10px">Start free trial</a>
       </nav>
     </details>
@@ -593,7 +594,7 @@ const PAGE_HTML = `
     <nav aria-label="Company" style="display: grid; gap: 12px; align-content: start">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Company</h2>
       <a class="gwv2-footlink" href="${CONTACT_EMAIL}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Contact</a>
-      <a class="gwv2-footlink" href="${SIGNUP}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Log In</a>
+      <a class="gwv2-footlink" href="${LOGIN}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Log In</a>
       <a class="gwv2-footlink" href="${SIGNUP}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Start free trial</a>
     </nav>
     <nav aria-label="Legal" style="display: grid; gap: 12px; align-content: start">
