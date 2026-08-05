@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
       { source: "/event-details/:path*", destination: `${APP}/event-details/:path*`, statusCode: 301 },
       // invoice pages moved to the app subdomain; preserve id + nested paths
       { source: "/invoice/:path*", destination: `${APP}/invoice/:path*`, statusCode: 301 },
+      // document pages moved to the app subdomain; preserve id + nested paths
+      { source: "/document/:path*", destination: `${APP}/document/:path*`, statusCode: 301 },
+      // event pages moved to the app subdomain; preserve id + nested paths
+      { source: "/event/:path*", destination: `${APP}/event/:path*`, statusCode: 301 },
     ];
   },
 };
