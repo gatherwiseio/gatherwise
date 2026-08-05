@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
       { source: "/document/:path*", destination: `${APP}/document/:path*`, statusCode: 301 },
       // event pages moved to the app subdomain; preserve id + nested paths
       { source: "/event/:path*", destination: `${APP}/event/:path*`, statusCode: 301 },
+      // remaining app areas moved to the app subdomain; preserve nested paths + query
+      { source: "/dashboard/:path*", destination: `${APP}/dashboard/:path*`, statusCode: 301 },
+      { source: "/account/:path*", destination: `${APP}/account/:path*`, statusCode: 301 },
+      { source: "/login/:path*", destination: `${APP}/login/:path*`, statusCode: 301 },
+      { source: "/proposal/:path*", destination: `${APP}/proposal/:path*`, statusCode: 301 },
+      { source: "/proposal-builder/:path*", destination: `${APP}/proposal-builder/:path*`, statusCode: 301 },
+      { source: "/form/:path*", destination: `${APP}/form/:path*`, statusCode: 301 },
+      { source: "/reset_pw/:path*", destination: `${APP}/reset_pw/:path*`, statusCode: 301 },
+      { source: "/pdf-page/:path*", destination: `${APP}/pdf-page/:path*`, statusCode: 301 },
     ];
   },
 };
