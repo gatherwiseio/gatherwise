@@ -21,7 +21,7 @@ const albertSans = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise — Built for Event & Wedding Planner Pros",
+  title: "Gatherwise | Built for Event & Wedding Planner Pros",
   description:
     "All-in-one event software for professional planners. Timelines, Layouts, Budget, Guests, Vendors, Contracts, Invoices, Sales, Proposals, Questionnaires, Floorplans, and more",
 };
