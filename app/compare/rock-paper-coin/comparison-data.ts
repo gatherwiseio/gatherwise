@@ -67,7 +67,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Invoicing & online payments",
         detail: "Cards, ACH, auto-pay, Apple Pay and Google Pay",
         gatherwise: { kind: "yes" },
-        rockPaperCoin: { kind: "yes", note: "A core strength — Stripe-powered" },
+        rockPaperCoin: { kind: "yes" },
       },
       {
         capability: "QuickBooks Online sync",
@@ -154,7 +154,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Native mobile app",
         detail: "iOS and Android",
         gatherwise: { kind: "yes" },
-        rockPaperCoin: { kind: "no", note: "Mobile web only" },
+        rockPaperCoin: { kind: "no" },
       },
       {
         capability: "Vendor payments linked to the checklist",

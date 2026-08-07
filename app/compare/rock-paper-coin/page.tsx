@@ -164,7 +164,7 @@ export default function Page() {
               professionals — contracts, invoicing and Stripe-powered payment
               processing. Gatherwise does that too, then keeps going into the
               part Rock Paper Coin was never built for: timelines, budgets,
-              guests and seating.
+              guests, seating, and more.
             </p>
             <div className={styles.heroActions}>
               <a
@@ -217,7 +217,8 @@ export default function Page() {
         <section className={styles.positioning}>
           <div className={styles.wide}>
             <h2 className={`${styles.sectionTitle} ${styles.positioningTitle}`}>
-              A payments tool, or the whole planning platform.
+              Are you looking for a payments tool, or the whole planning
+              platform?
             </h2>
             <p className={styles.positioningLede}>
               Both win you the client and get you paid. The question is what
