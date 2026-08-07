@@ -1,0 +1,844 @@
+/* Tokens live on the page rather than :root so this route carries its own
+   palette without touching the site-wide brand system. */
+.page {
+  --gw-cream: #fdfaf4;
+  --gw-parchment: #f6efe0;
+  --gw-ink: #2a2723;
+  --gw-ink-hover: #3d3833;
+  --gw-gold: #b8935f;
+  --gw-gold-hover: #c9a370;
+  --gw-muted: #6b645a;
+  --gw-muted-soft: #8c8479;
+  --gw-muted-faint: #a8a096;
+  --gw-mark-empty: #b5ada1;
+
+  /* Space-separated channels so opacity can vary at each use site. */
+  --gw-ink-rgb: 42 39 35;
+  --gw-parchment-rgb: 246 239 224;
+
+  --gw-gutter: clamp(20px, 5vw, 72px);
+  --gw-section-y: clamp(56px, 7vw, 100px);
+
+  font-family: var(--font-karla), Helvetica, Arial, sans-serif;
+  color: var(--gw-ink);
+  background: var(--gw-cream);
+  overflow-x: hidden;
+}
+
+.page a {
+  text-decoration: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- header */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px var(--gw-gutter);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brandName {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brandTag {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+}
+
+.navLink {
+  color: var(--gw-muted);
+}
+
+.navLink:hover {
+  color: var(--gw-ink);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.btnPrimary {
+  background: var(--gw-ink);
+  color: var(--gw-parchment);
+  padding: 11px 20px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btnPrimary:hover {
+  background: var(--gw-ink-hover);
+  color: var(--gw-parchment);
+}
+
+.btnPrimaryLarge {
+  background: var(--gw-ink);
+  color: var(--gw-parchment);
+  padding: 16px 30px;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.btnPrimaryLarge:hover {
+  background: var(--gw-ink-hover);
+  color: var(--gw-parchment);
+}
+
+.btnGold {
+  background: var(--gw-gold);
+  color: var(--gw-ink);
+  padding: 17px 36px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 15.5px;
+  letter-spacing: 0.02em;
+}
+
+.btnGold:hover {
+  background: var(--gw-gold-hover);
+  color: var(--gw-ink);
+}
+
+.btnGhost {
+  border: 1px solid rgb(var(--gw-parchment-rgb) / 0.35);
+  color: var(--gw-parchment);
+  padding: 17px 32px;
+  border-radius: 2px;
+  font-size: 15.5px;
+}
+
+.btnGhost:hover {
+  border-color: var(--gw-parchment);
+  color: var(--gw-parchment);
+  text-decoration: none;
+}
+
+.linkQuiet {
+  font-size: 15px;
+  color: var(--gw-ink);
+  border-bottom: 1px solid var(--gw-gold);
+  padding-bottom: 2px;
+}
+
+.linkQuiet:hover {
+  color: var(--gw-gold);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------- shared section parts */
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+  margin-bottom: 18px;
+}
+
+.sectionTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 40px;
+}
+
+.wide {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.narrow {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------------- hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(52px, 7vw, 104px) var(--gw-gutter);
+}
+
+.heroCopy {
+  max-width: 620px;
+}
+
+.heroEyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0 0 24px;
+  text-wrap: pretty;
+}
+
+.heroTitleMuted {
+  color: var(--gw-muted-soft);
+  white-space: nowrap;
+}
+
+.heroTitleGold {
+  color: var(--gw-gold);
+}
+
+.heroLede {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.65;
+  color: var(--gw-muted);
+  margin: 0 0 34px;
+  max-width: 30em;
+  text-wrap: pretty;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.heroTagline {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--gw-muted-soft);
+  margin: 26px 0 0;
+}
+
+/* -------------------------------------------------- hero "one event" card */
+
+.eventCard {
+  background: var(--gw-parchment);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.09);
+  border-radius: 3px;
+  padding: clamp(20px, 2.4vw, 30px);
+  box-shadow: 0 24px 60px -32px rgb(var(--gw-ink-rgb) / 0.4);
+}
+
+.eventHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eventTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 21px;
+}
+
+.eventTag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+.eventRows {
+  display: grid;
+  gap: 9px;
+}
+
+.eventRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+  background: var(--gw-cream);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.07);
+  border-left: 3px solid var(--gw-gold);
+  padding: 12px 14px;
+}
+
+/* The paid line reads as the outcome of the row above it. */
+.eventRowPaid {
+  background: #fff;
+  border: 1px dashed var(--gw-gold);
+  box-shadow: 0 10px 22px -14px rgb(var(--gw-ink-rgb) / 0.45);
+}
+
+.eventLabel {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.eventMeta {
+  font-size: 11px;
+  color: var(--gw-muted-soft);
+  letter-spacing: 0.04em;
+}
+
+.eventMetaPaid {
+  font-size: 11px;
+  color: var(--gw-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.eventTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+}
+
+.eventChip {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.15);
+  padding: 6px 11px;
+}
+
+.eventChipSolid {
+  color: var(--gw-parchment);
+  background: var(--gw-ink);
+  border-color: transparent;
+}
+
+/* ------------------------------------------------------------ positioning */
+
+.positioning {
+  background: var(--gw-parchment);
+  padding: var(--gw-section-y) var(--gw-gutter);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+}
+
+.positioningTitle {
+  margin: 0 0 14px;
+  max-width: 24em;
+}
+
+.positioningLede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--gw-muted);
+  margin: 0 0 46px;
+  max-width: 40em;
+}
+
+.positioningGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.posCard {
+  background: var(--gw-cream);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+  border-top: 3px solid var(--gw-gold);
+  padding: clamp(26px, 3vw, 40px);
+}
+
+.posCardAlt {
+  border-top-color: rgb(var(--gw-ink-rgb) / 0.35);
+}
+
+.posEyebrow {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+  margin-bottom: 16px;
+}
+
+.posEyebrowAlt {
+  color: var(--gw-muted-soft);
+}
+
+.posTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.posText {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--gw-muted);
+  margin: 0 0 22px;
+}
+
+.posList {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.posItem {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.posItemAlt {
+  color: var(--gw-muted);
+}
+
+.posMark {
+  color: var(--gw-gold);
+}
+
+.posMarkAlt {
+  color: var(--gw-muted-soft);
+}
+
+/* ------------------------------------------------------- comparison table */
+
+.comparison {
+  padding: var(--gw-section-y) var(--gw-gutter);
+}
+
+.table {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.colCapability {
+  width: 42.857%;
+}
+
+.colProduct {
+  width: 28.571%;
+}
+
+.thCapability,
+.thProduct {
+  background: var(--gw-ink);
+  text-align: left;
+  font-weight: 400;
+  padding: 16px clamp(12px, 1.6vw, 22px);
+}
+
+.thCapability {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--gw-parchment-rgb) / 0.6);
+}
+
+.thProduct {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 20px;
+  color: var(--gw-parchment);
+  border-left: 1px solid rgb(var(--gw-parchment-rgb) / 0.14);
+}
+
+.thProductAlt {
+  color: rgb(var(--gw-parchment-rgb) / 0.75);
+}
+
+.groupHead {
+  background: var(--gw-parchment);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.14);
+  padding: 13px clamp(12px, 1.6vw, 22px);
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+.rowCapability {
+  padding: 15px clamp(12px, 1.6vw, 22px);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+  text-align: left;
+  vertical-align: top;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rowDetail {
+  display: block;
+  font-weight: 400;
+  font-size: 12.5px;
+  color: var(--gw-muted-soft);
+  margin-top: 3px;
+}
+
+.cell {
+  padding: 15px clamp(12px, 1.6vw, 22px);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+  border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.cellAbsent {
+  background: rgb(var(--gw-ink-rgb) / 0.035);
+  color: var(--gw-muted-soft);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.markYes {
+  background: var(--gw-gold);
+  color: var(--gw-cream);
+  font-weight: 700;
+}
+
+.markNo {
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.18);
+  color: var(--gw-mark-empty);
+}
+
+.cellNote {
+  color: var(--gw-muted-soft);
+}
+
+.priceMuted {
+  color: var(--gw-muted);
+}
+
+.priceSoft {
+  color: var(--gw-muted-soft);
+}
+
+.tableNote {
+  font-size: 12.5px;
+  color: var(--gw-muted-faint);
+  margin: 16px 0 0;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------- wins */
+
+.wins {
+  background: var(--gw-ink);
+  color: var(--gw-parchment);
+  padding: var(--gw-section-y) var(--gw-gutter);
+}
+
+.winsTitle {
+  margin: 0 0 46px;
+  max-width: 22em;
+}
+
+/* The 1px gap plus card background paints the hairline rules between cards. */
+.winsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1px;
+  background: rgb(var(--gw-parchment-rgb) / 0.16);
+}
+
+.winCard {
+  background: var(--gw-ink);
+  padding: clamp(24px, 2.6vw, 34px);
+}
+
+.winNumber {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 34px;
+  color: var(--gw-gold);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.winTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.winText {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgb(var(--gw-parchment-rgb) / 0.72);
+  margin: 0;
+}
+
+/* --------------------------------------------------------- where they fit */
+
+.fit {
+  padding: var(--gw-section-y) var(--gw-gutter);
+}
+
+.fitCard {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--gw-parchment);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+  padding: clamp(28px, 4vw, 56px);
+}
+
+.fitTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+.fitText {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--gw-muted);
+  margin: 0 0 24px;
+  max-width: 44em;
+  text-wrap: pretty;
+}
+
+.fitClose {
+  font-size: 16.5px;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 44em;
+}
+
+/* ---------------------------------------------------------------- pricing */
+
+.pricing {
+  background: var(--gw-parchment);
+  padding: var(--gw-section-y) var(--gw-gutter);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+}
+
+.pricingTitle {
+  max-width: 24em;
+}
+
+.pricingCard {
+  background: var(--gw-cream);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.pricingCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+  margin-bottom: 30px;
+}
+
+.pricingCardTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: 25px;
+  margin: 0;
+}
+
+.priceCols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.2);
+  padding-bottom: 28px;
+}
+
+.priceCol {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.priceColHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14);
+  padding-bottom: 10px;
+}
+
+.pricePlan {
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+.pricePlanAlt {
+  color: var(--gw-muted-soft);
+}
+
+.priceAmount {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.priceUnit {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gw-muted-soft);
+}
+
+.pricePills {
+  display: grid;
+  gap: 4px;
+}
+
+.pricePill {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  background: var(--gw-gold);
+  color: var(--gw-cream);
+}
+
+.pricePillInk {
+  background: var(--gw-ink);
+  color: var(--gw-parchment);
+}
+
+/* An "included elsewhere" line: outlined, quiet, not a filled pill. */
+.pricePillOut {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 13.5px;
+  color: var(--gw-muted-faint);
+  box-shadow: inset 0 0 0 1px rgb(var(--gw-ink-rgb) / 0.22);
+}
+
+.priceFoot {
+  font-size: 12.5px;
+  color: var(--gw-muted-soft);
+  line-height: 1.5;
+}
+
+.pricingNote {
+  font-size: 13px;
+  color: var(--gw-muted-soft);
+  margin: 22px 0 0;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------- cta */
+
+.cta {
+  background: var(--gw-ink);
+  color: var(--gw-parchment);
+  padding: clamp(64px, 8vw, 120px) var(--gw-gutter);
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.06;
+  margin: 0 0 20px;
+}
+
+.ctaText {
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: rgb(var(--gw-parchment-rgb) / 0.75);
+  margin: 0 0 36px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 20px;
+  margin-bottom: 26px;
+}
+
+.ctaFine {
+  font-size: 13px;
+  color: rgb(var(--gw-parchment-rgb) / 0.55);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------------- footer */
+
+.footer {
+  background: var(--gw-ink);
+  color: rgb(var(--gw-parchment-rgb) / 0.5);
+  padding: 28px var(--gw-gutter);
+  border-top: 1px solid rgb(var(--gw-parchment-rgb) / 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
