@@ -50,13 +50,13 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Lead inquiry form",
         detail: "Embed it on your site — inquiries arrive as leads, not emails",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "yes", note: "Web forms & pipeline" },
+        planningPod: { kind: "yes" },
       },
       {
         capability: "Client questionnaires",
         detail: "Send a form and have the answers land on the event",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "yes", note: "Forms & surveys" },
+        planningPod: { kind: "yes" },
       },
     ],
   },
@@ -67,7 +67,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Drag-and-drop event timelines",
         detail: "Build a minute-by-minute run of show, sort or auto-sort",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "yes", note: "Timelines & itineraries" },
+        planningPod: { kind: "yes" },
       },
       {
         capability: "Timeline templates",
@@ -79,7 +79,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Share the timeline as a live URL",
         detail: "Always current, no re-sending files to vendors",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "yes", note: "Via client portal" },
+        planningPod: { kind: "yes" },
       },
       {
         capability: "Export the entire event",
@@ -111,7 +111,7 @@ export const comparisonGroups: ComparisonGroup[] = [
       {
         capability: "Seating charts & floor plans",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "yes", note: "A genuine strength — to-scale floor plans" },
+        planningPod: { kind: "yes" },
       },
     ],
   },
@@ -134,7 +134,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Native mobile app",
         detail: "iOS and Android — the one you open on event day",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "no", note: "Responsive web only" },
+        planningPod: { kind: "no" },
       },
       {
         capability: "Vendor management",
@@ -156,7 +156,7 @@ export const comparisonGroups: ComparisonGroup[] = [
         capability: "Built specifically for event & wedding planners",
         detail: "Every tool shaped around how planners actually work",
         gatherwise: { kind: "yes" },
-        planningPod: { kind: "no", note: "Also serves venues & caterers" },
+        planningPod: { kind: "no" },
       },
       {
         capability: "Pricing model",

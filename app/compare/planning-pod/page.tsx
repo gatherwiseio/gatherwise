@@ -41,8 +41,8 @@ const eventRows: EventRow[] = [
 const differentiators = [
   {
     number: "01",
-    title: "A real app, not a bookmark",
-    body: "Planning Pod runs in a mobile browser only — no iOS or Android app. Gatherwise gives you a native app built for the one place it matters most: standing in a ballroom on event day.",
+    title: "Built for one job, not five",
+    body: "Planning Pod spreads 80+ tools across venues, caterers and planners. Every screen in Gatherwise assumes one thing: you're a planner running client events.",
   },
   {
     number: "02",
@@ -51,8 +51,8 @@ const differentiators = [
   },
   {
     number: "03",
-    title: "Built for one job, not five",
-    body: "Planning Pod spreads 80+ tools across venues, caterers and planners. Every screen in Gatherwise assumes one thing: you're a planner running client events.",
+    title: "A real app, not a bookmark",
+    body: "Planning Pod runs in a mobile browser only — no iOS or Android app. Gatherwise gives you a native app built for the one place it matters most: standing in a ballroom on event day.",
   },
   {
     number: "04",
@@ -154,9 +154,8 @@ export default function Page() {
               Gatherwise vs. Planning Pod
             </div>
             <h1 className={styles.heroTitle}>
-              <span className={styles.heroTitleMuted}>Planning Pod</span> tries
-              to do it all. <span className={styles.heroTitleGold}>Gatherwise</span>{" "}
-              does it for planners, on purpose.
+              <span className={styles.heroTitleGold}>Gatherwise</span> is built
+              for exactly one kind of business: event and wedding planners.
             </h1>
             <p className={styles.heroLede}>
               Planning Pod is a broad, 20+ tool platform built to serve venues,
@@ -216,7 +215,8 @@ export default function Page() {
         <section className={styles.positioning}>
           <div className={styles.wide}>
             <h2 className={`${styles.sectionTitle} ${styles.positioningTitle}`}>
-              Built just for planners — or built for everyone.
+              Gatherwise is built for planners. Planning Pod is built for
+              everyone.
             </h2>
             <p className={styles.positioningLede}>
               Neither approach is wrong. It comes down to whether you want a
@@ -368,29 +368,6 @@ export default function Page() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className={styles.fit}>
-          <div className={styles.fitCard}>
-            <div className={styles.eyebrow}>
-              Where Planning Pod may fit better
-            </div>
-            <h2 className={styles.fitTitle}>
-              We would rather you pick the right tool than pick us.
-            </h2>
-            <p className={styles.fitText}>
-              If you run a venue, manage catering and BEOs, or need one system
-              flexible enough to serve very different kinds of event
-              businesses under one roof — with unlimited users included on
-              every plan — Planning Pod is a mature, broad platform with over
-              a decade behind it.
-            </p>
-            <p className={styles.fitClose}>
-              If you are a planner who wants software built around your work
-              specifically, with a native app for event day, that is what
-              Gatherwise is for.
-            </p>
           </div>
         </section>
 
