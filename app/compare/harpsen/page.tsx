@@ -131,12 +131,9 @@ export default function Page() {
               Gatherwise vs. Harpsen
             </div>
             <h1 className={styles.heroTitle}>
-              <span className={styles.heroTitleMuted}>
-                Premium software, beautifully designed.
-              </span>{" "}
-              <span className={styles.heroTitleGold}>Gatherwise</span> puts
-              every event in your pocket, with a native app built for event
-              day.
+              <span className={styles.heroTitleGold}>Gatherwise</span> is a
+              premium, modern, and beautifully designed software for wedding
+              and event planners.
             </h1>
             <p className={styles.heroLede}>
               Gatherwise is planning software built to feel as polished as
