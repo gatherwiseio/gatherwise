@@ -21,10 +21,9 @@ const albertSans = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Gatherwise — Event Planning Software & CRM Built for Wedding Planners",
+  title: "Gatherwise — Built for Event & Wedding Planner Pros",
   description:
-    "Gatherwise is all-in-one event planning software for wedding and event planners: drag-and-drop day-of timelines, seating charts and floor plans, guest lists, vendor management, budgets, proposals, contracts and invoicing. 14-day free trial.",
+    "All-in-one event software for professional planners. Timelines, Layouts, Budget, Guests, Vendors, Contracts, Invoices, Sales, Proposals, Questionnaires, Floorplans, and more",
 };
 
 // --- Link map (from the handoff / gatherwise.io) ------------------------------
