@@ -21,7 +21,7 @@ const karla = Karla({
 export const metadata: Metadata = {
   title: "Gatherwise vs Aisle Planner for Event & Wedding Planners",
   description:
-    "Compare features side-by-side. AislePlanner serves the whole events industry, Gatherwise is built specifically for event & wedding planners",
+    "Compare features side-by-side. Aisle Planner serves the whole events industry, Gatherwise is built specifically for event & wedding planners",
 };
 
 type TimelineEntry = {
