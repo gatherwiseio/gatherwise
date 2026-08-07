@@ -61,26 +61,6 @@ const differentiators = [
   },
 ];
 
-const gatherwisePlan = [
-  "Timelines",
-  "Tasks & notifications",
-  "Budget",
-  "Guests & seating",
-  "CRM & lead inquiries",
-  "Proposals & contracts",
-  "Invoicing & payments",
-];
-
-const harpsenPlan: { label: string; included: boolean }[] = [
-  { label: "CRM & leads", included: true },
-  { label: "Proposals & contracts", included: true },
-  { label: "Budget tracking", included: true },
-  { label: "Guest lists & seating", included: true },
-  { label: "Native mobile app — not built in", included: false },
-  { label: "AI-assisted proposals — not built in", included: false },
-  { label: "Corporate & social events — wedding only", included: false },
-];
-
 function ValueCell({ cell }: { cell: ComparisonCell }) {
   if (cell.kind === "price") {
     return (
@@ -135,9 +115,6 @@ export default function Page() {
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
-          <a href="#pricing" className={styles.navLink}>
-            Pricing
-          </a>
           <a
             href="https://app.gatherwise.io/login?m=signup"
             className={styles.btnPrimary}
@@ -154,17 +131,19 @@ export default function Page() {
               Gatherwise vs. Harpsen
             </div>
             <h1 className={styles.heroTitle}>
-              <span className={styles.heroTitleMuted}>Harpsen</span> keeps the
-              price low and the focus on weddings.{" "}
-              <span className={styles.heroTitleGold}>Gatherwise</span> keeps
-              every event covered, on a phone in your hand.
+              <span className={styles.heroTitleMuted}>
+                Premium software, beautifully designed.
+              </span>{" "}
+              <span className={styles.heroTitleGold}>Gatherwise</span> puts
+              every event in your pocket, with a native app built for event
+              day.
             </h1>
             <p className={styles.heroLede}>
-              Harpsen is a genuinely capable wedding-only CRM at a flat
-              $12/month — budgets, guest lists, seating and contracts are all
-              in there. Gatherwise covers that same ground plus corporate and
-              social events, a native mobile app for event day, and
-              AI-assisted proposals.
+              Gatherwise is planning software built to feel as polished as
+              the events you run — budgets, guest lists, seating, contracts
+              and vendor payments in one beautifully designed place, plus
+              corporate and social events, a native mobile app for event day,
+              and AI-assisted proposals.
             </p>
             <div className={styles.heroActions}>
               <a
@@ -217,12 +196,12 @@ export default function Page() {
         <section className={styles.positioning}>
           <div className={styles.wide}>
             <h2 className={`${styles.sectionTitle} ${styles.positioningTitle}`}>
-              A wedding-only bargain, or the whole calendar.
+              Beautifully designed, and built for every event.
             </h2>
             <p className={styles.positioningLede}>
-              Neither approach is wrong. It comes down to whether every event
-              you plan is a wedding, and whether you need it in your pocket on
-              event day.
+              Gatherwise is a premium, beautifully designed platform for
+              planners who want their business to feel as polished as the
+              events they run — not just a wedding-only bargain tool.
             </p>
             <div className={styles.positioningGrid}>
               <div className={styles.posCard}>
@@ -354,7 +333,7 @@ export default function Page() {
           <div className={styles.wide}>
             <div className={styles.eyebrow}>Where Gatherwise wins</div>
             <h2 className={`${styles.sectionTitle} ${styles.winsTitle}`}>
-              Four differences the price tag doesn&apos;t show.
+              Four differences that come down to quality and design.
             </h2>
             <div className={styles.winsGrid}>
               {differentiators.map((item) => (
@@ -366,101 +345,6 @@ export default function Page() {
                   <p className={styles.winText}>{item.body}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.fit}>
-          <div className={styles.fitCard}>
-            <div className={styles.eyebrow}>Where Harpsen may fit better</div>
-            <h2 className={styles.fitTitle}>
-              We would rather you pick the right tool than pick us.
-            </h2>
-            <p className={styles.fitText}>
-              If every event you book is a wedding, your team is small, and a
-              flat $12-a-month, web-only tool covers what you need — Harpsen
-              is a genuinely well-built, inexpensive option with more packed
-              in than most CRMs at that price.
-            </p>
-            <p className={styles.fitClose}>
-              If you also plan corporate or social events, need a native app
-              for event day, or want AI-assisted proposals and vendor
-              payments that chase themselves — that is what Gatherwise is
-              for.
-            </p>
-          </div>
-        </section>
-
-        <section id="pricing" className={styles.pricing}>
-          <div className={styles.narrow}>
-            <div className={styles.eyebrow}>Pricing snapshot</div>
-            <h2 className={`${styles.sectionTitle} ${styles.pricingTitle}`}>
-              A big price gap. A specific list of what it buys.
-            </h2>
-
-            <div className={styles.pricingCard}>
-              <div className={styles.pricingCardHead}>
-                <h3 className={styles.pricingCardTitle}>
-                  A planner running 30 events a year
-                </h3>
-              </div>
-              <div className={styles.priceCols}>
-                <div className={styles.priceCol}>
-                  <div className={styles.priceColHead}>
-                    <span className={styles.pricePlan}>
-                      Gatherwise Professional
-                    </span>
-                    <span className={styles.priceAmount}>
-                      $59<span className={styles.priceUnit}>/mo</span>
-                    </span>
-                  </div>
-                  <div className={styles.pricePills}>
-                    {gatherwisePlan.map((item) => (
-                      <span key={item} className={styles.pricePill}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <span className={styles.priceFoot}>
-                    Up to 50 events at a time. One subscription, one login.
-                  </span>
-                </div>
-
-                <div className={styles.priceCol}>
-                  <div className={styles.priceColHead}>
-                    <span className={`${styles.pricePlan} ${styles.pricePlanAlt}`}>
-                      Harpsen
-                    </span>
-                    <span className={styles.priceAmount}>
-                      $12<span className={styles.priceUnit}>/mo</span>
-                    </span>
-                  </div>
-                  <div className={styles.pricePills}>
-                    {harpsenPlan.map((item) => (
-                      <span
-                        key={item.label}
-                        className={
-                          item.included
-                            ? `${styles.pricePill} ${styles.pricePillInk}`
-                            : styles.pricePillOut
-                        }
-                      >
-                        {item.label}
-                      </span>
-                    ))}
-                  </div>
-                  <span className={styles.priceFoot}>
-                    Or $100/yr. Unlimited events, clients and team members —
-                    wedding-only, web-based.
-                  </span>
-                </div>
-              </div>
-              <p className={styles.pricingNote}>
-                Harpsen is dramatically cheaper — about $47/mo less at this
-                scale. The difference is a native mobile app, AI-assisted
-                proposals, multi-channel task reminders, and support for
-                events beyond weddings. All figures as of mid-2026.
-              </p>
             </div>
           </div>
         </section>

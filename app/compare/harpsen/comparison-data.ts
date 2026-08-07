@@ -150,30 +150,13 @@ export const comparisonGroups: ComparisonGroup[] = [
     ],
   },
   {
-    title: "Fit & pricing",
+    title: "Fit",
     rows: [
       {
         capability: "Built for every event, not just weddings",
         detail: "Corporate, social and nonprofit events on the same CRM",
         gatherwise: { kind: "yes" },
         harpsen: { kind: "no", note: "Wedding-only" },
-      },
-      {
-        capability: "Pricing model",
-        gatherwise: {
-          kind: "price",
-          lead: "Starts at ",
-          amount: "$29/mo",
-          trail: " for planning + sales tools",
-          tone: "muted",
-        },
-        harpsen: {
-          kind: "price",
-          lead: "Flat ",
-          amount: "$12/mo",
-          trail: " (or $100/yr) — unlimited events, wedding-only",
-          tone: "soft",
-        },
       },
     ],
   },
