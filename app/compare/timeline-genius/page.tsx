@@ -19,9 +19,9 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs. Timeline Genius — the timeline, or the whole business",
+  title: "Gatherwise vs Timeline Genius for Event & Wedding Planners",
   description:
-    "Timeline Genius runs your event-day timeline well. Gatherwise covers that same ground and everything around it — tasks, budgets, guests, seating, proposals and invoicing — in one place. Compare features and pricing side by side.",
+    "Compare features side-by-side. Timeline Genius runs timelines, Gatherwise is an all-in-one software for event & wedding planners",
 };
 
 type EventRow = {

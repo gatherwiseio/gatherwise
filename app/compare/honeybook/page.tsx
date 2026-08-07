@@ -19,9 +19,9 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs. HoneyBook — the client flow, or the whole event",
+  title: "Gatherwise vs HoneyBook for Event & Wedding Planners",
   description:
-    "HoneyBook runs your client flow — leads, proposals, contracts and payments. Gatherwise does all of that too, then keeps going into the part HoneyBook was never built for: timelines, budgets, guests and seating. Compare features and pricing side by side.",
+    "Compare features side-by-side. HoneyBook serves all kinds of businesses, Gatherwise is built specifically for event & wedding planners",
 };
 
 type EventRow = {

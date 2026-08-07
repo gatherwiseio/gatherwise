@@ -19,9 +19,9 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs. Aisle Planner — an honest look at both",
+  title: "Gatherwise vs Aisle Planner for Event & Wedding Planners",
   description:
-    "Aisle Planner serves the whole events industry. Gatherwise is planning and sales software built only for how event and wedding planners work today. Compare features and pricing side by side.",
+    "Compare features side-by-side. AislePlanner serves the whole events industry, Gatherwise is built specifically for event & wedding planners",
 };
 
 type TimelineEntry = {
