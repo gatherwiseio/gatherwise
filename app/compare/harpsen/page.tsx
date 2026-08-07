@@ -132,8 +132,8 @@ export default function Page() {
             </div>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroTitleGold}>Gatherwise</span> is a
-              premium, modern, and beautifully designed software for wedding
-              and event planners.
+              modern, beautifully designed software for wedding &amp; event
+              planners.
             </h1>
             <p className={styles.heroLede}>
               Gatherwise is planning software built to feel as polished as
