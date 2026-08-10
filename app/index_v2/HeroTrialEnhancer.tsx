@@ -37,12 +37,23 @@ export default function HeroTrialEnhancer() {
     sync();
 
     // Sticky header: add a faint bottom border once the page is scrolled past
-    // the top, so the header separates from the content beneath it.
+    // the top, so the header separates from the content beneath it. The same
+    // listener closes the mobile menu — the panel is anchored to the header and
+    // covers the top of the page, so leaving it hanging open while the content
+    // slides underneath reads as a stuck overlay. Any scroll dismisses it,
+    // which also covers tapping one of its own in-page anchors.
     const header = document.querySelector<HTMLElement>("header[data-nav]");
-    const onScroll = () => {
+    const menu = document.querySelector<HTMLDetailsElement>("details.gwv2-menu");
+    const syncHeader = () => {
       header?.classList.toggle("is-scrolled", window.scrollY > 0);
     };
-    onScroll();
+    const onScroll = () => {
+      syncHeader();
+      if (menu?.open) menu.open = false;
+    };
+    // the border needs setting up front; the menu must only close on a real
+    // scroll, so the initial sync deliberately skips it
+    syncHeader();
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {

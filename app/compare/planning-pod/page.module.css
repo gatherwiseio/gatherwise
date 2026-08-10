@@ -43,12 +43,15 @@
 
 /* ---------------------------------------------------------------- header */
 
+/* The inline padding holds the content to the same 1180px column the
+   sections below use (.wide), while the element itself stays full-bleed
+   so the header's bottom rule still runs edge to edge. */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 22px var(--gw-gutter);
+  padding: 22px max(var(--gw-gutter), calc((100% - 1180px) / 2));
   border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
   flex-wrap: wrap;
 }
@@ -196,7 +199,7 @@
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: clamp(36px, 5vw, 72px);
   align-items: center;
-  padding: clamp(52px, 7vw, 104px) var(--gw-gutter);
+  padding: clamp(52px, 7vw, 104px) max(var(--gw-gutter), calc((100% - 1180px) / 2));
 }
 
 .heroCopy {
@@ -435,6 +438,13 @@
 
 .posMark {
   color: var(--gw-gold);
+  flex: none;
+  display: inline-flex;
+  margin-top: 2px;
+}
+
+.posMark svg {
+  display: block;
 }
 
 .posMarkAlt {
@@ -505,7 +515,7 @@
   padding: 15px clamp(12px, 1.6vw, 22px);
   border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   font-size: 14.5px;
   font-weight: 600;
   line-height: 1.4;
@@ -523,8 +533,16 @@
   padding: 15px clamp(12px, 1.6vw, 22px);
   border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
   border-left: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
-  vertical-align: top;
+  vertical-align: middle;
+  text-align: left;
   font-size: 14px;
+}
+
+.cellContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
 }
 
 .cellAbsent {
@@ -540,13 +558,17 @@
   height: 22px;
   border-radius: 50%;
   font-size: 13px;
-  vertical-align: middle;
+  flex: none;
 }
 
 .markYes {
   background: var(--gw-gold);
-  color: var(--gw-cream);
-  font-weight: 700;
+  color: #fff;
+}
+
+.markYes svg {
+  display: block;
+  flex: none;
 }
 
 .markNo {

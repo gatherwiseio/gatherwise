@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla } from "next/font/google";
+import PhosphorCheck from "../PhosphorCheck";
+import PhosphorCheckCircle from "../PhosphorCheckCircle";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
 
@@ -104,21 +106,18 @@ function ValueCell({ cell }: { cell: ComparisonCell }) {
     <td
       className={included ? styles.cell : `${styles.cell} ${styles.cellAbsent}`}
     >
-      <span
-        className={`${styles.mark} ${included ? styles.markYes : styles.markNo}`}
-        aria-hidden="true"
-      >
-        {included ? "✓" : "—"}
+      <span className={styles.cellContent}>
+        <span
+          className={`${styles.mark} ${included ? styles.markYes : styles.markNo}`}
+          aria-hidden="true"
+        >
+          {included ? <PhosphorCheck size={14} /> : "—"}
+        </span>
+        <span className={styles.srOnly}>
+          {included ? "Included" : "Not included"}
+        </span>
+        {cell.note ? <span className={styles.cellNote}>{cell.note}</span> : null}
       </span>
-      <span className={styles.srOnly}>
-        {included ? "Included" : "Not included"}
-      </span>
-      {cell.note ? (
-        <>
-          {" "}
-          <span className={styles.cellNote}>{cell.note}</span>
-        </>
-      ) : null}
     </td>
   );
 }
@@ -241,7 +240,7 @@ export default function Page() {
                   ].map((item) => (
                     <li key={item} className={styles.posItem}>
                       <span className={styles.posMark} aria-hidden="true">
-                        ✓
+                        <PhosphorCheckCircle size={18} />
                       </span>
                       {item}
                     </li>
@@ -470,14 +469,14 @@ export default function Page() {
               and see how it feels.
             </p>
             <div className={styles.ctaActions}>
+              <a href="#comparison" className={styles.btnGhost}>
+                Talk to a human first
+              </a>
               <a
                 href="https://app.gatherwise.io/login?m=signup"
                 className={styles.btnGold}
               >
                 Start free trial
-              </a>
-              <a href="#comparison" className={styles.btnGhost}>
-                Talk to a human first
               </a>
             </div>
             <p className={styles.ctaFine}>Cancel anytime</p>
