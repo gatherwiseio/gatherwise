@@ -172,7 +172,7 @@ const PAGE_HTML = `
   <section id="timelines" style="background: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
-        <p class="gw-eyebrow" style="margin: 0 0 18px">Event timeline software</p>
+        <p class="gw-eyebrow" style="margin: 0 0 18px">Event timelines</p>
         <h2 class="gw-heading gw-heading--section">The day-of timeline, <span class="gw-heading__accent">drag and drop</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Share it the way each person needs it — a clean PDF, or a live link that updates itself as you tweak, so you're never re-sending. Filter the timeline so each vendor sees only their part, and invite clients and vendors to collaborate across as many versions as the event calls for.</p>
       </div>
@@ -214,7 +214,7 @@ const PAGE_HTML = `
   <section id="sales" style="padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 44em">
-        <p class="gw-eyebrow" style="margin: 0 0 18px">Event planner SALES FEATURES</p>
+        <p class="gw-eyebrow" style="margin: 0 0 18px">Sales features</p>
         <h2 class="gw-heading gw-heading--section">From <span class="gw-heading__accent">lead</span> to booked to paid, without leaving the file.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">The inquiry that lands on your site becomes the questionnaire, the proposal, the contract and the invoice — all attached to the same couple. Start from an event template so the fifteenth wedding doesn't get built like the first.</p>
       </div>
@@ -363,7 +363,7 @@ const PAGE_HTML = `
   <section id="layouts" style="padding: var(--gw-section-y) var(--gw-gutter)">
     <div data-layout-grid="" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
       <div>
-        <p class="gw-eyebrow" style="margin: 0 0 18px">Seating chart software</p>
+        <p class="gw-eyebrow" style="margin: 0 0 18px">Seating charts</p>
         <h2 class="gw-heading gw-heading--section">Seating charts and floor plans <span class="gw-heading__accent">worth sharing</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Lay out tables against the real room, seat the guest list you already have, and send vendors and clients a clean, modern layout in one click — not a photo of a sketch.</p>
         <ul style="list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 10px">
@@ -439,7 +439,7 @@ const PAGE_HTML = `
   <section id="mobile" style="background: var(--gw-ink); color: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter) 0">
     <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center">
       <div>
-        <p class="gw-eyebrow" style="margin: 0 0 18px">Event planning app</p>
+        <p class="gw-eyebrow" style="margin: 0 0 18px">Mobile app</p>
         <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">On the day, it's <span class="gw-heading__accent">in your hand</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: rgb(var(--gw-parchment-rgb) / 0.75); margin: 20px 0 0; max-width: 30em; text-wrap: pretty">Real-time notifications, client messages, and the timeline, guest list and vendor contacts with you on the floor.</p>
         <a href="${APPSTORE}" ${EXT} style="display: inline-block; margin: 28px 0 0; text-decoration: none">
