@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 // Signup CTAs route to the signup entry point; "Log In" goes to plain /login.
 const SIGNUP = "https://app.gatherwise.io/login?m=signup";
 const LOGIN = "https://app.gatherwise.io/login";
-const DEMO = "https://calendly.com/ajl5/30min";
+const DEMO = "https://calendly.com/alex-gatherwise/30min";
 const CONTACT_EMAIL = "mailto:hello@gatherwise.io";
 // Help center + legal pages will live on the app subdomain. These paths are
 // placeholders and will 404 until those routes exist.
