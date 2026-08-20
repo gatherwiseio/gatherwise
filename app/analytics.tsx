@@ -16,7 +16,8 @@ export default function Analytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'AW-16809052619');
+          gtag('config', 'AW-16809052619'); // Google Ads
+          gtag('config', 'G-NMZZR1RQSF'); // GA4
         `}
       </Script>
 
