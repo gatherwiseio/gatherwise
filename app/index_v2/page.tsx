@@ -603,23 +603,18 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
           </ul>
         </div>
+      </div>
 
-        <div style="background: var(--gw-cream); border: 1px solid rgb(var(--gw-ink-rgb) / 0.1); border-radius: 12px; padding: clamp(26px, 2.8vw, 34px); display: flex; flex-direction: column; gap: 20px">
-          <div>
-            <div class="gw-price__plan">Enterprise</div>
-            <p style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted); margin: 10px 0 0; min-height: 44px">For larger firms that need it built around them.</p>
+      <!-- Enterprise — a quieter row under the three plans, not a fourth card. -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 30px; margin: 20px 0 0; padding: clamp(20px, 2.2vw, 26px) clamp(22px, 2.4vw, 30px); border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 12px">
+        <div style="flex: 1 1 420px; min-width: 260px">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+            <span style="font-family: var(--gw-font-display); font-size: 21px; font-weight: 500; line-height: 1.1; color: var(--gw-ink)">Enterprise</span>
+            <span style="font-size: 14px; color: var(--gw-muted-soft)">Custom pricing</span>
           </div>
-          <div style="display: flex; align-items: baseline; gap: 5px">
-            <span style="font-family: var(--gw-font-display); font-size: 44px; font-weight: 500; color: var(--gw-ink); line-height: 1">Custom</span>
-          </div>
-          <a class="gw-btn gw-btn--ghost" href="${DEMO}" ${EXT} style="width: 100%">Contact us</a>
-          <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Custom pricing</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Custom features &amp; workflows</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Dedicated support &amp; onboarding</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Everything in Elite</li>
-          </ul>
+          <p style="font-size: 14.5px; line-height: 1.6; color: var(--gw-muted); margin: 8px 0 0; max-width: 52em; text-wrap: pretty">For larger firms that need it built around them — everything in Elite, plus custom features and workflows and dedicated support and onboarding. Reach out and we'll put together a quote.</p>
         </div>
+        <a class="gw-btn gw-btn--ghost" href="${DEMO}" ${EXT} style="padding: 13px 28px; font-size: 14.5px; white-space: nowrap">Contact us</a>
       </div>
 
       <div style="margin: clamp(34px, 4vw, 48px) 0 0; padding: clamp(28px, 3vw, 36px) 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
