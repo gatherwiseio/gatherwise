@@ -59,7 +59,7 @@ const differentiators = [
   {
     number: "04",
     title: "Purpose-built for planners",
-    body: "HoneyBook serves photographers, coaches and freelancers alike. Gatherwise is shaped around one job: how event and wedding planners actually work.",
+    body: "HoneyBook serves interior designers, web designers and independent consultants alike. Gatherwise is shaped around one job: how event and wedding planners actually work.",
   },
 ];
 
@@ -365,27 +365,6 @@ export default function Page() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className={styles.fit}>
-          <div className={styles.fitCard}>
-            <div className={styles.eyebrow}>Where HoneyBook may fit better</div>
-            <h2 className={styles.fitTitle}>
-              We would rather you pick the right tool than pick us.
-            </h2>
-            <p className={styles.fitText}>
-              If you run a service business that isn&apos;t events — photography,
-              coaching, design — or you lean heavily on scheduling and automated
-              workflows and never touch a timeline or seating chart, HoneyBook is
-              a genuinely great clientflow tool with a large, happy community
-              behind it.
-            </p>
-            <p className={styles.fitClose}>
-              If you plan events for a living and want the sales side and the
-              planning side on one client record — one login for the whole event
-              and the whole business — that is what Gatherwise is for.
-            </p>
           </div>
         </section>
 
