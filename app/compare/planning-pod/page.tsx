@@ -401,7 +401,7 @@ export default function Page() {
                     ))}
                   </div>
                   <span className={styles.priceFoot}>
-                    Up to 50 events at a time. One subscription, one login.
+                    Up to 40 events at a time. One subscription, one login.
                   </span>
                 </div>
 
@@ -435,10 +435,9 @@ export default function Page() {
                 </div>
               </div>
               <p className={styles.pricingNote}>
-                At comparable capacity — up to 50 events — Gatherwise
-                Professional is $59/mo and Planning Pod&apos;s matching tier
-                runs $159/mo. Gatherwise starts at $29/mo overall. All figures
-                as of mid-2026.
+                Gatherwise Professional covers up to 40 events at $59/mo, while
+                Planning Pod&apos;s nearest tier — Enterprise 50 — runs $159/mo.
+                Gatherwise starts at $29/mo overall. All figures as of mid-2026.
               </p>
             </div>
           </div>

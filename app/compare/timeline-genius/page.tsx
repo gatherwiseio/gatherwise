@@ -420,7 +420,7 @@ export default function Page() {
                     ))}
                   </div>
                   <span className={styles.priceFoot}>
-                    Up to 50 events at a time. One subscription, one login.
+                    Up to 40 events at a time. One subscription, one login.
                   </span>
                 </div>
 

@@ -431,7 +431,7 @@ export default function Page() {
                   <span className={styles.chartLabel}>
                     Gatherwise Professional
                     <span className={styles.chartLabelSub}>
-                      Up to 50 events
+                      Up to 40 events
                     </span>
                   </span>
                 </div>
