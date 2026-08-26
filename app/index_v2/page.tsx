@@ -39,9 +39,9 @@ const SIGNUP = "https://app.gatherwise.io/login?m=signup";
 const LOGIN = "https://app.gatherwise.io/login";
 const DEMO = "https://calendly.com/alex-gatherwise/30min";
 const CONTACT_EMAIL = "mailto:hello@gatherwise.io";
-// Help center + legal pages will live on the app subdomain. These paths are
-// placeholders and will 404 until those routes exist.
-const HELP = "https://app.gatherwise.io/help";
+const SUPPORT_EMAIL = "mailto:support@gatherwise.io";
+// Legal pages will live on the app subdomain. These paths are placeholders and
+// will 404 until those routes exist.
 const PRIVACY = "https://app.gatherwise.io/legal?tab=privacy";
 const TERMS = "https://app.gatherwise.io/legal?tab=terms";
 const APPSTORE = "https://apps.apple.com/us/app/gatherwise/id6755325275";
@@ -718,7 +718,7 @@ const PAGE_HTML = `
     <nav aria-label="Resources" class="gw-site-footer__nav">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Resources</h2>
       <a class="gwv2-footlink" href="#pricing" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Pricing</a>
-      <a class="gwv2-footlink" href="${HELP}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Help center</a>
+      <a class="gwv2-footlink" href="${SUPPORT_EMAIL}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Support</a>
       <a class="gwv2-footlink" href="#faq" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">FAQ</a>
       <a class="gwv2-footlink" href="${DEMO}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Book a demo</a>
     </nav>
