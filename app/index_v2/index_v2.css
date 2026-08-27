@@ -873,7 +873,12 @@
   padding-bottom: 44px;
   display: grid;
   gap: 36px 28px;
-  grid-template-columns: minmax(200px, 1.5fr) repeat(3, minmax(0, 1fr)) minmax(0, 0.65fr);
+  /* brand · Product · Resources · Compare · Company · Legal.
+     Compare carries the longest labels ("Timeline Genius alternative")
+     so it gets the widest nav track; Legal has the shortest. */
+  grid-template-columns:
+    minmax(180px, 1.3fr) minmax(0, 1fr) minmax(0, 1fr)
+    minmax(0, 1.25fr) minmax(0, 0.9fr) minmax(0, 0.55fr);
   align-items: start;
 }
 

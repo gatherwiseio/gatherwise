@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs HoneyBook for Event & Wedding Planners",
+  title: "HoneyBook Alternative | Gatherwise vs HoneyBook",
   description:
-    "Compare features side-by-side. HoneyBook serves all kinds of businesses, Gatherwise is built specifically for event & wedding planners",
+    "Looking for a HoneyBook alternative? Compare features side-by-side. HoneyBook serves all kinds of businesses, Gatherwise is built specifically for event & wedding planners.",
+  alternates: { canonical: "/compare/honeybook" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good HoneyBook alternative for event and wedding planners?",
+    answer:
+      "It comes down to what you need after the contract is signed. HoneyBook is a capable clientflow CRM — leads, proposals, contracts, invoicing and payments — and Gatherwise covers that same ground. The difference is that Gatherwise keeps going into the event itself: day-of timelines, task checklists, budgets, guest lists, seating charts and vendor management all sit on the same client record. If HoneyBook is handling your sales but you still run the actual event out of spreadsheets, that gap is what Gatherwise is for.",
+  },
+  {
+    question:
+      "What does Gatherwise do that HoneyBook doesn't?",
+    answer:
+      "Everything on the planning side. Drag-and-drop day-of timelines with reusable templates and a live share URL for vendors, task checklists with @mentions and due-date reminders, budget tracking, guest lists and RSVPs, seating charts and floor plans, and vendor management with vendor payments that appear on the checklist. HoneyBook is built for service businesses of every kind, so none of that is in its scope.",
+  },
+  {
+    question:
+      "How does Gatherwise pricing compare to HoneyBook?",
+    answer:
+      "Gatherwise starts at $29/mo, and the Professional plan is $59/mo for up to 40 events at a time. HoneyBook runs roughly $29–$109/mo depending on plan. The two land within about $10 a month of each other — the real difference is how many other subscriptions you are still paying for alongside. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from HoneyBook to Gatherwise?",
+    answer:
+      "Most planners don't move everything at once. Start the 14-day free trial, run your next event end to end in Gatherwise while HoneyBook finishes the work already in flight, then move the rest across between seasons. You can cancel anytime.",
+  },
+];
 
 type EventRow = {
   label: string;
@@ -127,13 +159,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
@@ -442,6 +479,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="HoneyBook" faqs={faqs} />
+
+        <OtherComparisons slug="honeybook" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -472,6 +513,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="honeybook" name="HoneyBook" />
     </div>
   );
 }

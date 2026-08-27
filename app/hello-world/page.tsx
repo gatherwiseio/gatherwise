@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hello World | Gatherwise",
   description: "A simple hello world page.",
+  // Scratch page — excluded from the sitemap, and told outright not to index
+  // in case it is ever discovered another way.
+  robots: { index: false, follow: false },
 };
 
 export default function HelloWorldPage() {

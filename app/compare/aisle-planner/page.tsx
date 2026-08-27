@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 
 // Scoped to this route: the comparison design uses its own type pairing rather
 // than the site-wide brand fonts.
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs Aisle Planner for Event & Wedding Planners",
+  title: "Aisle Planner Alternative | Gatherwise vs Aisle Planner",
   description:
-    "Compare features side-by-side. Aisle Planner serves the whole events industry, Gatherwise is built specifically for event & wedding planners",
+    "Looking for an Aisle Planner alternative? Compare features side-by-side. Aisle Planner serves the whole events industry, Gatherwise is built specifically for event & wedding planners.",
+  alternates: { canonical: "/compare/aisle-planner" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good Aisle Planner alternative?",
+    answer:
+      "Both are events-industry platforms that cover planning and client work, so the honest answer is that this one turns on pricing model and fit. Aisle Planner charges per project, which means your bill climbs with your book of business. Gatherwise is a flat subscription with a concurrent-event limit, and every tool in it is shaped around how event and wedding planners work rather than the wider industry.",
+  },
+  {
+    question:
+      "What does Gatherwise do differently from Aisle Planner?",
+    answer:
+      "The pricing structure is the clearest difference — a flat monthly plan instead of per-project fees. Beyond that, Gatherwise ships a native iOS and Android app for event day, keeps sales and planning on a single client record, and ties vendor payment due dates into the same task checklist your team already works from.",
+  },
+  {
+    question:
+      "Is Gatherwise cheaper than Aisle Planner?",
+    answer:
+      "At around 30 events a year, yes, and by a wide margin: Gatherwise Professional is $59/mo against roughly $164.99/mo for Aisle Planner — about $1,272 a year. Gatherwise starts at $29/mo on the entry plan. Because Aisle Planner bills per project, the gap widens the more events you take on. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from Aisle Planner to Gatherwise?",
+    answer:
+      "Start the 14-day free trial and run one live event through Gatherwise in parallel — timeline, budget, guest list and seating — while Aisle Planner carries the projects already underway. Because Gatherwise is billed flat rather than per project, there's no cost to setting the next event up early. You can cancel anytime.",
+  },
+];
 
 type TimelineEntry = {
   time: string;
@@ -122,13 +154,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
@@ -460,6 +497,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="Aisle Planner" faqs={faqs} />
+
+        <OtherComparisons slug="aisle-planner" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -487,6 +528,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="aisle-planner" name="Aisle Planner" />
     </div>
   );
 }

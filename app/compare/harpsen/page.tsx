@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs Harpsen for Event & Wedding Planners",
+  title: "Harpsen Alternative | Gatherwise vs Harpsen",
   description:
-    "Compare features side-by-side. Harpsen is a low-cost, wedding-only CRM, Gatherwise is an all-in-one software for event & wedding planners",
+    "Looking for a Harpsen alternative? Compare features side-by-side. Harpsen is a low-cost, wedding-only CRM, Gatherwise is an all-in-one software for event & wedding planners.",
+  alternates: { canonical: "/compare/harpsen" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good Harpsen alternative?",
+    answer:
+      "If you have outgrown a sales-only tool, yes. Harpsen is inexpensive and covers the client-facing side of a wedding business — inquiries, proposals, contracts and invoicing. Gatherwise covers that same ground and then the planning half Harpsen doesn't reach: day-of timelines, task checklists, budgets, guest lists, seating charts and vendor management.",
+  },
+  {
+    question:
+      "What does Gatherwise do that Harpsen doesn't?",
+    answer:
+      "The event itself. Drag-and-drop timelines with templates and a live vendor share URL, task checklists with @mentions and due-date reminders, budget tracking, guest lists and RSVPs, seating charts and floor plans, vendor payments tied to the checklist, and a native iOS and Android app for event day.",
+  },
+  {
+    question:
+      "Is Gatherwise more expensive than Harpsen?",
+    answer:
+      "On the sticker price, yes — Harpsen competes on being cheap. Gatherwise starts at $29/mo and Professional is $59/mo for up to 40 events at a time. The comparison worth making is against Harpsen plus whatever you currently pay for timelines, seating and budgets, since those are separate subscriptions alongside it. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from Harpsen to Gatherwise?",
+    answer:
+      "Start the 14-day free trial and run your next wedding through Gatherwise start to finish — inquiry, proposal, timeline, seating chart and final invoice — while Harpsen keeps the current book. You can cancel anytime.",
+  },
+];
 
 type EventRow = {
   label: string;
@@ -107,13 +139,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a
             href="https://app.gatherwise.io/login?m=signup"
             className={styles.btnPrimary}
@@ -345,6 +382,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="Harpsen" faqs={faqs} />
+
+        <OtherComparisons slug="harpsen" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -375,6 +416,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="harpsen" name="Harpsen" />
     </div>
   );
 }

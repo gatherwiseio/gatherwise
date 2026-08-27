@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs Planning Pod for Event & Wedding Planners",
+  title: "Planning Pod Alternative | Gatherwise vs Planning Pod",
   description:
-    "Compare features side-by-side. Planning Pod serves venues, caterers and planners alike, Gatherwise is built specifically for event & wedding planners",
+    "Looking for a Planning Pod alternative? Compare features side-by-side. Planning Pod serves venues, caterers and planners alike, Gatherwise is built specifically for event & wedding planners.",
+  alternates: { canonical: "/compare/planning-pod" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good Planning Pod alternative?",
+    answer:
+      "If you are a planner rather than a venue or a caterer, it is worth a look. Planning Pod spreads one toolset across venues, caterers and planners, so a good part of what you pay for is built for somebody else's workflow. Gatherwise builds for planners only — the same core jobs, without the venue-and-catering scaffolding around them, at a materially lower price.",
+  },
+  {
+    question:
+      "What does Gatherwise do that Planning Pod doesn't?",
+    answer:
+      "The clearest gap is mobile: Gatherwise ships a native iOS and Android app for event day, where Planning Pod is web-based. Beyond that, Gatherwise keeps leads, proposals, contracts and invoicing on the same client record as the timeline, budget, guest list and seating chart, so nothing is re-entered between the sale and the event.",
+  },
+  {
+    question:
+      "How does Gatherwise pricing compare to Planning Pod?",
+    answer:
+      "Gatherwise Professional covers up to 40 events at a time for $59/mo. Planning Pod's nearest equivalent tier — Enterprise 50 — runs $159/mo, and its entry tier is around $59/mo billed yearly for far fewer events. Gatherwise starts at $29/mo overall. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from Planning Pod to Gatherwise?",
+    answer:
+      "Start the 14-day free trial and set up your next event in Gatherwise while Planning Pod finishes the ones already running. Most planners find a single event is enough to tell whether the workflow fits. You can cancel anytime.",
+  },
+];
 
 type EventRow = {
   label: string;
@@ -127,13 +159,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
@@ -443,6 +480,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="Planning Pod" faqs={faqs} />
+
+        <OtherComparisons slug="planning-pod" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -473,6 +514,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="planning-pod" name="Planning Pod" />
     </div>
   );
 }

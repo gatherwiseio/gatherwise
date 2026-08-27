@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 
 // Scoped to this route: the comparison design uses its own type pairing rather
 // than the site-wide brand fonts.
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs Timeline Genius for Event & Wedding Planners",
+  title: "Timeline Genius Alternative | Gatherwise vs Timeline Genius",
   description:
-    "Compare features side-by-side. Timeline Genius runs timelines, Gatherwise is an all-in-one software for event & wedding planners",
+    "Looking for a Timeline Genius alternative? Compare features side-by-side. Timeline Genius runs timelines, Gatherwise is an all-in-one software for event & wedding planners.",
+  alternates: { canonical: "/compare/timeline-genius" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good Timeline Genius alternative?",
+    answer:
+      "Yes, provided you want more than timelines. Timeline Genius has spent more than a decade on one job and does it well. Gatherwise matches it on the timeline itself — drag-and-drop build, reusable templates, a live share URL for vendors — and then adds the rest of the business: CRM, proposals, contracts, invoicing, budgets, guest lists and seating. If the timeline is genuinely the only part of your process that needs software, Timeline Genius is a fine tool to stay on.",
+  },
+  {
+    question:
+      "What does Gatherwise do that Timeline Genius doesn't?",
+    answer:
+      "Everything either side of the timeline. Leads and client CRM, proposals and contracts, invoicing and online payments, budget tracking, guest lists and RSVPs, seating charts and floor plans, vendor management, and a native iOS and Android app. Timeline Genius leaves each of those to a separate subscription.",
+  },
+  {
+    question:
+      "How does Gatherwise pricing compare to Timeline Genius?",
+    answer:
+      "They are close to level: Gatherwise Professional is $59/mo for up to 40 events at a time, and Timeline Genius Unlimited is $54.95/mo (or $194.95 for five events). Within about $4 a month, the question is how many other tools you are still paying for around it. Gatherwise starts at $29/mo. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from Timeline Genius to Gatherwise?",
+    answer:
+      "Start the 14-day free trial and rebuild one upcoming timeline in Gatherwise — then save it as a template so the next one takes minutes. Run it alongside Timeline Genius for an event or two before you decide. You can cancel anytime.",
+  },
+];
 
 type EventRow = {
   label: string;
@@ -127,13 +159,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
@@ -461,6 +498,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="Timeline Genius" faqs={faqs} />
+
+        <OtherComparisons slug="timeline-genius" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -491,6 +532,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="timeline-genius" name="Timeline Genius" />
     </div>
   );
 }

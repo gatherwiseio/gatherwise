@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import { comparisonGroups, type ComparisonCell } from "./comparison-data";
 import styles from "./page.module.css";
+import CompareFaq from "../CompareFaq";
+import OtherComparisons from "../OtherComparisons";
+import { BreadcrumbJsonLd, SoftwareApplicationJsonLd } from "../jsonld";
 import PhosphorCheck from "../PhosphorCheck";
 import PhosphorCheckCircle from "../PhosphorCheckCircle";
 
@@ -21,10 +25,38 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Gatherwise vs Rock Paper Coin for Event & Wedding Planners",
+  title: "Rock Paper Coin Alternative | Gatherwise vs Rock Paper Coin",
   description:
-    "Compare features side-by-side. Rock Paper Coin handles proposals and payments, Gatherwise is an all-in-one software for event & wedding planners",
+    "Looking for a Rock Paper Coin alternative? Compare features side-by-side. Rock Paper Coin handles proposals and payments, Gatherwise is an all-in-one software for event & wedding planners.",
+  alternates: { canonical: "/compare/rock-paper-coin" },
 };
+
+const faqs = [
+  {
+    question:
+      "Is Gatherwise a good Rock Paper Coin alternative?",
+    answer:
+      "If the paperwork is the only part of your process that lives in software, Rock Paper Coin does that job. Gatherwise suits planners who want the contracts and payments and the event they belong to in one place — timeline, budget, guest list, seating and vendor management on the same client record, rather than a second subscription bolted alongside.",
+  },
+  {
+    question:
+      "What does Gatherwise do that Rock Paper Coin doesn't?",
+    answer:
+      "Rock Paper Coin is built around documents moving between people: contracts out, invoices out, payments in. It has no timeline, budget, guest list or seating tool at any tier. Gatherwise has all four, plus task checklists with reminders and a native iOS and Android app — Rock Paper Coin is web-only.",
+  },
+  {
+    question:
+      "How does Gatherwise pricing compare to Rock Paper Coin?",
+    answer:
+      "Rock Paper Coin is cheaper on the sticker — around $41/mo against $59/mo for Gatherwise Professional — but every online payment it processes carries an added 2.5% fee, which on event-sized invoices is the larger number. Gatherwise starts at $29/mo. All figures as of mid-2026.",
+  },
+  {
+    question:
+      "How do I switch from Rock Paper Coin to Gatherwise?",
+    answer:
+      "Start the 14-day free trial and send your next proposal and invoice through Gatherwise while Rock Paper Coin sees out the contracts already signed in it. Build that event's timeline and seating chart in the same place and you'll know within one event whether it fits. You can cancel anytime.",
+  },
+];
 
 type EventRow = {
   label: string;
@@ -33,33 +65,33 @@ type EventRow = {
 };
 
 const eventRows: EventRow[] = [
-  { label: "Lead, proposal & contract", meta: "Signed" },
-  { label: "Invoices & payments", meta: "Paid", paid: true },
-  { label: "Day-of timeline", meta: "42 items · shared live" },
-  { label: "Budget", meta: "$84,200 tracked" },
-  { label: "Guest list & seating", meta: "180 guests · 18 tables" },
+  { label: "Client contract & deposit", meta: "Signed · 50% in", paid: true },
+  { label: "Vendor contracts", meta: "7 booked · 2 awaiting" },
+  { label: "Vendor payment schedule", meta: "Next due in 9 days" },
+  { label: "Run of show", meta: "42 items · shared live" },
+  { label: "Floor plan & seating", meta: "180 guests · 18 tables" },
 ];
 
 const differentiators = [
   {
     number: "01",
-    title: "It doesn't stop at the paid invoice",
-    body: "Rock Paper Coin gets a client from inquiry to signed and paid, then hands off. Gatherwise carries that same client into the timeline, budget, guest list and seating chart.",
+    title: "Vendor money on the same checklist as vendor work",
+    body: "A florist's balance due and the hour they load in belong to one booking. Here they are — payment dates arrive as tasks, beside the run of show they support.",
   },
   {
     number: "02",
-    title: "Event tools Rock Paper Coin doesn't have",
-    body: "Timelines, task checklists, budget tracking, guest lists and seating charts are core features here — not something you bolt on with a second subscription.",
+    title: "The 2.5% is the number to compare",
+    body: "Rock Paper Coin's subscription is the cheaper line item, but its added 2.5% processing fee scales with every deposit and balance you collect. On event-sized invoices that is the figure that decides it.",
   },
   {
     number: "03",
-    title: "A real mobile app",
-    body: "Native iOS and Android, built for the one place it matters most: standing in a ballroom on event day with your hands full. Rock Paper Coin is web-only.",
+    title: "Built for a ballroom, not a desk",
+    body: "Native iOS and Android, for the hours when you are on your feet with a clipboard in one hand. Rock Paper Coin is web-only — fine for signing a contract, less so at 4pm on load-in day.",
   },
   {
     number: "04",
-    title: "Purpose-built for planners",
-    body: "Rock Paper Coin serves the whole event industry — photographers, florists, venues and planners alike. Gatherwise is shaped around one job: how event and wedding planners actually work.",
+    title: "Shaped for planners, not for everyone",
+    body: "Serving photographers, florists and venues equally well means serving none of them specifically. Gatherwise makes the opposite trade: one trade, fitted properly.",
   },
 ];
 
@@ -127,13 +159,18 @@ export default function Page() {
     <div className={`${cormorant.variable} ${karla.variable} ${styles.page}`}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Gatherwise</span>
+          <Link href="/" className={styles.brandName}>
+            Gatherwise
+          </Link>
           <span className={styles.brandTag}>Comparison</span>
         </div>
         <nav className={styles.nav}>
           <a href="#comparison" className={styles.navLink}>
             Feature table
           </a>
+          <Link href="/compare" className={styles.navLink}>
+            All comparisons
+          </Link>
           <a href="#pricing" className={styles.navLink}>
             Pricing
           </a>
@@ -159,11 +196,11 @@ export default function Page() {
               whole event.
             </h1>
             <p className={styles.heroLede}>
-              Rock Paper Coin is a focused proposals-to-payments tool for event
-              professionals — contracts, invoicing and Stripe-powered payment
-              processing. Gatherwise does that too, then keeps going into the
-              part Rock Paper Coin was never built for: timelines, budgets,
-              guests, seating, and more.
+              Rock Paper Coin keeps your contracts and invoices tidy and moves
+              money between you and your vendors. Gatherwise does that as well —
+              and attaches every one of those documents to the event it belongs
+              to, alongside the run of show, the budget, the guest list and the
+              floor plan.
             </p>
             <div className={styles.heroActions}>
               <a
@@ -216,13 +253,12 @@ export default function Page() {
         <section className={styles.positioning}>
           <div className={styles.wide}>
             <h2 className={`${styles.sectionTitle} ${styles.positioningTitle}`}>
-              Are you looking for a payments tool, or the whole planning
-              platform?
+              Paperwork in one place, or the event that paperwork is for?
             </h2>
             <p className={styles.positioningLede}>
-              Both win you the client and get you paid. The question is what
-              happens next — whether your software follows you into planning
-              the event, or stops at the paid invoice.
+              Every planner needs contracts signed and vendors paid. The
+              question is whether those documents sit in a system of their own,
+              or attached to the event they belong to.
             </p>
             <div className={styles.positioningGrid}>
               <div className={styles.posCard}>
@@ -231,15 +267,16 @@ export default function Page() {
                   Modern software + CRM for event and wedding planners
                 </h3>
                 <p className={styles.posText}>
-                  Built for planners, on purpose. Leads, proposals, contracts
-                  and invoicing sit on the same client record as the timeline,
-                  budget, guests and seating — so nothing is re-entered twice.
+                  Contracts and invoices are attached to an event here, not
+                  filed beside one. Book a vendor and the payment dates land on
+                  your checklist; open the run of show and the same vendor is
+                  already on it.
                 </p>
                 <ul className={styles.posList}>
                   {[
-                    "Sales and payments as capable as a dedicated invoicing tool",
-                    "Timelines, budgets, guests and seating built in",
-                    "One record from first inquiry to final seating chart",
+                    "Proposals, contracts and online payments included",
+                    "Vendor payment dates surface as tasks, not reminders you set",
+                    "The run of show, floor plan and budget live in the same event",
                   ].map((item) => (
                     <li key={item} className={styles.posItem}>
                       <span className={styles.posMark} aria-hidden="true">
@@ -256,19 +293,19 @@ export default function Page() {
                   Rock Paper Coin
                 </div>
                 <h3 className={styles.posTitle}>
-                  A payments-first platform for event professionals
+                  A shared paperwork hub for the whole event industry
                 </h3>
                 <p className={styles.posText}>
-                  Built around one job done well: getting proposals signed and
-                  invoices paid. Photographers, florists, venues and planners
-                  all use it for the same reason — clean contracts and fast,
-                  low-fee payment processing.
+                  One job, done cleanly: moving documents between the people on
+                  an event. Photographers, florists, venues and planners all
+                  work in it, which is the appeal — the vendor you are chasing
+                  may already have an account.
                 </p>
                 <ul className={styles.posList}>
                   {[
                     "Strong proposals, contracts and Stripe-powered payments",
-                    "QuickBooks sync and flexible processing fees",
-                    "No timelines, budgets, guest lists or seating — pair it with other tools",
+                    "QuickBooks sync, and vendors on the platform already",
+                    "The documents, but not the event — no run of show, budget, guest list or floor plan",
                   ].map((item) => (
                     <li
                       key={item}
@@ -355,7 +392,7 @@ export default function Page() {
           <div className={styles.wide}>
             <div className={styles.eyebrow}>Where Gatherwise wins</div>
             <h2 className={`${styles.sectionTitle} ${styles.winsTitle}`}>
-              Four differences you will feel on every event.
+              Four things that decide it, once the contract is signed.
             </h2>
             <div className={styles.winsGrid}>
               {differentiators.map((item) => (
@@ -445,6 +482,10 @@ export default function Page() {
           </div>
         </section>
 
+        <CompareFaq competitor="Rock Paper Coin" faqs={faqs} />
+
+        <OtherComparisons slug="rock-paper-coin" />
+
         <section id="trial" className={styles.cta}>
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>Start your free trial</h2>
@@ -475,6 +516,9 @@ export default function Page() {
         </span>
         <span>Effortless event planning starts here.</span>
       </footer>
+
+      <SoftwareApplicationJsonLd />
+      <BreadcrumbJsonLd slug="rock-paper-coin" name="Rock Paper Coin" />
     </div>
   );
 }

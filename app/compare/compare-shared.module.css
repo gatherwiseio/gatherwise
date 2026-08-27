@@ -1,0 +1,174 @@
+/* Styles for the sections shared across every /compare/* page (the FAQ and
+   the cross-links to the other comparisons).
+
+   These components render inside .page from each route's page.module.css, so
+   the palette tokens (--gw-ink, --gw-gold, …) inherit through the DOM and are
+   used here directly. Nothing in this file redefines them. */
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+  margin-bottom: 18px;
+}
+
+.sectionTitle {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 40px;
+}
+
+/* --------------------------------------------------------------------- faq */
+
+.faq {
+  padding: var(--gw-section-y) var(--gw-gutter);
+  background: var(--gw-parchment);
+}
+
+.faqInner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faqLede {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--gw-muted);
+  margin: -24px 0 40px;
+  max-width: 58ch;
+}
+
+.faqList {
+  display: grid;
+  gap: 2px;
+  background: rgb(var(--gw-ink-rgb) / 0.08);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+}
+
+.faqItem {
+  background: var(--gw-parchment);
+  padding: clamp(22px, 2.4vw, 30px) 0;
+}
+
+.faqQuestion {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 25px);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.faqAnswer {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--gw-muted);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ---------------------------------------------------- other comparisons */
+
+.more {
+  padding: var(--gw-section-y) var(--gw-gutter);
+  background: var(--gw-cream);
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.08);
+}
+
+.moreInner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.moreLede {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--gw-muted);
+  margin: -24px 0 40px;
+  max-width: 58ch;
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.moreCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(22px, 2.4vw, 28px);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.12);
+  background: var(--gw-cream);
+  color: inherit;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.moreCard:hover {
+  border-color: var(--gw-gold);
+  background: var(--gw-parchment);
+  transform: translateY(-2px);
+}
+
+.moreCategory {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gw-gold);
+}
+
+.moreName {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.moreText {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--gw-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.moreLink {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gw-ink);
+  border-bottom: 1px solid var(--gw-gold);
+  align-self: flex-start;
+  padding-bottom: 2px;
+  margin-top: 4px;
+}
+
+.moreAll {
+  margin: 36px 0 0;
+  font-size: 15px;
+  color: var(--gw-muted);
+}
+
+.moreAllLink {
+  color: var(--gw-ink);
+  border-bottom: 1px solid var(--gw-gold);
+  padding-bottom: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moreCard {
+    transition: none;
+  }
+
+  .moreCard:hover {
+    transform: none;
+  }
+}

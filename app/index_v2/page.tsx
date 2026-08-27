@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   title: "Gatherwise | Built for Event & Wedding Planner Pros",
   description:
     "All-in-one event software for professional planners. Timelines, Layouts, Budget, Guests, Vendors, Contracts, Invoices, Sales, Proposals, Questionnaires, Floorplans, and more",
+  // This module backs both "/" and "/index_v2"; pointing the canonical at "/"
+  // tells Google the two URLs are one page and "/" is the one to index.
+  alternates: { canonical: "/" },
 };
 
 // --- Link map (from the handoff / gatherwise.io) ------------------------------
@@ -85,6 +88,7 @@ const PAGE_HTML = `
       <div style="display: flex; align-items: center; gap: 26px; font-size: 14.5px; letter-spacing: 0.01em">
         <a class="gwv2-navlink" href="#timelines" style="text-decoration: none; color: var(--gw-muted)">Features</a>
         <a class="gwv2-navlink" href="#pricing" style="text-decoration: none; color: var(--gw-muted)">Pricing</a>
+        <a class="gwv2-navlink" href="/compare" style="text-decoration: none; color: var(--gw-muted)">Compare</a>
         <a class="gwv2-navlink" href="${DEMO}" ${EXT} style="text-decoration: none; color: var(--gw-muted)">Book Demo</a>
       </div>
       <div style="display: flex; align-items: center; gap: 16px">
@@ -103,6 +107,7 @@ const PAGE_HTML = `
       <nav data-mobile-nav="" aria-label="Primary mobile" class="gwv2-menu__panel">
         <a class="gwv2-menu__link" href="#timelines">Features</a>
         <a class="gwv2-menu__link" href="#pricing">Pricing</a>
+        <a class="gwv2-menu__link" href="/compare">Compare</a>
         <a class="gwv2-menu__link" href="${DEMO}" ${EXT}>Book Demo</a>
         <a class="gwv2-menu__link" href="${LOGIN}">Log In</a>
         <a class="gw-btn gw-btn--large" href="${SIGNUP}">Start free trial</a>
@@ -720,7 +725,17 @@ const PAGE_HTML = `
       <a class="gwv2-footlink" href="#pricing" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Pricing</a>
       <a class="gwv2-footlink" href="${SUPPORT_EMAIL}" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Support</a>
       <a class="gwv2-footlink" href="#faq" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">FAQ</a>
+      <a class="gwv2-footlink" href="/compare" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Compare alternatives</a>
       <a class="gwv2-footlink" href="${DEMO}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Book a demo</a>
+    </nav>
+    <nav aria-label="Compare" class="gw-site-footer__nav">
+      <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Compare</h2>
+      <a class="gwv2-footlink" href="/compare/honeybook" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">HoneyBook alternative</a>
+      <a class="gwv2-footlink" href="/compare/aisle-planner" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Aisle Planner alternative</a>
+      <a class="gwv2-footlink" href="/compare/planning-pod" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Planning Pod alternative</a>
+      <a class="gwv2-footlink" href="/compare/timeline-genius" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Timeline Genius alternative</a>
+      <a class="gwv2-footlink" href="/compare/harpsen" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Harpsen alternative</a>
+      <a class="gwv2-footlink" href="/compare/rock-paper-coin" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Rock Paper Coin alternative</a>
     </nav>
     <nav aria-label="Company" class="gw-site-footer__nav">
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Company</h2>
