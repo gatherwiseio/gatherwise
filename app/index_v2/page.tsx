@@ -564,9 +564,18 @@ const PAGE_HTML = `
           <a class="gw-btn gw-btn--ghost" href="${SIGNUP}" style="width: 100%">Sign up</a>
           <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}15 active projects</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 admin + 1 team member</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 questionnaire</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 admin + 1 team member</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Payment processing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
           </ul>
         </div>
 
@@ -585,9 +594,18 @@ const PAGE_HTML = `
           <a class="gw-btn gw-btn--large" href="${SIGNUP}" style="width: 100%">Sign up</a>
           <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}40 active projects</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}3 questionnaires</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Payment processing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
           </ul>
         </div>
 
@@ -603,9 +621,18 @@ const PAGE_HTML = `
           <a class="gw-btn gw-btn--ghost" href="${SIGNUP}" style="width: 100%">Sign up</a>
           <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1); display: grid; gap: 12px">
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited projects</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited questionnaires</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Every feature included</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Payment processing</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
           </ul>
         </div>
       </div>
@@ -622,21 +649,6 @@ const PAGE_HTML = `
         <a class="gw-btn gw-btn--ghost" href="${DEMO}" ${EXT} style="padding: 13px 28px; font-size: 14.5px; white-space: nowrap">Contact us</a>
       </div>
 
-      <div style="margin: clamp(34px, 4vw, 48px) 0 0; padding: clamp(28px, 3vw, 36px) 0 0; border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.12)">
-        <h3 class="gw-eyebrow" style="margin: 0 0 18px">Every plan includes</h3>
-        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px 26px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client lead inquiry form</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Task checklists</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Vendor management</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Client invoicing</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Payment processing</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Event templates</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Guest management</li>
-          <li style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
-        </ul>
-      </div>
 
       <div style="margin: 20px 0 0">
         <div class="gw-callout">
