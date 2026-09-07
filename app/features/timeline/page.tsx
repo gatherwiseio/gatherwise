@@ -18,11 +18,33 @@ const karla = Karla({
   display: "swap",
 });
 
+const TITLE = "Event & Wedding Timeline Software for Planners | Gatherwise";
+const DESCRIPTION =
+  "Build a run of show for every event day, assign each item to a vendor, guest or teammate, and share a filtered PDF timeline. Start a free trial.";
+const OG_TITLE = "Event & Wedding Timeline Software for Planners";
+const OG_DESCRIPTION =
+  "Build a run of show for every event day, assign each item to a vendor, guest or teammate, and share a filtered PDF timeline.";
+const CANONICAL_URL = "https://gatherwise.io/features/timeline";
+const OG_IMAGE = "https://gatherwise.io/images/timeline-share-menu.png";
+
 export const metadata: Metadata = {
-  title: "Event Timelines | Gatherwise",
-  description:
-    "Build the schedule for every event day, name who is responsible for each item, and share a filtered PDF or the full run of show with vendors, guests and your team.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/features/timeline" },
+  openGraph: {
+    type: "website",
+    url: CANONICAL_URL,
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    siteName: "Gatherwise",
+    images: [{ url: OG_IMAGE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
 };
 
 const runOfShow = [
@@ -142,7 +164,7 @@ export default function Page() {
           <div className={styles.heroCopy}>
             <div className={styles.eyebrow}>Features · Timelines</div>
             <h1 className={styles.heroTitle}>
-              From the first hair appointment to the{" "}
+              Event timelines, from the first hair appointment to the{" "}
               <span className={styles.heroTitleAccent}>last dance</span>.
             </h1>
             <p className={styles.heroLede}>
@@ -331,7 +353,10 @@ export default function Page() {
               >
                 Start free trial
               </a>
-              <a href="#sharing" className={styles.btnGhost}>
+              <a
+                href="https://calendly.com/alex-gatherwise/30min"
+                className={styles.btnGhost}
+              >
                 Talk to a human first
               </a>
             </div>
