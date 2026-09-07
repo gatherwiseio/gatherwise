@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import styles from "./page.module.css";
 import { SoftwareApplicationJsonLd, FaqJsonLd } from "../../compare/jsonld";
+import OtherFeatures from "../OtherFeatures";
 
 // Scoped to this route, same as the /compare pages this design system shares.
 const cormorant = Cormorant_Garamond({
@@ -338,6 +339,8 @@ export default function Page() {
             </p>
           </div>
         </section>
+
+        <OtherFeatures slug="timeline" />
 
         <section className={styles.cta}>
           <div className={styles.ctaInner}>
