@@ -547,7 +547,7 @@ const PAGE_HTML = `
         <p class="gw-eyebrow" style="margin: 0 0 18px">Pricing</p>
         <h2 class="gw-heading gw-heading--section">Simple, <span class="gw-heading__accent">transparent</span> pricing.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 20px 0 0; text-wrap: pretty">Choose the best plan for your team. Pay by the month and cancel at any time.</p>
-        <p style="font-family: var(--gw-font-display); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.3; color: var(--gw-ink); margin: 22px 0 0">Every plan includes every feature. The tiers only change how much you can run at once.</p>
+        <p style="font-family: var(--gw-font-display); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.3; color: var(--gw-ink); margin: 22px 0 0">Every plan includes the full feature set. The tiers change how much you can run at once — and Elite adds per-tab permissions for clients and team members.</p>
       </div>
 
       <div style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); margin: clamp(30px, 4vw, 44px) 0 0; align-items: stretch">
@@ -568,6 +568,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 questionnaire</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 admin + 1 team member</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Shared access for clients and team</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
@@ -598,6 +599,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}3 questionnaires</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Shared access for clients and team</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
@@ -625,6 +627,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited clients</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited questionnaires</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}2 admins + 2 team members</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}View-only or edit access, per tab</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
@@ -648,16 +651,6 @@ const PAGE_HTML = `
         </div>
         <a class="gw-btn gw-btn--ghost" href="${DEMO}" ${EXT} style="padding: 13px 28px; font-size: 14.5px; white-space: nowrap">Contact us</a>
       </div>
-
-
-      <div style="margin: 20px 0 0">
-        <div class="gw-callout">
-          <div class="gw-eyebrow">Priced for a seasonal business</div>
-          <h2 class="gw-callout__title">A flat monthly rate — not per event, not per project.</h2>
-          <p class="gw-callout__text">Planning work is seasonal; software billing usually is not. Gatherwise is a flat monthly rate — not per event, not per project — so a six-wedding weekend in May costs exactly what a quiet January costs.</p>
-          <p class="gw-callout__text">Change plans as your load changes, and cancel any month. Your past events stay where you left them.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -674,7 +667,7 @@ const PAGE_HTML = `
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">How does the 14-day free trial work?</h3><span class="gw-faq__icon" aria-hidden="true"></span></summary>
-          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Fourteen days, every feature, no credit card. Build a real event in it — that's the only way to know. There's no free tier after the trial, so if it isn't earning its keep you simply don't continue.</p>
+          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Fourteen days on Professional, no credit card. Build a real event in it — that's the only way to know. There's no free tier after the trial, so if it isn't earning its keep you simply don't continue.</p>
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">What counts toward my project limit?</h3><span class="gw-faq__icon" aria-hidden="true"></span></summary>
