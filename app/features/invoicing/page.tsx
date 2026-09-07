@@ -40,6 +40,7 @@ export default function Page() {
       intro="Build the invoice on the event it belongs to, switch on the payment methods you want, and offer a lower price for bank transfer. What is quoted, paid and outstanding stays visible without a second accounting tool."
       screenshotSrc={`/images/features/${SLUG}.png`}
       screenshotAlt="The Gatherwise invoice creator, with payment methods and a live invoice preview"
+      hasDesktopChrome
       details={[
         {
           title: "Card or bank transfer",

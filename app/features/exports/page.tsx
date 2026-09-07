@@ -40,6 +40,7 @@ export default function Page() {
       intro="Choose the sections to include — timeline, vendors, seating, guests, budget — preview it, and generate both a branded PDF and a live page in one step. Hand the couple a printed run of show, and keep the venue on the link so their copy never goes stale. Every export you have made stays listed for the event."
       screenshotSrc={`/images/features/${SLUG}.png`}
       screenshotAlt="The Gatherwise event export builder, choosing sections beside a live PDF and page preview"
+      hasDesktopChrome
       details={[
         {
           title: "Pick the sections",

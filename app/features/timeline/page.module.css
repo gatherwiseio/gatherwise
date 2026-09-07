@@ -436,6 +436,8 @@
 
 .shots img {
   width: 100%;
+  max-width: 65%;
+  margin: 0 auto;
   display: block;
   background: var(--gw-cream);
   border: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
