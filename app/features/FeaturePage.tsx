@@ -28,9 +28,6 @@ export type FeaturePageProps = {
   intro: string;
   screenshotSrc: string;
   screenshotAlt: string;
-  /** True when the screenshot already shows its own browser/laptop chrome —
-   * skips the added dark frame so it doesn't double up on window chrome. */
-  hasDesktopChrome?: boolean;
   details: FeatureDetail[];
 };
 
@@ -44,7 +41,6 @@ export default function FeaturePage({
   intro,
   screenshotSrc,
   screenshotAlt,
-  hasDesktopChrome = false,
   details,
 }: FeaturePageProps) {
   return (
@@ -76,34 +72,29 @@ export default function FeaturePage({
 
       <main>
         <section className={styles.hero}>
-          <div className={styles.wide}>
-            <div className={styles.eyebrow}>{eyebrow}</div>
-            <h1 className={styles.heroTitle}>{title}</h1>
-            <p className={styles.heroLede}>{intro}</p>
-            <div className={styles.heroActions}>
-              <a
-                href="https://app.gatherwise.io/login?m=signup"
-                className={styles.btnPrimaryLarge}
-              >
-                Start free trial
-              </a>
-              <a
-                href="https://calendly.com/alex-gatherwise/30min"
-                className={styles.btnGhost}
-                style={{ color: "var(--gw-ink)", borderColor: "rgb(var(--gw-ink-rgb) / 0.35)" }}
-              >
-                Talk to a human first
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.showcase}>
-          <div className={styles.wide}>
-            <div className={styles.showcaseInner}>
-              <div className={hasDesktopChrome ? styles.showcaseBare : styles.showcaseFrame}>
-                <img src={screenshotSrc} alt={screenshotAlt} />
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <div className={styles.eyebrow}>{eyebrow}</div>
+              <h1 className={styles.heroTitle}>{title}</h1>
+              <p className={styles.heroLede}>{intro}</p>
+              <div className={styles.heroActions}>
+                <a
+                  href="https://app.gatherwise.io/login?m=signup"
+                  className={styles.btnPrimaryLarge}
+                >
+                  Start free trial
+                </a>
+                <a
+                  href="https://calendly.com/alex-gatherwise/30min"
+                  className={styles.btnGhost}
+                  style={{ color: "var(--gw-ink)", borderColor: "rgb(var(--gw-ink-rgb) / 0.35)" }}
+                >
+                  Talk to a human first
+                </a>
               </div>
+            </div>
+            <div className={styles.heroPanel}>
+              <img src={screenshotSrc} alt={screenshotAlt} />
             </div>
           </div>
         </section>

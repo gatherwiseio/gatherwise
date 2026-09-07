@@ -40,7 +40,6 @@ export default function Page() {
       intro="Drag tables onto the room, seat guests by name, and color the seats by meal choice. Change the count and the chart changes with it — then export the room, or share a live link with the venue and the caterer."
       screenshotSrc={`/images/features/${SLUG}.png`}
       screenshotAlt="A Gatherwise seating chart with tables dragged onto a room layout, seats colored by meal choice"
-      hasDesktopChrome
       details={[
         {
           title: "Seat by name",

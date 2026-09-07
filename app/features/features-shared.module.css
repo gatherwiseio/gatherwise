@@ -166,8 +166,18 @@
 /* ------------------------------------------------------------------- hero */
 
 .hero {
-  padding: var(--gw-section-y) max(var(--gw-gutter), calc((100% - 1180px) / 2))
-    clamp(40px, 5vw, 56px);
+  padding: var(--gw-section-y) max(var(--gw-gutter), calc((100% - 1180px) / 2));
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.heroCopy {
+  min-width: 0;
 }
 
 .heroTitle {
@@ -179,14 +189,13 @@
   margin: 14px 0 0;
   text-wrap: pretty;
   color: var(--gw-ink);
-  max-width: 18ch;
 }
 
 .heroLede {
   font-size: 17.5px;
   line-height: 1.7;
   color: var(--gw-muted);
-  max-width: 46em;
+  max-width: 40em;
   margin: 22px 0 30px;
 }
 
@@ -197,40 +206,20 @@
   gap: 16px;
 }
 
-/* -------------------------------------------------------------- showcase */
-
-.showcase {
-  padding: 0 max(var(--gw-gutter), calc((100% - 1180px) / 2))
-    clamp(40px, 5vw, 56px);
+/* Screenshot beside the hero copy — every source image is already just the
+   app content (no browser/laptop chrome baked in), so a plain bordered panel
+   is enough; nothing needs an extra dark frame on top of it. */
+.heroPanel {
+  min-width: 0;
 }
 
-.showcaseInner {
-  max-width: 65%;
-  margin: 0 auto;
-}
-
-/* Used when the screenshot has no browser/laptop chrome baked in (a floating
-   card, a modal) — this wrapper supplies the "mounted on a page" framing. */
-.showcaseFrame {
-  background: #26221d;
-  border-radius: 10px;
-  padding: 10px 10px 20px;
-  box-shadow: 0 32px 70px -30px rgb(var(--gw-ink-rgb) / 0.45);
-}
-
-.showcaseFrame img {
+.heroPanel img {
   width: 100%;
   display: block;
-  border-radius: 4px;
-}
-
-/* Used when the screenshot already shows its own browser/laptop chrome —
-   no extra border or background, or it reads as a frame around a frame. */
-.showcaseBare img {
-  width: 100%;
-  display: block;
-  border-radius: 6px;
-  box-shadow: 0 32px 70px -30px rgb(var(--gw-ink-rgb) / 0.45);
+  background: var(--gw-cream);
+  border: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
+  border-radius: 3px;
+  box-shadow: 0 24px 60px -32px rgb(var(--gw-ink-rgb) / 0.4);
 }
 
 /* --------------------------------------------------------------- details */

@@ -40,7 +40,6 @@ export default function Page() {
       intro="Estimated against actual, category by category, with paid and still due in the same row. Expenses link to the vendors they came from, so the grand total moves as invoices settle — and the whole sheet exports or shares when the client asks where things stand."
       screenshotSrc={`/images/features/${SLUG}.png`}
       screenshotAlt="A Gatherwise event budget broken out by category, showing estimated vs. actual, paid and due"
-      hasDesktopChrome
       details={[
         {
           title: "Estimate vs actual",
