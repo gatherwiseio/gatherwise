@@ -283,7 +283,7 @@ export const STACK_ANIMATION_HTML = `
             </div>
           </div>
 <div style="position:absolute;left:0;right:0;top:26px;text-align:center;height:100px">
-              <div style="position:absolute;left:0;right:0;bottom:0;font-family:var(--gw-font-display);font-size:34px;color:var(--gw-muted);animation:gws_kick1A var(--loop,19s) cubic-bezier(.4,0,.2,1) infinite">Ten tabs to plan one wedding.</div>
+              <div style="position:absolute;left:0;right:0;bottom:0;font-family:var(--gw-font-display);font-size:34px;color:var(--gw-muted);animation:gws_kick1A var(--loop,19s) cubic-bezier(.4,0,.2,1) infinite">Ten tabs to plan one event.</div>
               <div style="position:absolute;left:0;right:0;bottom:0;animation:gws_kick2A var(--loop,19s) cubic-bezier(.4,0,.2,1) infinite">
                 <div style="font-family:var(--gw-font-body);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:#8B8177;margin-bottom:10px">One tab. One event. One login.</div>
                 <div style="font-family:var(--gw-font-display);font-size:34px;color:var(--gw-ink)">Everything to plan the event, <span style="color:var(--gw-gold)">in one place.</span></div>
