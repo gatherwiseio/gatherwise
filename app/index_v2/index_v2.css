@@ -99,6 +99,22 @@
   outline-offset: 3px;
 }
 
+/* The gold ring is for keyboards. WebKit also paints its own grey tap box on
+   every press, and iOS Safari treats programmatic focus after a touch as
+   focus-visible — which the review modal does twice, showModal() onto the ✕
+   and btn.focus() back onto a full-width "read more" on close, so the ring
+   drew a box around the whole row. Touch keeps the styles, loses the boxes. */
+.gwv2 :is(a, button, [tabindex]) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (pointer: coarse) {
+  .gwv2 .gw-review__more:focus-visible,
+  .gwv2 .gw-modal__close:focus-visible {
+    outline: none;
+  }
+}
+
 /* Form fields: quiet 1px border; gold replaces it on focus (no outer outline) */
 .gwv2 .gw-input,
 .gwv2 :is(input, textarea, select) {
