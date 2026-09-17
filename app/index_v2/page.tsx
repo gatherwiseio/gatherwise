@@ -146,7 +146,7 @@ const PAGE_HTML = `
   <section id="one-platform" style="background: var(--gw-ink); color: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter)">
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 60em">
-        <p class="gw-eyebrow" style="margin: 0 0 18px">One platform, not ten tabs</p>
+        <p class="gw-eyebrow" style="margin: 0 0 18px">One platform, not twelve tabs</p>
         <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">Replace the whole stack with <span class="gw-heading__accent">one platform</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: rgb(var(--gw-parchment-rgb) / 0.75); margin: 20px 0 0; max-width: 36em; text-wrap: pretty">The PDFs, spreadsheets, docs, forms and one-off planning apps you juggle for every event — all replaced by a single place built for planners.</p>
       </div>
@@ -163,6 +163,7 @@ const PAGE_HTML = `
         <li class="gw-offer__item">${CHECK}Questionnaires</li>
         <li class="gw-offer__item">${CHECK}Timelines</li>
         <li class="gw-offer__item">${CHECK}Floor plans &amp; layouts</li>
+        <li class="gw-offer__item">${CHECK}Moodboards</li>
         <li class="gw-offer__item">${CHECK}Checklists</li>
         <li class="gw-offer__item">${CHECK}Notes</li>
         <li class="gw-offer__item">${CHECK}Guest lists</li>
@@ -475,22 +476,6 @@ const PAGE_HTML = `
     <div class="gw-reviews__track" data-review-track tabindex="0" role="group" aria-label="Planner reviews — scroll horizontally">
       <figure class="gw-review">
         <div class="gw-review__media">
-            <img class="gw-review__portrait" loading="lazy" src="/index_v2/paige-farkas.jpeg" alt="Paige Farkas of Farkas Events walking with a planning clipboard." style="object-position: 50% 18%; transform: scale(1.2); transform-origin: 50% 22%">
-        </div>
-        <div class="gw-review__body">
-          <blockquote style="margin: 0">
-            <p class="gw-review__quote">“An absolute game changer as a solo planner managing multiple couples. Budgets, tasks and vendors finally link together — and the drag-and-drop timeline is the standout.”</p>
-          </blockquote>
-          <figcaption class="gw-review__who">
-            <img class="gw-review__logo" loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1776888406327x121972771338876960/farkas.png" alt="Farkas Events">
-            <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong style="color: var(--gw-ink); font-weight: 700">Paige Farkas</strong><br>Owner &amp; Lead Planner, Farkas Events</span>
-          </figcaption>
-          <button type="button" class="gw-review__more" data-review-open="review-farkas" aria-haspopup="dialog">Read the full review</button>
-        </div>
-      </figure>
-
-      <figure class="gw-review">
-        <div class="gw-review__media">
           <img class="gw-review__portrait" loading="lazy" src="/index_v2/shelby-martin.png" alt="Shelby Martin of Martin &amp; Co. Premier Event Planning." style="object-position: 50% 15%">
         </div>
         <div class="gw-review__body">
@@ -504,7 +489,53 @@ const PAGE_HTML = `
           <button type="button" class="gw-review__more" data-review-open="review-martin" aria-haspopup="dialog">Read the full review</button>
         </div>
       </figure>
+
+      <figure class="gw-review">
+        <div class="gw-review__media">
+          <img class="gw-review__portrait" loading="lazy" src="/index_v2/candace-kelly.webp" alt="Candace Kelly of Overjoyed Weddings &amp; Events seated outdoors with an album of her work." style="object-position: 50% 38%">
+        </div>
+        <div class="gw-review__body">
+          <blockquote style="margin: 0">
+            <p class="gw-review__quote">“Having both our event-planning system and website created through Gatherwise has helped everything feel more cohesive and aligned with the elevated experience we want to provide.”</p>
+          </blockquote>
+          <figcaption class="gw-review__who">
+            <img class="gw-review__logo" loading="lazy" src="/index_v2/overjoyed.png" alt="Overjoyed Weddings &amp; Events">
+            <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong style="color: var(--gw-ink); font-weight: 700">Candace Kelly</strong><br>Owner &amp; Lead Planner/Designer, Overjoyed Weddings &amp; Events</span>
+          </figcaption>
+          <button type="button" class="gw-review__more" data-review-open="review-kelly" aria-haspopup="dialog">Read the full review</button>
+        </div>
+      </figure>
+
+      <figure class="gw-review">
+        <div class="gw-review__media">
+            <img class="gw-review__portrait" loading="lazy" src="/index_v2/paige-farkas.jpeg" alt="Paige Farkas of Farkas Events walking with a planning clipboard." style="object-position: 50% 18%; transform: scale(1.2); transform-origin: 50% 22%">
+        </div>
+        <div class="gw-review__body">
+          <blockquote style="margin: 0">
+            <p class="gw-review__quote">“An absolute game changer as a solo planner managing multiple couples. Budgets, tasks and vendors finally link together — and the drag-and-drop timeline is the standout.”</p>
+          </blockquote>
+          <figcaption class="gw-review__who">
+            <img class="gw-review__logo" loading="lazy" src="https://5e364458276059f98e6f71fb28ad5255.cdn.bubble.io/f1776888406327x121972771338876960/farkas.png" alt="Farkas Events">
+            <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong style="color: var(--gw-ink); font-weight: 700">Paige Farkas</strong><br>Owner &amp; Lead Planner, Farkas Events</span>
+          </figcaption>
+          <button type="button" class="gw-review__more" data-review-open="review-farkas" aria-haspopup="dialog">Read the full review</button>
+        </div>
+      </figure>
     </div>
+
+    <dialog class="gw-modal" id="review-kelly" aria-labelledby="review-kelly-name">
+      <div class="gw-modal__panel">
+        <button type="button" class="gw-modal__close" data-review-close aria-label="Close">${CLOSE_ICON}</button>
+        <header class="gw-modal__head">
+          <img class="gw-review__logo" loading="lazy" src="/index_v2/overjoyed.png" alt="Overjoyed Weddings &amp; Events">
+          <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong id="review-kelly-name" style="color: var(--gw-ink); font-weight: 700">Candace Kelly</strong><br>Owner &amp; Lead Planner/Designer, Overjoyed Weddings &amp; Events</span>
+        </header>
+        <div class="gw-modal__body">
+          <p class="gw-modal__lede">“Gatherwise has become such a meaningful part of how I organize our events.”</p>
+          <p class="gw-modal__text">Gatherwise has become such a meaningful part of how I organize our events and thoughtfully guide our couples through the planning process. Having both our event-planning system and website created through Gatherwise has helped everything feel more cohesive and aligned with the elevated experience we want to provide.</p>
+        </div>
+      </div>
+    </dialog>
 
     <dialog class="gw-modal" id="review-farkas" aria-labelledby="review-farkas-name">
       <div class="gw-modal__panel">

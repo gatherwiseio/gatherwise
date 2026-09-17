@@ -168,7 +168,7 @@ export const comparisonGroups: ComparisonGroup[] = [
       {
         capability: "Moodboard",
         detail: "Visual inspiration board for a client",
-        gatherwise: { kind: "no", note: "AI moodboard — coming soon" },
+        gatherwise: { kind: "yes" },
         aislePlanner: { kind: "yes" },
       },
       {
