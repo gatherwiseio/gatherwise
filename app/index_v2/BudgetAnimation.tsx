@@ -28,6 +28,8 @@ import {
   type CSSProperties,
 } from "react";
 
+import { watchActivation } from "./scrollActivation";
+
 /* ---------------------------------------------------------------- the clock */
 
 // Verbatim from the design's OM_SCENES.
@@ -579,12 +581,6 @@ export default function BudgetAnimation() {
     let raf = 0;
     let last = 0;
     let time = 0;
-    let onScreen = false;
-    // Held on the first frame until half the sheet has scrolled into view, so
-    // the sequence is always caught from its opening beat rather than
-    // somewhere in the middle. After that first arming, any sliver on screen
-    // is enough to keep it running.
-    let armed = false;
 
     const step = (ts: number) => {
       if (!last) last = ts;
@@ -594,7 +590,7 @@ export default function BudgetAnimation() {
       raf = requestAnimationFrame(step);
     };
     const start = () => {
-      if (raf || !armed || !onScreen || document.hidden) return;
+      if (raf) return;
       last = 0;
       raf = requestAnimationFrame(step);
     };
@@ -603,32 +599,16 @@ export default function BudgetAnimation() {
       raf = 0;
     };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[entries.length - 1];
-        onScreen = entry.isIntersecting;
-
-        if (!armed && onScreen) {
-          // rect maths rather than an intersectionRatio threshold, which a
-          // sheet taller than the viewport could never reach
-          const r = entry.boundingClientRect;
-          armed = r.top + r.height / 2 <= window.innerHeight;
-        }
-        onScreen ? start() : stop();
-      },
-      // enough steps that the check re-runs as the sheet scrolls up, not just
-      // when it first touches the edge
-      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] },
+    // Arming, the off-screen park and the hidden-tab park all live in
+    // watchActivation — see scrollActivation.ts for why the geometry is
+    // re-read live rather than trusted from an observer entry.
+    const unwatch = watchActivation(el, (active) =>
+      active ? start() : stop(),
     );
-    io.observe(el);
-
-    const onVisibility = () => (document.hidden ? stop() : start());
-    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       stop();
-      io.disconnect();
-      document.removeEventListener("visibilitychange", onVisibility);
+      unwatch();
     };
   }, []);
 

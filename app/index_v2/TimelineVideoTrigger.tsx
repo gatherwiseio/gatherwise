@@ -13,39 +13,38 @@
  * the poster frame is what a visitor gets — this component owns that decision
  * now that the markup carries no autoplay of its own.
  *
+ * The scroll gate is watchActivation, shared with the other motion pieces, so
+ * a tab left idle and returned to re-evaluates the geometry rather than
+ * replaying a stale observer entry — see scrollActivation.ts.
+ *
  * Renders nothing. The <video> itself is server-rendered inside PAGE_HTML.
  */
 
 import { useEffect } from "react";
+
+import { watchActivation } from "./scrollActivation";
 
 // how much of the video has to be showing, measured down from its top edge
 const REVEAL = 1 / 3;
 
 export default function TimelineVideoTrigger() {
   useEffect(() => {
-    const video = document.querySelector<HTMLVideoElement>("video[data-scroll-play]");
+    const video = document.querySelector<HTMLVideoElement>(
+      "video[data-scroll-play]",
+    );
     if (!video) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let started = false;
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (reduceMotion.matches) {
+    return watchActivation(
+      video,
+      (active) => {
+        if (!active || reduceMotion.matches) {
           video.pause();
           return;
         }
-        if (!entry.isIntersecting) {
-          video.pause();
-          return;
-        }
-
-        // the viewport's bottom edge has reached a third of the way down the
-        // video. Derived from the rect rather than an intersectionRatio
-        // threshold, which a video taller than the viewport could never hit.
         if (!started) {
-          const r = entry.boundingClientRect;
-          if (r.top + r.height * REVEAL > window.innerHeight) return;
           started = true;
           video.currentTime = 0;
         }
@@ -54,13 +53,8 @@ export default function TimelineVideoTrigger() {
         // recover, the poster simply stays put.
         void video.play().catch(() => {});
       },
-      // enough steps that the check re-runs as the video scrolls up, not just
-      // when it first touches the edge
-      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] },
+      REVEAL,
     );
-    io.observe(video);
-
-    return () => io.disconnect();
   }, []);
 
   return null;
