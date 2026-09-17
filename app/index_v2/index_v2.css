@@ -1737,49 +1737,55 @@
 }
 
 /* Reduced motion: hold the payoff frame rather than stopping at 0%, where the
-   stage fade has not begun and nothing is on screen. -12.4s into the 19s loop
+   stage fade has not begun and nothing is on screen. -16s into the 19s loop
    is the Gatherwise tab open on the dashboard with its kicker settled. */
 @media (prefers-reduced-motion: reduce) {
   /* the .is-playing selector above is four classes deep, so the freeze has to
      match it to win — the second selector covers the not-yet-armed case */
   .gwv2 .gw-stack.is-playing .gw-stack__stage *,
   .gwv2 .gw-stack .gw-stack__stage * {
-    animation-delay: -12.4s !important;
+    animation-delay: -16s !important;
     animation-play-state: paused !important;
   }
 }
 
-@keyframes gws_stageFadeA{0%{opacity:0}1.89%{opacity:1}97%{opacity:1}99.4%,100%{opacity:0}}
-@keyframes gws_gwTabA{0%,60.16%{opacity:0;max-width:0;margin-right:0}61.58%,99.5%{opacity:1;max-width:176px;margin-right:6px}99.7%,100%{opacity:0;max-width:0;margin-right:0}}
-@keyframes gws_tabA0{0%,10.04%{opacity:1;max-width:80px;margin-right:6px}11.37%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_paneA0{0%,10.04%{opacity:1;transform:none}11.46%,99.5%{opacity:0;transform:translateY(6px)}99.7%,100%{opacity:1;transform:none}}
-@keyframes gws_tabA1{0%,15.35%{opacity:1;max-width:80px;margin-right:6px}16.67%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA1{0%,10.52%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}11.94%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA1{0%,10.52%{opacity:0;transform:translateY(6px)}11.94%,15.35%{opacity:1;transform:none}16.77%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA2{0%,20.65%{opacity:1;max-width:80px;margin-right:6px}21.98%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA2{0%,15.82%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}17.24%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA2{0%,15.82%{opacity:0;transform:translateY(6px)}17.24%,20.65%{opacity:1;transform:none}22.07%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA3{0%,25.96%{opacity:1;max-width:80px;margin-right:6px}27.28%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA3{0%,21.13%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}22.55%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA3{0%,21.13%{opacity:0;transform:translateY(6px)}22.55%,25.96%{opacity:1;transform:none}27.38%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA4{0%,31.26%{opacity:1;max-width:80px;margin-right:6px}32.59%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA4{0%,26.43%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}27.85%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA4{0%,26.43%{opacity:0;transform:translateY(6px)}27.85%,31.26%{opacity:1;transform:none}32.68%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA5{0%,36.57%{opacity:1;max-width:80px;margin-right:6px}37.89%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA5{0%,31.74%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}33.16%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA5{0%,31.74%{opacity:0;transform:translateY(6px)}33.16%,36.57%{opacity:1;transform:none}37.99%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA6{0%,41.87%{opacity:1;max-width:80px;margin-right:6px}43.2%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA6{0%,37.04%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}38.46%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA6{0%,37.04%{opacity:0;transform:translateY(6px)}38.46%,41.87%{opacity:1;transform:none}43.29%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA7{0%,47.18%{opacity:1;max-width:80px;margin-right:6px}48.51%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA7{0%,42.35%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}43.77%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA7{0%,42.35%{opacity:0;transform:translateY(6px)}43.77%,47.18%{opacity:1;transform:none}48.6%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA8{0%,52.48%{opacity:1;max-width:80px;margin-right:6px}53.81%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA8{0%,47.65%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}49.07%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA8{0%,47.65%{opacity:0;transform:translateY(6px)}49.07%,52.48%{opacity:1;transform:none}53.91%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_tabA9{0%,57.79%{opacity:1;max-width:80px;margin-right:6px}59.12%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:80px;margin-right:6px}}
-@keyframes gws_actA9{0%,52.96%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}54.38%,99.5%{background:var(--gw-gold);border-color:var(--gw-gold);color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:var(--gw-muted)}}
-@keyframes gws_paneA9{0%,52.96%{opacity:0;transform:translateY(6px)}54.38%,57.79%{opacity:1;transform:none}59.21%,100%{opacity:0;transform:translateY(6px)}}
-@keyframes gws_cardInA{0%,60.16%{opacity:0;transform:scale(.99)}63.47%{opacity:1;transform:scale(1)}97%{opacity:1;transform:scale(1)}99.4%,100%{opacity:0}}
-@keyframes gws_kick1A{0%{opacity:0;transform:translateY(8px)}4.74%{opacity:1;transform:none}54.95%{opacity:1;transform:none}59.68%,100%{opacity:0;transform:translateY(-8px)}}
-@keyframes gws_kick2A{0%,60.63%{opacity:0;transform:translateY(10px)}65.37%{opacity:1;transform:none}97%{opacity:1;transform:none}99.4%,100%{opacity:0}}
+@keyframes gws_stageFadeA{0%{opacity:0}1.7%{opacity:1}97.5%{opacity:1}99.5%,100%{opacity:0}}
+@keyframes gws_gwTabA{0%,64.04%{opacity:0;max-width:0;margin-right:0}65.32%,99.5%{opacity:1;max-width:176px;margin-right:4px}99.7%,100%{opacity:0;max-width:0;margin-right:0}}
+@keyframes gws_tabA0{0%,9.1%{opacity:1;max-width:68px;margin-right:4px}10.29%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_paneA0{0%,9.1%{opacity:1;transform:none}10.71%,99.5%{opacity:0;transform:translateY(6px)}99.7%,100%{opacity:1;transform:none}}
+@keyframes gws_tabA1{0%,13.9%{opacity:1;max-width:68px;margin-right:4px}15.09%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA1{0%,9.52%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}10.81%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA1{0%,9.52%{opacity:0;transform:translateY(6px)}10.81%,13.9%{opacity:1;transform:none}15.51%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA2{0%,18.7%{opacity:1;max-width:68px;margin-right:4px}19.89%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA2{0%,14.32%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}15.61%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA2{0%,14.32%{opacity:0;transform:translateY(6px)}15.61%,18.7%{opacity:1;transform:none}20.31%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA3{0%,23.5%{opacity:1;max-width:68px;margin-right:4px}24.69%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA3{0%,19.12%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}20.41%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA3{0%,19.12%{opacity:0;transform:translateY(6px)}20.41%,23.5%{opacity:1;transform:none}25.11%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA4{0%,28.3%{opacity:1;max-width:68px;margin-right:4px}29.49%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA4{0%,23.92%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}25.21%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA4{0%,23.92%{opacity:0;transform:translateY(6px)}25.21%,28.3%{opacity:1;transform:none}29.91%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA5{0%,33.1%{opacity:1;max-width:68px;margin-right:4px}34.29%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA5{0%,28.72%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}30.01%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA5{0%,28.72%{opacity:0;transform:translateY(6px)}30.01%,33.1%{opacity:1;transform:none}34.71%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA6{0%,37.9%{opacity:1;max-width:68px;margin-right:4px}39.09%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA6{0%,33.52%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}34.81%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA6{0%,33.52%{opacity:0;transform:translateY(6px)}34.81%,37.9%{opacity:1;transform:none}39.51%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA7{0%,42.7%{opacity:1;max-width:68px;margin-right:4px}43.89%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA7{0%,38.32%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}39.61%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA7{0%,38.32%{opacity:0;transform:translateY(6px)}39.61%,42.7%{opacity:1;transform:none}44.31%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA8{0%,47.5%{opacity:1;max-width:68px;margin-right:4px}48.69%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA8{0%,43.12%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}44.41%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA8{0%,43.12%{opacity:0;transform:translateY(6px)}44.41%,47.5%{opacity:1;transform:none}49.11%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA9{0%,52.3%{opacity:1;max-width:68px;margin-right:4px}53.49%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA9{0%,47.92%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}49.21%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA9{0%,47.92%{opacity:0;transform:translateY(6px)}49.21%,52.3%{opacity:1;transform:none}53.91%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA10{0%,57.1%{opacity:1;max-width:68px;margin-right:4px}58.29%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA10{0%,52.72%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}54.01%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA10{0%,52.72%{opacity:0;transform:translateY(6px)}54.01%,57.1%{opacity:1;transform:none}58.71%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_tabA11{0%,61.9%{opacity:1;max-width:68px;margin-right:4px}63.09%,99.5%{opacity:0;max-width:0;margin-right:0}99.7%,100%{opacity:1;max-width:68px;margin-right:4px}}
+@keyframes gws_actA11{0%,57.52%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}58.81%,99.5%{background:#B08B5C;border-color:#B08B5C;color:#FFFFFF}99.7%,100%{background:#FFFCF7;border-color:#E8DFD0;color:#6E665C}}
+@keyframes gws_paneA11{0%,57.52%{opacity:0;transform:translateY(6px)}58.81%,61.9%{opacity:1;transform:none}63.51%,100%{opacity:0;transform:translateY(6px)}}
+@keyframes gws_cardInA{0%,64.04%{opacity:0;transform:scale(.99)}67.04%{opacity:1;transform:scale(1)}97.5%{opacity:1;transform:scale(1)}99.5%,100%{opacity:0}}
+@keyframes gws_kick1A{0%{opacity:0;transform:translateY(8px)}4.3%{opacity:1;transform:none}59.28%{opacity:1;transform:none}64.04%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes gws_kick2A{0%,64.47%{opacity:0;transform:translateY(10px)}68.8%{opacity:1;transform:none}97.5%{opacity:1;transform:none}99.5%,100%{opacity:0}}
