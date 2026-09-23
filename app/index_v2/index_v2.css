@@ -1805,3 +1805,43 @@
 @keyframes gws_cardInA{0%,64.04%{opacity:0;transform:scale(.99)}67.04%{opacity:1;transform:scale(1)}97.5%{opacity:1;transform:scale(1)}99.5%,100%{opacity:0}}
 @keyframes gws_kick1A{0%{opacity:0;transform:translateY(8px)}4.3%{opacity:1;transform:none}59.28%{opacity:1;transform:none}64.04%,100%{opacity:0;transform:translateY(-8px)}}
 @keyframes gws_kick2A{0%,64.47%{opacity:0;transform:translateY(10px)}68.8%{opacity:1;transform:none}97.5%{opacity:1;transform:none}99.5%,100%{opacity:0}}
+
+/* Pricing seat-line info tooltip */
+.gwv2 .gw-info {
+  position: relative;
+  display: inline-flex;
+  vertical-align: -2px;
+  color: var(--gw-muted-faint);
+  cursor: help;
+  outline: none;
+  transition: color 0.15s ease;
+}
+.gwv2 .gw-info:hover,
+.gwv2 .gw-info:focus-visible {
+  color: var(--gw-gold);
+}
+.gwv2 .gw-info__tip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: 220px;
+  padding: 8px 11px;
+  border-radius: var(--gw-radius);
+  background: var(--gw-ink);
+  color: var(--gw-cream);
+  font-size: 12.5px;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.gwv2 .gw-info:hover .gw-info__tip,
+.gwv2 .gw-info:focus .gw-info__tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
