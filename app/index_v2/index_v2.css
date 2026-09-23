@@ -1812,7 +1812,6 @@
   display: inline-flex;
   vertical-align: -2px;
   color: var(--gw-muted-faint);
-  cursor: help;
   outline: none;
   transition: color 0.15s ease;
 }
