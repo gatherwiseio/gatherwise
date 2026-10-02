@@ -701,7 +701,7 @@ const PAGE_HTML = `
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">How does the 14-day free trial work?</h3><span class="gw-faq__icon" aria-hidden="true"></span></summary>
-          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Fourteen days on Professional, no credit card. Build a real event in it — that's the only way to know. There's no free tier after the trial, so if it isn't earning its keep you simply don't continue.</p>
+          <p style="font-size: 16px; line-height: 1.75; color: var(--gw-muted); margin: 0 0 24px; max-width: 60em">Fourteen days on Professional. Build a real event in it — that's the only way to know. There's no free tier after the trial, so if it isn't earning its keep you simply don't continue.</p>
         </details>
         <details style="border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.14)">
           <summary style="cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: var(--gw-font-display); font-size: clamp(20px, 2.2vw, 25px); font-weight: 500; color: var(--gw-ink)"><h3 style="margin: 0; font: inherit">What counts toward my project limit?</h3><span class="gw-faq__icon" aria-hidden="true"></span></summary>
@@ -733,7 +733,7 @@ const PAGE_HTML = `
       <div class="gw-cta__lead">
         <h2 class="gw-cta__title">Trusted by Planners across the U.S. and Canada</h2>
         <p class="gw-cta__text">Join planners across the U.S. and Canada who trust Gatherwise to impress clients, stay organized, and save hours.</p>
-        <p class="gw-cta__fine">14-day free trial · No credit card required · Cancel anytime</p>
+        <p class="gw-cta__fine">14-day free trial · Cancel anytime</p>
       </div>
       <div class="gw-cta__actions">
         <a class="gw-btn gw-btn--gold" href="${SIGNUP}">Start 14-day trial</a>
