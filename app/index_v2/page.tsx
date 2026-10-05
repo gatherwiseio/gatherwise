@@ -150,7 +150,7 @@ const PAGE_HTML = `
     <div style="max-width: 1180px; margin: 0 auto">
       <div style="max-width: 60em">
         <p class="gw-eyebrow" style="margin: 0 0 18px">One platform, not twelve tabs</p>
-        <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">Replace the whole stack with <span class="gw-heading__accent">one platform</span>.</h2>
+        <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">Replace all that software with <span class="gw-heading__accent">one platform</span></h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: rgb(var(--gw-parchment-rgb) / 0.75); margin: 20px 0 0; max-width: 36em; text-wrap: pretty">The PDFs, spreadsheets, docs, forms and one-off planning apps you juggle for every event — all replaced by a single place built for planners.</p>
       </div>
 
