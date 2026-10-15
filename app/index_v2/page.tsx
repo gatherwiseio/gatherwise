@@ -6,6 +6,7 @@ import ChecklistAnimationMount from "./ChecklistAnimationMount";
 import StackAnimationTrigger from "./StackAnimationTrigger";
 import VendorAnimationMount from "./VendorAnimationMount";
 import TimelineVideoTrigger from "./TimelineVideoTrigger";
+import HeroVideoEnhancer from "./HeroVideoEnhancer";
 import BudgetAnimationMount from "./BudgetAnimationMount";
 import { STACK_ANIMATION_HTML } from "./stackAnimation";
 import "./index_v2.css";
@@ -39,6 +40,8 @@ export const metadata: Metadata = {
 // --- Link map (from the handoff / gatherwise.io) ------------------------------
 // Signup CTAs route to the signup entry point; "Log In" goes to plain /login.
 const SIGNUP = "https://app.gatherwise.io/login?m=signup";
+// "Gatherwise Overview" marketing reel on Vimeo (also embedded in the Getting Started doc).
+const HERO_REEL_VIMEO_ID = "1234005685";
 const LOGIN = "https://app.gatherwise.io/login";
 const DEMO = "https://calendly.com/alex-gatherwise/30min";
 const CONTACT_EMAIL = "mailto:hello@gatherwise.io";
@@ -138,8 +141,14 @@ const PAGE_HTML = `
       </div>
 
       <figure style="margin: 0">
-        <div style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <img src="/index_v2/hero-tasks.png" width="1524" height="1004" alt="The Gatherwise task board for a wedding — tasks grouped into sections with assignees and due dates." style="display: block; width: 100%; height: auto; aspect-ratio: 1524 / 1004; object-fit: cover">
+        <!-- Marketing reel. Only the poster ships with the page; HeroVideoEnhancer
+             swaps in the Vimeo player on click so it doesn't weigh on load. -->
+        <div id="hero-reel" class="gw-hero-reel" data-vimeo-id="${HERO_REEL_VIMEO_ID}" style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: var(--gw-ink); box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
+          <button type="button" class="gw-hero-reel__play" aria-label="Play the Gatherwise overview video (2:45)">
+            <img src="/index_v2/hero-reel-poster.jpg" width="1600" height="900" alt="Gatherwise overview video — One Platform, Every Event." fetchpriority="high">
+            <span class="gw-hero-reel__btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+            <span class="gw-hero-reel__label" aria-hidden="true">Watch the overview · 2:45</span>
+          </button>
         </div>
       </figure>
     </div>
@@ -809,6 +818,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: PAGE_HTML }}
       />
       <HeroTrialEnhancer />
+      <HeroVideoEnhancer />
       <ReviewsCarousel />
       <ChecklistAnimationMount />
       <StackAnimationTrigger />
