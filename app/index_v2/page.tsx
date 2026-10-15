@@ -125,32 +125,47 @@ const PAGE_HTML = `
 <main id="main">
 
   <!-- hero -->
-  <section style="padding: clamp(40px, 6vw, 76px) var(--gw-gutter) clamp(48px, 6vw, 84px)">
-    <div data-hero-grid="" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(36px, 5vw, 60px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center">
+  <section style="padding: clamp(56px, 7vw, 100px) var(--gw-gutter) clamp(48px, 6vw, 84px)">
+    <div data-hero-grid="" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(40px, 5vw, 72px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: center">
       <div>
-        <p class="gw-eyebrow" style="margin: 0 0 20px">EVENT PLANNING SOFTWARE FOR EVENT PROS</p>
+        <p class="gw-eyebrow" style="margin: 0 0 16px">EVENT PLANNING SOFTWARE FOR EVENT PROS</p>
         <h1 class="gw-heading gw-heading--display"><span class="gw-heading__accent">Effortless</span> event planning starts here.</h1>
-        <p style="font-size: clamp(17px, 1.4vw, 19px); line-height: 1.65; color: var(--gw-muted); margin: 22px 0 0; max-width: 34em; text-wrap: pretty">All your timelines, vendors, invoices, and clients—organized in one platform built just for planners.</p>
+        <p style="font-size: 17.5px; line-height: 1.7; color: var(--gw-muted); margin: 24px 0 0; max-width: 30em; text-wrap: pretty">Timelines, vendors, budgets, guest lists, proposals and invoices—organized in one platform built just for planners.</p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 0; max-width: 30em">
-          <input id="hero-email" class="gw-input" type="email" placeholder="you@yourstudio.com" autocomplete="email" aria-label="Work email" style="flex: 1 1 200px; min-width: 0; height: 52px; padding: 0 16px; font-family: var(--gw-font-body); font-size: 15.5px; color: var(--gw-ink); background: #fff">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 0; max-width: 460px">
+          <input id="hero-email" class="gw-input" type="email" placeholder="you@yourstudio.com" autocomplete="email" aria-label="Work email" style="flex: 1 1 220px; min-width: 0; height: 52px; padding: 0 16px; font-family: var(--gw-font-body); font-size: 15.5px; color: var(--gw-ink); background: #fff">
           <a id="hero-trial-btn" class="gw-btn gw-btn--large" href="${SIGNUP}" style="height: 52px; flex: 0 0 auto">Start free trial</a>
         </div>
 
-        <p style="font-size: 13.5px; line-height: 1.6; color: var(--gw-muted-soft); margin: 16px 0 0; letter-spacing: 0.01em">14-day free trial · Cancel anytime</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 16px 0 0">
+          <span style="font-size: 13.5px; line-height: 1.6; color: var(--gw-muted-soft); letter-spacing: 0.01em">14-day free trial · Cancel anytime</span>
+          <a class="gw-btn gw-btn--link" href="${DEMO}" ${EXT}>Talk to a human first</a>
+        </div>
       </div>
 
       <figure style="margin: 0">
         <!-- Marketing reel. Only the poster ships with the page; HeroVideoEnhancer
              swaps in the Vimeo player on click so it doesn't weigh on load. -->
-        <div id="hero-reel" class="gw-hero-reel" data-vimeo-id="${HERO_REEL_VIMEO_ID}" style="border: 1px solid rgb(var(--gw-ink-rgb) / 0.14); border-radius: 4px; overflow: hidden; background: var(--gw-ink); box-shadow: 0 40px 90px -50px rgb(var(--gw-ink-rgb) / 0.55)">
-          <button type="button" class="gw-hero-reel__play" aria-label="Play the Gatherwise overview video (2:45)">
-            <img src="/index_v2/hero-reel-poster.jpg" width="1600" height="900" alt="Gatherwise overview video — One Platform, Every Event." fetchpriority="high">
-            <span class="gw-hero-reel__btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
-            <span class="gw-hero-reel__label" aria-hidden="true">Watch the overview · 2:45</span>
+        <div id="hero-reel" class="gw-hero-reel" data-vimeo-id="${HERO_REEL_VIMEO_ID}">
+          <img src="/index_v2/hero-reel-poster.jpg" width="1600" height="900" alt="Gatherwise overview video — One Platform, Every Event." fetchpriority="high">
+          <button type="button" class="gw-hero-reel__play" aria-label="Play the overview video, 2 minutes 45 seconds">
+            <span class="gw-hero-reel__tri" aria-hidden="true"></span>
+            <span>Watch the overview</span>
+            <span class="gw-hero-reel__time">2:45</span>
           </button>
         </div>
       </figure>
+    </div>
+
+    <div class="gw-hero-modules" style="max-width: 1180px; margin: clamp(48px, 6vw, 80px) auto 0">
+      <span class="gw-hero-modules__label">All in one place</span>
+      <span>Timelines</span>
+      <span>Tasks</span>
+      <span>Budgets</span>
+      <span>Guests &amp; seating</span>
+      <span>Vendors</span>
+      <span>Proposals &amp; contracts</span>
+      <span>Invoicing</span>
     </div>
   </section>
 
