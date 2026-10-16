@@ -197,9 +197,9 @@ export default function Page() {
 
             <h3 className={styles.h3}>Advertising</h3>
             <p className={styles.p}>
-              Used only on gatherwise.io, not inside the app. They let us
-              measure whether our advertising works and show Gatherwise to
-              people who may be interested in it. We do not sell personal
+              Let us measure whether our advertising works, including which
+              ads led to a sign-up, and show Gatherwise to people who may be
+              interested in it. We do not sell personal
               information for money, but under some laws sharing data with
               advertising platforms counts as a &ldquo;sale&rdquo; or
               &ldquo;sharing&rdquo;, and you can opt out as described below.

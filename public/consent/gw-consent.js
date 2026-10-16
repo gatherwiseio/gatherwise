@@ -26,7 +26,7 @@
  * Config (optional, set before the script loads):
  *   window.gwConsentConfig = {
  *     mode: "site" | "app",       // full card vs compact in-app card. default "site"
- *     endpoint: "https://gatherwise.io/api/consent",
+ *     endpoint: "https://gatherwise.io/api/consent",  // false = no network
  *     policyUrl: "https://gatherwise.io/cookies",
  *     forceRegion: "optin" | "notice",  // preview/testing only
  *     simulateGpc: true,                 // preview/testing only
@@ -49,7 +49,10 @@
 
   var cfg = window.gwConsentConfig || {};
   var mode = cfg.mode === "app" ? "app" : "site";
-  var endpoint = cfg.endpoint || "https://gatherwise.io/api/consent";
+  // endpoint: false runs the script with no network calls at all (an inline
+  // copy tested before the gatherwise.io endpoint is deployed). The cookie is
+  // then written from the browser only, and the region falls back to opt-in.
+  var endpoint = cfg.endpoint === false ? null : cfg.endpoint || "https://gatherwise.io/api/consent";
   var policyUrl = cfg.policyUrl || "https://gatherwise.io/cookies";
 
   /* ------------------------------------------------------------ cookies */
@@ -146,7 +149,7 @@
     // unreachable, then ask gatherwise.io to re-set it server-side for the
     // full lifetime (Safari caps JS-written cookies at seven days).
     writeCookieLocal(COOKIE, value, days);
-    try {
+    if (endpoint) try {
       fetch(endpoint, {
         method: "POST",
         credentials: "include",
@@ -425,6 +428,7 @@
       render();
       markReady();
     }
+    if (!endpoint) { finish(null); return; }
     try {
       fetch(endpoint + "/region", { credentials: "include" })
         .then(function (res) { return res.ok ? res.json() : null; })
