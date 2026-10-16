@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 
 // Cookie policy for gatherwise.io and app.gatherwise.io. The consent banner
 // (public/consent/gw-consent.js) and every footer link here. Keep the cookie
-// table in step with app/analytics.tsx and the Bubble header scripts: if a
+// table in step with app/analytics.tsx and the app header scripts: if a
 // vendor is added or removed, change it here the same day.
 
 const cormorant = Cormorant_Garamond({
