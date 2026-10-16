@@ -330,9 +330,9 @@ export default function Page() {
               California and other states with privacy laws have the right to
               opt out of the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of
               personal information for targeted advertising. To exercise it,
-              use the cookie settings link (&ldquo;Do Not Sell or Share My
-              Personal Information&rdquo;) or send a Global Privacy Control
-              signal from your browser. We do not knowingly sell or share the
+              turn off advertising in cookie settings (the link at the bottom
+              of any page, or My account &rsaquo; Privacy in the app), or send
+              a Global Privacy Control signal from your browser. We do not knowingly sell or share the
               personal information of anyone under 16.
             </p>
           </section>
