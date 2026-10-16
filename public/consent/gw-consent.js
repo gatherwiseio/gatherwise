@@ -112,7 +112,15 @@
   var isReady = false;
 
   function publicState() {
-    if (!state) return regime ? { decided: false, analytics: false, marketing: false, regime: regime } : null;
+    if (!state) {
+      if (!regime) return null;
+      // Undecided. Opt-in regime: nothing is allowed yet. Notice regime
+      // (US and elsewhere): opt-out law, so analytics and advertising run by
+      // default and the notice is informational; a GPC signal still keeps
+      // advertising off.
+      var open = regime === "notice";
+      return { decided: false, analytics: open, marketing: open && !gpc, regime: regime };
+    }
     return { decided: true, analytics: state.analytics, marketing: state.marketing, regime: state.regime };
   }
 

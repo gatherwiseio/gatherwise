@@ -370,7 +370,12 @@ export default function Page() {
 
       <footer className={styles.footer}>
         <span>© 2026 Gatherwise. Feature availability as of mid-2026.</span>
-        <span>Effortless event planning starts here.</span>
+        <span>
+          Effortless event planning starts here.{" "}
+          <a href="#cookie-settings" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>
+            Cookie settings
+          </a>
+        </span>
       </footer>
 
       <SoftwareApplicationJsonLd />

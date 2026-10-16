@@ -511,7 +511,12 @@ export default function Page() {
           © 2026 Gatherwise. HoneyBook is a trademark of its respective owner;
           comparison based on publicly available information.
         </span>
-        <span>Effortless event planning starts here.</span>
+        <span>
+          Effortless event planning starts here.{" "}
+          <a href="#cookie-settings" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>
+            Cookie settings
+          </a>
+        </span>
       </footer>
 
       <SoftwareApplicationJsonLd />

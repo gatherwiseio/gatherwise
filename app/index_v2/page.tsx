@@ -810,6 +810,8 @@ const PAGE_HTML = `
       <h2 style="font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gw-gold); margin: 0 0 4px; font-family: var(--gw-font-body); font-weight: 700">Legal</h2>
       <a class="gwv2-footlink" href="${PRIVACY}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Privacy</a>
       <a class="gwv2-footlink" href="${TERMS}" ${EXT} style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Terms</a>
+      <a class="gwv2-footlink" href="/cookies" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Cookie policy</a>
+      <a class="gwv2-footlink" href="#cookie-settings" style="font-size: 14.5px; color: rgb(var(--gw-parchment-rgb) / 0.7); text-decoration: none">Cookie settings</a>
     </nav>
   </div>
   <div class="gw-footer">

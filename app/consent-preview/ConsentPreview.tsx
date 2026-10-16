@@ -3,25 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-type ConsentState = {
-  decided: boolean;
-  analytics: boolean;
-  marketing: boolean;
-  regime: "optin" | "notice";
-} | null;
-
-declare global {
-  interface Window {
-    gwConsent?: {
-      get: () => ConsentState;
-      open: () => void;
-      reset: () => void;
-      onChange: (fn: (s: ConsentState) => void) => void;
-      ready: (fn: (s: ConsentState) => void) => void;
-    };
-    gwConsentConfig?: Record<string, unknown>;
-  }
-}
+type ConsentState = GwConsentState;
 
 function readCookie(name: string) {
   const m = document.cookie.split("; ").find((c) => c.startsWith(name + "="));
