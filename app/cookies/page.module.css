@@ -172,33 +172,65 @@
 }
 
 .p a,
-.list a,
 .table a {
   color: var(--gw-ink);
   border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.25);
 }
 
 .p a:hover,
-.list a:hover,
 .table a:hover {
   border-color: var(--gw-ink);
 }
 
-.list {
-  margin: 0 0 14px;
-  padding-left: 20px;
-  color: var(--gw-muted);
-  font-size: 16px;
-  line-height: 1.75;
+/* Definition blocks: a bold label column and the explanation beside it,
+   separated by hairlines. Replaces bulleted lists, whose hanging indent
+   fought the editorial column. */
+.defs {
+  margin: 6px 0 14px;
+  border-top: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
 }
 
-.list li {
-  margin: 0 0 6px;
+.def {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 6px 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.1);
 }
 
-.list strong {
+.def dt {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   color: var(--gw-ink);
-  font-weight: 600;
+  padding-top: 3px;
+}
+
+.def dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--gw-muted);
+}
+
+.def dd a {
+  color: var(--gw-ink);
+  border-bottom: 1px solid rgb(var(--gw-ink-rgb) / 0.25);
+}
+
+.def dd a:hover {
+  border-color: var(--gw-ink);
+}
+
+.def dd > div {
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .def {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
 }
 
 .button {

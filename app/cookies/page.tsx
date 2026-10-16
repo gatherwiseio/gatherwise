@@ -49,8 +49,8 @@ const ESSENTIAL: Row[] = [
     expires: "30 days",
   },
   {
-    name: "eventplanner-38386_*, u1main, gw_auth",
-    provider: "Gatherwise (via Bubble)",
+    name: "Session cookies",
+    provider: "Gatherwise",
     purpose: "Keep you signed in to the app and protect your session from tampering.",
     expires: "Session, or up to 1 year if you chose to stay signed in",
   },
@@ -214,37 +214,35 @@ export default function Page() {
               that process data on our behalf or for their own purposes under
               their own policies:
             </p>
-            <ul className={styles.list}>
-              <li>
-                <strong>Google</strong> (Analytics and Ads):{" "}
-                <a href="https://policies.google.com/technologies/cookies" rel="noopener" target="_blank">
-                  how Google uses cookies
-                </a>
-                .
-              </li>
-              <li>
-                <strong>Meta</strong> (Facebook and Instagram):{" "}
-                <a href="https://www.facebook.com/privacy/policies/cookies" rel="noopener" target="_blank">
-                  Meta cookie policy
-                </a>
-                .
-              </li>
-              <li>
-                <strong>PostHog</strong>:{" "}
-                <a href="https://posthog.com/privacy" rel="noopener" target="_blank">
-                  PostHog privacy policy
-                </a>
-                .
-              </li>
-              <li>
-                <strong>Bubble</strong>, the platform that hosts the app, sets
-                the essential session cookies:{" "}
-                <a href="https://bubble.io/privacy" rel="noopener" target="_blank">
-                  Bubble privacy policy
-                </a>
-                .
-              </li>
-            </ul>
+            <dl className={styles.defs}>
+              <div className={styles.def}>
+                <dt>Google</dt>
+                <dd>
+                  Analytics and Ads.{" "}
+                  <a href="https://policies.google.com/technologies/cookies" rel="noopener" target="_blank">
+                    How Google uses cookies
+                  </a>
+                </dd>
+              </div>
+              <div className={styles.def}>
+                <dt>Meta</dt>
+                <dd>
+                  Facebook and Instagram advertising.{" "}
+                  <a href="https://www.facebook.com/privacy/policies/cookies" rel="noopener" target="_blank">
+                    Meta cookie policy
+                  </a>
+                </dd>
+              </div>
+              <div className={styles.def}>
+                <dt>PostHog</dt>
+                <dd>
+                  Product analytics.{" "}
+                  <a href="https://posthog.com/privacy" rel="noopener" target="_blank">
+                    PostHog privacy policy
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </section>
 
           <section id="choices" className={styles.section}>
@@ -253,44 +251,54 @@ export default function Page() {
               You can change your cookie settings at any time. Essential cookies
               stay on; everything else follows your choice.
             </p>
-            <ul className={styles.list}>
-              <li>
-                <strong>Cookie settings.</strong> Open the preferences panel
-                from the link at the bottom of any page on gatherwise.io, or
-                from Settings &rsaquo; Privacy inside the app. The same choice
-                applies across both.
-                <br />
-                <button type="button" className={styles.button} data-gw-consent="open" style={{ marginTop: 10 }}>
-                  Open cookie settings
-                </button>
-              </li>
-              <li>
-                <strong>Global Privacy Control.</strong> If your browser sends
-                a Global Privacy Control signal, we treat it as an opt-out of
-                advertising cookies automatically.
-              </li>
-              <li>
-                <strong>Your browser.</strong> Most browsers let you block or
-                delete cookies in their settings. Blocking essential cookies
-                will stop you signing in to the app.
-              </li>
-              <li>
-                <strong>Vendor opt-outs.</strong> You can also opt out directly
-                with{" "}
-                <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">
-                  Google Analytics
-                </a>
-                ,{" "}
-                <a href="https://adssettings.google.com" rel="noopener" target="_blank">
-                  Google Ads
-                </a>{" "}
-                and{" "}
-                <a href="https://www.facebook.com/adpreferences/ad_settings" rel="noopener" target="_blank">
-                  Meta
-                </a>
-                .
-              </li>
-            </ul>
+            <dl className={styles.defs}>
+              <div className={styles.def}>
+                <dt>Cookie settings</dt>
+                <dd>
+                  Open the preferences panel from the link at the bottom of
+                  any page on gatherwise.io, or from Settings &rsaquo; Privacy
+                  inside the app. One choice applies to both.
+                  <div>
+                    <button type="button" className={styles.button} data-gw-consent="open">
+                      Open cookie settings
+                    </button>
+                  </div>
+                </dd>
+              </div>
+              <div className={styles.def}>
+                <dt>Global Privacy Control</dt>
+                <dd>
+                  If your browser sends a Global Privacy Control signal, we
+                  treat it as an opt-out of advertising cookies automatically.
+                </dd>
+              </div>
+              <div className={styles.def}>
+                <dt>Your browser</dt>
+                <dd>
+                  Most browsers let you block or delete cookies in their
+                  settings. Blocking essential cookies will stop you signing
+                  in to the app.
+                </dd>
+              </div>
+              <div className={styles.def}>
+                <dt>Vendor opt-outs</dt>
+                <dd>
+                  You can also opt out directly with{" "}
+                  <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">
+                    Google Analytics
+                  </a>
+                  ,{" "}
+                  <a href="https://adssettings.google.com" rel="noopener" target="_blank">
+                    Google Ads
+                  </a>{" "}
+                  and{" "}
+                  <a href="https://www.facebook.com/adpreferences/ad_settings" rel="noopener" target="_blank">
+                    Meta
+                  </a>
+                  .
+                </dd>
+              </div>
+            </dl>
             <p className={styles.p}>
               If you withdraw consent, we stop setting the affected cookies
               from that point. Cookies already on your device remain until
