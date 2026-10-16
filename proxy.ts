@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import {
+  REGION_COOKIE,
+  REGION_MAX_AGE,
+  cookieDomainFor,
+  regimeForCountry,
+} from "@/lib/consent";
 
 // One-off cleanup of stale Bubble auth cookies.
 //
@@ -33,12 +39,31 @@ const STALE_COOKIE_NAMES = [
   "eventplanner-38386_u1main",
 ];
 
-export default function proxy(_request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const response = NextResponse.next();
   for (const name of STALE_COOKIE_NAMES) {
     response.headers.append(
       "Set-Cookie",
       `${name}=; Domain=.gatherwise.io; Path=/; Max-Age=0; Secure`,
+    );
+  }
+
+  // Cookie-consent regime. Vercel tells us the visitor's country at the edge;
+  // we stash the resulting regime ("optin" for EU/EEA/UK/CH/CA, "notice"
+  // elsewhere) in a parent-domain cookie so the consent script on this site
+  // and on app.gatherwise.io can read it without another round trip. Pages
+  // stay static because the decision lives in a cookie, not in render.
+  // Non-HttpOnly on purpose: the browser script needs to read it. It carries
+  // no personal data, only one of two words.
+  if (!request.cookies.has(REGION_COOKIE)) {
+    const regime = regimeForCountry(request.headers.get("x-vercel-ip-country"));
+    const domain = cookieDomainFor(request.headers.get("host"));
+    const secure = request.nextUrl.protocol === "https:";
+    response.headers.append(
+      "Set-Cookie",
+      `${REGION_COOKIE}=${regime}; Path=/; Max-Age=${REGION_MAX_AGE}; SameSite=Lax` +
+        (domain ? `; Domain=${domain}` : "") +
+        (secure ? "; Secure" : ""),
     );
   }
   return response;
