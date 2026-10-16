@@ -55,7 +55,12 @@ export default function proxy(request: NextRequest) {
   // stay static because the decision lives in a cookie, not in render.
   // Non-HttpOnly on purpose: the browser script needs to read it. It carries
   // no personal data, only one of two words.
-  if (!request.cookies.has(REGION_COOKIE)) {
+  // The /api/consent endpoints set this cookie themselves; skipping them here
+  // avoids sending the same Set-Cookie twice on one response.
+  if (
+    !request.cookies.has(REGION_COOKIE) &&
+    !request.nextUrl.pathname.startsWith("/api/consent")
+  ) {
     const regime = regimeForCountry(request.headers.get("x-vercel-ip-country"));
     const domain = cookieDomainFor(request.headers.get("host"));
     const secure = request.nextUrl.protocol === "https:";

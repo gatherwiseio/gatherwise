@@ -13,8 +13,7 @@ const APP_DIR = join(process.cwd(), "app");
 // Real routes that should NOT be listed:
 //  - /hello-world : scratch/test page
 //  - /index_v2    : the homepage design source; the canonical homepage is "/"
-//  - /consent-preview : internal cookie-banner review page (also noindex)
-const EXCLUDED_ROUTES = new Set(["/hello-world", "/index_v2", "/consent-preview"]);
+const EXCLUDED_ROUTES = new Set(["/hello-world", "/index_v2"]);
 
 // A file named page.* is what turns a folder into a routable page.
 const PAGE_FILE = /^page\.(tsx|ts|jsx|js|mdx)$/;

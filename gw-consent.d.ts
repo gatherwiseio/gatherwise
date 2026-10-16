@@ -1,5 +1,5 @@
 // Global surface of the shared consent script (public/consent/gw-consent.js),
-// used by app/analytics.tsx and the preview page.
+// used by app/analytics.tsx.
 
 type GwConsentState = {
   decided: boolean;
