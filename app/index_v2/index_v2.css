@@ -891,10 +891,11 @@
   gap: 36px 28px;
   /* brand · Product · Resources · Compare · Company · Legal.
      Compare carries the longest labels ("Timeline Genius alternative")
-     so it gets the widest nav track; Legal has the shortest. */
+     so it gets the widest nav track. Legal is narrow but gets a floor so
+     "Cookie settings" never wraps. */
   grid-template-columns:
     minmax(180px, 1.3fr) minmax(0, 1fr) minmax(0, 1fr)
-    minmax(0, 1.25fr) minmax(0, 0.9fr) minmax(0, 0.55fr);
+    minmax(0, 1.25fr) minmax(0, 0.9fr) minmax(120px, 0.7fr);
   align-items: start;
 }
 
@@ -908,6 +909,10 @@
   gap: 12px;
   align-content: start;
   min-width: 0;
+}
+
+.gwv2 .gw-site-footer__nav .gwv2-footlink {
+  white-space: nowrap;
 }
 
 @media (max-width: 900px) {
