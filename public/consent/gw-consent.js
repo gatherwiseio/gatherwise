@@ -197,6 +197,9 @@
     ".gwc__btn--gold:hover{background:rgba(184,147,95,.12)}" +
     ".gwc__btn--link{background:none;border:0;padding:0;color:#6b645a;font-weight:500;text-decoration:underline;text-underline-offset:3px;border-radius:2px}" +
     ".gwc__btn--link:hover{color:#2a2723}" +
+    // Text-link buttons sit flush with the paragraph above in every variant;
+    // the extra class beats the compact card's button padding.
+    ".gwc .gwc__btn--link{padding:0}" +
     ".gwc__prefs{display:flex;flex-direction:column;border-top:1px solid rgba(42,39,35,.1);margin-top:14px}" +
     ".gwc__row{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid rgba(42,39,35,.08)}" +
     ".gwc__row-body{flex:1 1 auto;min-width:0}" +

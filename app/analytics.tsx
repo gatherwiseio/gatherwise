@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // Site-wide analytics, gated behind cookie consent.
 //
@@ -134,8 +135,17 @@ function apply(s: ConsentState, previous: ConsentState) {
   if (s.analytics) startPostHog();
 }
 
+// The internal banner preview loads and configures its own copy of the
+// consent script; a second copy from here would race it (the script is a
+// singleton, first config wins) and would also fire trackers on a test page.
+const SKIP_PATHS = new Set(["/consent-preview"]);
+
 export default function Analytics() {
+  const pathname = usePathname();
+  const skip = SKIP_PATHS.has(pathname);
+
   useEffect(() => {
+    if (skip) return;
     // A page may have set its own config first (the preview page does);
     // otherwise use the site defaults.
     window.gwConsentConfig = window.gwConsentConfig || {
@@ -163,7 +173,7 @@ export default function Analytics() {
     } else {
       addScript("/consent/gw-consent.js", "gw-consent", wire);
     }
-  }, []);
+  }, [skip]);
 
   return null;
 }
