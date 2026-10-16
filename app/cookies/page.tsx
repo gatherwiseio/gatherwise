@@ -256,7 +256,7 @@ export default function Page() {
                 <dt>Cookie settings</dt>
                 <dd>
                   Open the preferences panel from the link at the bottom of
-                  any page on gatherwise.io, or from Settings &rsaquo; Privacy
+                  any page on gatherwise.io, or from My account &rsaquo; Privacy
                   inside the app. One choice applies to both.
                   <div>
                     <button type="button" className={styles.button} data-gw-consent="open">
