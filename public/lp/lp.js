@@ -1,14 +1,61 @@
 /* Gatherwise ad landing pages — shared behaviour.
-   1. Meta Pixel: set META_PIXEL_ID below (Events Manager → Data sources). Empty = pixel off.
-      The pixel only loads once the shared cookie-consent script (public/consent/gw-consent.js,
-      the same one the rest of gatherwise.io uses via app/analytics.tsx) allows marketing:
-      opt-in regions wait for Accept, GPC keeps it off. Withdrawing consent reloads the page.
+   These pages are static HTML outside the Next layout, so this file does what
+   app/analytics.tsx does for the rest of gatherwise.io (keep the IDs in sync):
+   1. Loads the shared cookie-consent script (public/consent/gw-consent.js) and starts each
+      vendor only once consent allows it:
+        analytics  -> GA4 (via gtag) and PostHog
+        marketing  -> Google Ads (via gtag) and Meta Pixel
+      Opt-in regions wait for Accept, GPC keeps marketing off, Google runs in Consent Mode v2,
+      and withdrawing consent reloads the page.
    2. Carries utm_* / fbclid from the ad click through to the app signup link.
    3. Fires ViewContent on load and Lead on any "Start free trial" click (tagged with the page's concept).
    4. Shows the sticky mobile CTA once the hero CTA scrolls out of view. */
 (function () {
-  var META_PIXEL_ID = ''; // e.g. '123456789012345'
+  var GA4_ID = 'G-NMZZR1RQSF';
+  var ADS_ID = 'AW-16809052619';
+  var META_PIXEL_ID = '1140353341133768';
+  var POSTHOG_KEY = 'phc_L4ZLdnUxdhDfrgkQZFOIo4HvGDzt79BwYamAlURKXOm';
+  var POSTHOG_HOST = 'https://us.i.posthog.com';
   var concept = document.body.getAttribute('data-concept') || 'lp';
+
+  function addScript(src) {
+    var s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    document.head.appendChild(s);
+    return s;
+  }
+
+  var gtagReady = false;
+  function startGoogle(s) {
+    if (!gtagReady) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+        analytics_storage: 'denied', wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtagReady = true;
+      addScript('https://www.googletagmanager.com/gtag/js?id=' + ADS_ID);
+    }
+    var ads = s.marketing ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+      ad_storage: ads, ad_user_data: ads, ad_personalization: ads,
+      analytics_storage: s.analytics ? 'granted' : 'denied'
+    });
+    if (s.analytics) gtag('config', GA4_ID, { content_group: 'lp_' + concept });
+    if (s.marketing) gtag('config', ADS_ID);
+  }
+
+  var posthogLoaded = false;
+  function startPostHog() {
+    if (posthogLoaded) return;
+    posthogLoaded = true;
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister identify alias reset set_config opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_distinct_id startSessionRecording stopSessionRecording".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, defaults: '2025-05-24', person_profiles: 'identified_only' });
+    posthog.register({ lp: concept });
+  }
 
   var pixelLoaded = false;
   function startPixel() {
@@ -29,12 +76,18 @@
   window.gwConsentConfig = window.gwConsentConfig || {
     mode: 'site', endpoint: location.origin + '/api/consent', policyUrl: '/cookies'
   };
-  var lastMarketing = null;
+  var last = null;
   function applyConsent(s) {
     if (!s) return;
-    if (lastMarketing && !s.marketing) { location.reload(); return; }
-    lastMarketing = s.marketing;
+    // Withdrawal: third-party tags can't be unloaded in place, so reload to drop them.
+    if (last && ((last.analytics && !s.analytics) || (last.marketing && !s.marketing))) {
+      location.reload();
+      return;
+    }
+    last = s;
+    if (s.analytics || s.marketing) startGoogle(s);
     if (s.marketing) startPixel();
+    if (s.analytics) startPostHog();
   }
   function wireConsent() {
     var c = window.gwConsent;
