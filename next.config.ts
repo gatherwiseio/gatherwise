@@ -39,6 +39,15 @@ const nextConfig: NextConfig = {
       { source: "/pdf-page/:path*", destination: `${APP}/pdf-page/:path*`, statusCode: 301 },
     ];
   },
+  // Static ad landing pages (noindex) live in public/lp/<name>/index.html.
+  // Next only serves public files by exact path, so map the clean URLs here.
+  // Being in public/ (not app/) also keeps them out of app/sitemap.ts.
+  async rewrites() {
+    return [
+      { source: "/lp/switch", destination: "/lp/switch/index.html" },
+      { source: "/lp/sales", destination: "/lp/sales/index.html" },
+    ];
+  },
 };
 
 export default nextConfig;
