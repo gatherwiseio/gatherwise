@@ -123,27 +123,57 @@
     a.addEventListener('click', function () { track('Contact', { content_name: concept }); });
   });
 
-  // Hero video: ship only the poster; swap in the YouTube player (privacy-enhanced domain,
-  // so no YouTube cookies until play) on click. Same pattern as the homepage hero reel.
+  // Hero video: the page ships only the poster. Clicking it opens the YouTube player
+  // (privacy-enhanced domain, so no YouTube cookies until play) large in a dark overlay,
+  // so the page around it drops away. Close (×, Esc, backdrop) removes the player, which
+  // stops playback, and puts focus back on the play button.
   var reel = document.querySelector('.reel[data-yt]');
   var play = reel && reel.querySelector('.reel-play');
-  if (play) {
-    play.addEventListener('click', function () {
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + reel.getAttribute('data-yt') +
-        '?autoplay=1&rel=0&playsinline=1&start=' + (reel.getAttribute('data-start') || 0);
-      f.title = 'Gatherwise overview';
-      f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
-      f.referrerPolicy = 'strict-origin-when-cross-origin';
-      f.allowFullscreen = true;
-      reel.innerHTML = '';
-      reel.appendChild(f);
-      f.focus();
-      if (window.fbq) fbq('trackCustom', 'VideoPlay', { content_name: concept });
-      if (window.gtag) gtag('event', 'video_start', { video_title: 'Gatherwise overview', lp: concept });
-      if (window.posthog) posthog.capture('lp_video_play', { lp: concept });
-    }, { once: true });
+  var player = null;
+  function closePlayer() {
+    if (!player) return;
+    player.remove();
+    player = null;
+    document.body.classList.remove('playing');
+    document.removeEventListener('keydown', onKey);
+    play.focus();
   }
+  function onKey(e) { if (e.key === 'Escape') closePlayer(); }
+  function openPlayer() {
+    if (player) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + reel.getAttribute('data-yt') +
+      '?autoplay=1&rel=0&iv_load_policy=3&playsinline=1&start=' + (reel.getAttribute('data-start') || 0);
+    f.title = 'Gatherwise overview';
+    f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    var frame = document.createElement('div');
+    frame.className = 'player-frame';
+    frame.appendChild(f);
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'player-close';
+    close.setAttribute('aria-label', 'Close video');
+    close.textContent = '×';
+    close.addEventListener('click', closePlayer);
+    player = document.createElement('div');
+    player.className = 'player';
+    player.setAttribute('role', 'dialog');
+    player.setAttribute('aria-modal', 'true');
+    player.setAttribute('aria-label', 'Gatherwise overview video');
+    player.appendChild(close);
+    player.appendChild(frame);
+    player.addEventListener('click', function (e) { if (e.target === player) closePlayer(); });
+    document.body.appendChild(player);
+    document.body.classList.add('playing');
+    document.addEventListener('keydown', onKey);
+    close.focus();
+    if (window.fbq) fbq('trackCustom', 'VideoPlay', { content_name: concept });
+    if (window.gtag) gtag('event', 'video_start', { video_title: 'Gatherwise overview', lp: concept });
+    if (window.posthog) posthog.capture('lp_video_play', { lp: concept });
+  }
+  if (play) reel.addEventListener('click', openPlayer);
 
   // Sticky mobile CTA
   var sticky = document.querySelector('.sticky'), hero = document.querySelector('.hero .btn');
