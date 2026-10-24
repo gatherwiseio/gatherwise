@@ -124,7 +124,8 @@ details p{margin-top:10px;font-size:16px}
 .close .cta-row{justify-content:center}
 .close .lede{margin-left:auto;margin-right:auto}
 
-footer{padding:28px 0 100px;font-size:13px;color:var(--muted-light);text-align:center}
+footer{padding:28px 0 100px;font-size:13px;color:var(--muted-light)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap}
 footer a{color:var(--muted-light)}
 
 /* sticky mobile CTA */
