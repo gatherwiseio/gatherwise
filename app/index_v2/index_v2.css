@@ -1850,56 +1850,6 @@
   transform: translate(-50%, 0);
 }
 
-/* Hero marketing reel: poster + play button, swapped for the Vimeo player on click */
-.gwv2 .gw-hero-reel {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  line-height: 0;
-  background: var(--gw-ink);
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px -32px rgb(var(--gw-ink-rgb) / 0.45);
-}
-.gwv2 .gw-hero-reel > img,
-.gwv2 .gw-hero-reel iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.gwv2 .gw-hero-reel > img { display: block; object-fit: cover; }
-.gwv2 .gw-hero-reel__play {
-  position: absolute;
-  left: clamp(16px, 2.4vw, 28px);
-  bottom: clamp(16px, 2.4vw, 28px);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  height: 48px;
-  padding: 0 20px 0 16px;
-  background: var(--gw-gold);
-  color: var(--gw-ink);
-  border: 0;
-  border-radius: 2px;
-  font-family: var(--gw-font-body);
-  font-size: 14.5px;
-  font-weight: 500;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 150ms ease;
-}
-.gwv2 .gw-hero-reel__play:hover,
-.gwv2 .gw-hero-reel__play:focus-visible { background: var(--gw-gold-hover); }
-.gwv2 .gw-hero-reel__tri {
-  width: 0;
-  height: 0;
-  border-left: 11px solid var(--gw-ink);
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-}
-.gwv2 .gw-hero-reel__time { color: rgb(var(--gw-ink-rgb) / 0.6); }
-
 /* "All in one place" module strip under the hero */
 .gwv2 .gw-hero-modules {
   padding-top: 24px;
