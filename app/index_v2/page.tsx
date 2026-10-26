@@ -642,6 +642,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Moodboards</li>
           </ul>
         </div>
 
@@ -674,6 +675,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Moodboards</li>
           </ul>
         </div>
 
@@ -703,6 +705,7 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Event templates</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Guest management</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Seating and layout</li>
+            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Moodboards</li>
           </ul>
         </div>
       </div>
