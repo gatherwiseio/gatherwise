@@ -141,7 +141,7 @@ const PAGE_HTML = `
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin: 16px 0 0">
-          <span style="font-size: 13.5px; line-height: 1.6; color: var(--gw-muted-soft); letter-spacing: 0.01em">14-day free trial · Cancel anytime</span>
+          <span style="font-size: 13.5px; line-height: 1.6; color: var(--gw-muted-soft); letter-spacing: 0.01em">14-day free trial</span>
           <a class="gw-btn gw-btn--link" href="${DEMO}" ${EXT}>Talk to a human first</a>
         </div>
       </div>
