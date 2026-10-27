@@ -759,7 +759,7 @@ const PAGE_HTML = `
       <div class="gw-cta__lead">
         <h2 class="gw-cta__title">Trusted by Planners across the U.S. and Canada</h2>
         <p class="gw-cta__text">Join planners across the U.S. and Canada who trust Gatherwise to impress clients, stay organized, and save hours.</p>
-        <p class="gw-cta__fine">14-day free trial · Cancel anytime</p>
+        <p class="gw-cta__fine">14-day free trial</p>
       </div>
       <div class="gw-cta__actions">
         <a class="gw-btn gw-btn--gold" href="${SIGNUP}">Start 14-day trial</a>
