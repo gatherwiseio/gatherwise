@@ -757,8 +757,8 @@ const PAGE_HTML = `
   <section class="gw-cta">
     <div class="gw-cta__inner">
       <div class="gw-cta__lead">
-        <h2 class="gw-cta__title">Trusted by Planners across the U.S. and Canada</h2>
-        <p class="gw-cta__text">Join planners across the U.S. and Canada who trust Gatherwise to impress clients, stay organized, and save hours.</p>
+        <h2 class="gw-cta__title">Trusted by planners across North America and Europe</h2>
+        <p class="gw-cta__text">Join the planners who trust Gatherwise to impress clients, stay organized, and save hours.</p>
         <p class="gw-cta__fine">14-day free trial</p>
       </div>
       <div class="gw-cta__actions">
