@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "consent:version": "node scripts/consent-version.mjs",
+    "postinstall": "node scripts/consent-version.mjs",
+    "predev": "node scripts/consent-version.mjs",
     "dev": "next dev",
+    "prebuild": "npm test",
     "build": "next build",
+    "pretest": "node scripts/consent-version.mjs",
+    "test": "node scripts/test-consent-version.mjs",
     "start": "next start",
     "lint": "eslint"
   },

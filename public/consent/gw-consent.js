@@ -5,8 +5,10 @@
  * one design and one cookie.
  *
  * Cookie: gw_consent on Domain=.gatherwise.io
- *   v=1&a=1&m=0&r=optin&t=1760500000
- *   v  schema version — bump to re-ask everyone (e.g. when adding a vendor)
+ *   v=2&a=1&m=0&r=optin&t=1760500000
+ *   v  schema version (VERSION below) — bump to re-ask everyone. That VERSION
+ *      line is the only place to change it: /api/consent reads it at build time via
+ *      scripts/consent-version.mjs, and `npm test` fails on any mismatch.
  *   a  analytics granted (GA4, PostHog with persistence)
  *   m  marketing granted (Google Ads, Meta Pixel, Pinterest tag)
  *   r  regime the choice was made under: optin | notice

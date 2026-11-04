@@ -1,7 +1,14 @@
 // Shared constants for the cookie-consent system. The browser half lives in
 // public/consent/gw-consent.js; keep the cookie names and regimes in sync.
 
+import { CONSENT_VERSION } from "./consent-version.generated";
+
 export const CONSENT_COOKIE = "gw_consent";
+
+// Schema version of the gw_consent cookie. Generated from `var VERSION` in
+// public/consent/gw-consent.js (scripts/consent-version.mjs), so the script
+// and /api/consent can't disagree. Bump it there, nowhere else.
+export { CONSENT_VERSION };
 export const REGION_COOKIE = "gw_region";
 
 export type ConsentRegime = "optin" | "notice";
@@ -68,3 +75,16 @@ export function corsHeaders(origin: string | null): Record<string, string> {
 export const ACCEPT_MAX_AGE = 365 * 86400; // re-ask accepted users yearly
 export const REJECT_MAX_AGE = 182 * 86400; // re-ask refusals after six months
 export const REGION_MAX_AGE = 30 * 86400;
+
+/** gw_consent cookie value, same format as serialize() in gw-consent.js. */
+export function consentCookieValue(
+  analytics: boolean,
+  marketing: boolean,
+  regime: ConsentRegime,
+  nowMs: number = Date.now(),
+): string {
+  return (
+    `v=${CONSENT_VERSION}&a=${analytics ? 1 : 0}&m=${marketing ? 1 : 0}&r=${regime}` +
+    `&t=${Math.floor(nowMs / 1000)}`
+  );
+}

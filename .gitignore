@@ -50,3 +50,6 @@ ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+
+# generated from public/consent/gw-consent.js by scripts/consent-version.mjs
+/lib/consent-version.generated.ts

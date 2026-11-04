@@ -3,6 +3,7 @@ import {
   ACCEPT_MAX_AGE,
   CONSENT_COOKIE,
   REJECT_MAX_AGE,
+  consentCookieValue,
   cookieDomainFor,
   corsHeaders,
 } from "@/lib/consent";
@@ -17,7 +18,9 @@ import {
 //
 // Called from gatherwise.io and, cross-origin with credentials, from
 // app.gatherwise.io. Because this host is the parent domain it can set a
-// cookie for all of .gatherwise.io. It never reads or writes any other cookie.
+// cookie for all of .gatherwise.io. This handler writes no other cookie (the
+// site-wide proxy.ts still adds its stale-Bubble-cookie cleanup headers to
+// every response, this one included).
 
 type Body = { analytics?: unknown; marketing?: unknown; regime?: unknown };
 
@@ -39,9 +42,7 @@ export async function POST(request: NextRequest) {
   const marketing = body.marketing === true;
   const regime = body.regime === "notice" ? "notice" : "optin";
   const maxAge = analytics || marketing ? ACCEPT_MAX_AGE : REJECT_MAX_AGE;
-  const value =
-    `v=1&a=${analytics ? 1 : 0}&m=${marketing ? 1 : 0}&r=${regime}` +
-    `&t=${Math.floor(Date.now() / 1000)}`;
+  const value = consentCookieValue(analytics, marketing, regime);
 
   const domain = cookieDomainFor(request.headers.get("host"));
   const secure = request.nextUrl.protocol === "https:";
