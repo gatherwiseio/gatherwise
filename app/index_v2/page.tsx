@@ -68,8 +68,6 @@ const infoTip = (label: string, tip: string) =>
   `<span class="gw-info" tabindex="0" role="button" aria-label="${label}"><svg viewBox="0 0 256 256" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg><span class="gw-info__tip" role="tooltip">${tip}</span></span>`;
 
 const SEAT_INFO = infoTip("Additional seats: about $10/mo each", "Need more seats? Additional seats are ~$10/mo each.");
-const PDF_INFO_PRO = infoTip("Custom styling and templates", "Custom styling and templates.");
-const PDF_INFO_ELITE = infoTip("Plus Tasks and Moodboard blocks", "Plus Tasks and Moodboard blocks.");
 
 // Phosphor "Check" (bold) — white check inside the gold comparison-table circles.
 const MARK_YES = `<span class="gw-mark gw-mark--yes" aria-label="Yes"><svg viewBox="0 0 256 256" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg></span>`;
@@ -623,7 +621,6 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 questionnaire</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}1 admin + 1 team member</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Shared access for clients and team</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}PDF exports &amp; live URLs: 3 per event</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
@@ -656,7 +653,6 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}3 questionnaires</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}<span>2 admins + 2 team <span style="white-space: nowrap">members ${SEAT_INFO}</span></span></li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Shared access for clients and team</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}<span>PDF exports &amp; live URLs: 10 per <span style="white-space: nowrap">event ${PDF_INFO_PRO}</span></span></li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
@@ -686,7 +682,6 @@ const PAGE_HTML = `
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Unlimited questionnaires</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}<span>2 admins + 2 team <span style="white-space: nowrap">members ${SEAT_INFO}</span></span></li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}View-only or edit access, per tab</li>
-            <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}<span>PDF exports &amp; live URLs: <span style="white-space: nowrap">unlimited ${PDF_INFO_ELITE}</span></span></li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Timeline creation</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Task checklists</li>
             <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--gw-ink)">${CHECK}Vendor management</li>
