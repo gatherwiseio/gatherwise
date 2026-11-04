@@ -4,16 +4,18 @@
    1. Loads the shared cookie-consent script (public/consent/gw-consent.js) and starts each
       vendor only once consent allows it:
         analytics  -> GA4 (via gtag) and PostHog
-        marketing  -> Google Ads (via gtag) and Meta Pixel
+        marketing  -> Google Ads (via gtag), Meta Pixel and Pinterest tag
       Opt-in regions wait for Accept, GPC keeps marketing off, Google runs in Consent Mode v2,
       and withdrawing consent reloads the page.
-   2. Carries utm_* / fbclid from the ad click through to the app signup link.
-   3. Fires ViewContent on load and Lead on any "Start free trial" click (tagged with the page's concept).
+   2. Carries utm_* / fbclid / epik from the ad click through to the app signup link.
+   3. Fires ViewContent on load and Lead on any "Start free trial" click (tagged with the page's concept),
+      on both Meta and Pinterest.
    4. Shows the sticky mobile CTA once the hero CTA scrolls out of view. */
 (function () {
   var GA4_ID = 'G-NMZZR1RQSF';
   var ADS_ID = 'AW-16809052619';
   var META_PIXEL_ID = '1140353341133768';
+  var PINTEREST_TAG_ID = '2612464051590';
   var POSTHOG_KEY = 'phc_L4ZLdnUxdhDfrgkQZFOIo4HvGDzt79BwYamAlURKXOm';
   var POSTHOG_HOST = 'https://us.i.posthog.com';
   var concept = document.body.getAttribute('data-concept') || 'lp';
@@ -72,6 +74,20 @@
   }
   function track(name, params) { if (window.fbq) fbq('track', name, params); }
 
+  var pinLoaded = false;
+  function startPinterest() {
+    if (pinLoaded || !PINTEREST_TAG_ID) return;
+    pinLoaded = true;
+    !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(
+    Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";
+    var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];
+    r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+    pintrk('load', PINTEREST_TAG_ID);
+    pintrk('page');
+    pintrk('track', 'pagevisit', { line_items: [{ product_name: concept, product_category: 'ad_landing_page' }] });
+  }
+  function pinTrack(name, params) { if (window.pintrk) pintrk('track', name, params); }
+
   // Cookie consent (shows the site banner; same config as app/analytics.tsx)
   window.gwConsentConfig = window.gwConsentConfig || {
     mode: 'site', endpoint: location.origin + '/api/consent', policyUrl: '/cookies'
@@ -87,6 +103,7 @@
     last = s;
     if (s.analytics || s.marketing) startGoogle(s);
     if (s.marketing) startPixel();
+    if (s.marketing) startPinterest();
     if (s.analytics) startPostHog();
   }
   function wireConsent() {
@@ -104,8 +121,8 @@
     document.head.appendChild(cs);
   }
 
-  // UTM + fbclid passthrough to signup links
-  var keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+  // UTM + click ID (fbclid, Pinterest epik) passthrough to signup links
+  var keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','epik'];
   var incoming = new URLSearchParams(location.search);
   document.querySelectorAll('a[data-signup]').forEach(function (a) {
     try {
@@ -117,6 +134,7 @@
     } catch (e) {}
     a.addEventListener('click', function () {
       track('Lead', { content_name: concept, content_category: 'start_trial_click' });
+      pinTrack('lead', { lead_type: 'start_trial_click', line_items: [{ product_name: concept }] });
     });
   });
   document.querySelectorAll('a[data-call]').forEach(function (a) {

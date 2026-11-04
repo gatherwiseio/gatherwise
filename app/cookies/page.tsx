@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cookies" },
 };
 
-const LAST_UPDATED = "October 15, 2026";
+const LAST_UPDATED = "November 3, 2026";
 const SIGNUP = "https://app.gatherwise.io/login?m=signup";
 const PRIVACY = "https://app.gatherwise.io/legal?tab=privacy";
 const CONTACT = "support@gatherwise.io";
@@ -83,6 +83,12 @@ const ADVERTISING: Row[] = [
     provider: "Meta (Facebook and Instagram)",
     purpose: "Measures our ads on Meta platforms and lets us show Gatherwise to people with similar interests.",
     expires: "90 days",
+  },
+  {
+    name: "_pin_unauth, _epik, _derived_epik",
+    provider: "Pinterest",
+    purpose: "Measures whether a visit that started from a Pinterest ad led to a sign-up, and lets us show Gatherwise to people with similar interests.",
+    expires: "1 year",
   },
 ];
 
@@ -234,6 +240,15 @@ export default function Page() {
                 </dd>
               </div>
               <div className={styles.def}>
+                <dt>Pinterest</dt>
+                <dd>
+                  Pinterest advertising.{" "}
+                  <a href="https://policy.pinterest.com/en/cookies" rel="noopener" target="_blank">
+                    Pinterest cookie policy
+                  </a>
+                </dd>
+              </div>
+              <div className={styles.def}>
                 <dt>PostHog</dt>
                 <dd>
                   Product analytics.{" "}
@@ -290,10 +305,14 @@ export default function Page() {
                   ,{" "}
                   <a href="https://adssettings.google.com" rel="noopener" target="_blank">
                     Google Ads
-                  </a>{" "}
-                  and{" "}
+                  </a>
+                  ,{" "}
                   <a href="https://www.facebook.com/adpreferences/ad_settings" rel="noopener" target="_blank">
                     Meta
+                  </a>{" "}
+                  and{" "}
+                  <a href="https://www.pinterest.com/settings/privacy" rel="noopener" target="_blank">
+                    Pinterest
                   </a>
                   .
                 </dd>

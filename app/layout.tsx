@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  verification: {
+    other: {
+      // Pinterest website claim (Settings > Link to Pinterest > Websites).
+      "p:domain_verify": "81d4aa5374703c490f0fdf3f7a665ab6",
+    },
+  },
 };
 
 export default function RootLayout({

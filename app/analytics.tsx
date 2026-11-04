@@ -9,13 +9,14 @@ import { useEffect } from "react";
 // visitor's choice allows it:
 //
 //   analytics  -> GA4 (via gtag) and PostHog
-//   marketing  -> Google Ads (via gtag) and Meta Pixel
+//   marketing  -> Google Ads (via gtag), Meta Pixel and Pinterest tag
 //
 // In the opt-in regime (EU/EEA/UK/CH/CA) nothing loads until the visitor
 // accepts. In the notice regime (US and elsewhere) the script reports consent
 // as soon as the notice is acknowledged, or treats a prior choice as given.
 // Global Privacy Control is handled inside the consent script: it keeps
-// marketing off, which here means no Google Ads config and no Meta Pixel.
+// marketing off, which here means no Google Ads config, no Meta Pixel and no
+// Pinterest tag.
 //
 // Google runs in Consent Mode v2: the gtag defaults are set to denied before
 // the library loads and updated from the consent state, so even once loaded
@@ -28,6 +29,7 @@ import { useEffect } from "react";
 const GA4_ID = "G-NMZZR1RQSF";
 const ADS_ID = "AW-16809052619";
 const META_PIXEL_ID = "1140353341133768";
+const PINTEREST_TAG_ID = "2612464051590";
 const POSTHOG_KEY = "phc_L4ZLdnUxdhDfrgkQZFOIo4HvGDzt79BwYamAlURKXOm";
 const POSTHOG_HOST = "https://us.i.posthog.com";
 
@@ -39,6 +41,7 @@ declare global {
     gtag?: (...args: unknown[]) => void;
     fbq?: ((...args: unknown[]) => void) & { queue?: unknown[]; loaded?: boolean };
     _fbq?: unknown;
+    pintrk?: ((...args: unknown[]) => void) & { queue?: unknown[]; version?: string };
     posthog?: { init: (key: string, opts: Record<string, unknown>) => void; __loaded?: boolean };
   }
 }
@@ -63,6 +66,7 @@ function addInline(code: string, id: string) {
 
 let gtagReady = false;
 let metaLoaded = false;
+let pinterestLoaded = false;
 let posthogLoaded = false;
 
 function consentModeValue(granted: boolean) {
@@ -106,6 +110,15 @@ function startMeta() {
   );
 }
 
+function startPinterest() {
+  if (pinterestLoaded) return;
+  pinterestLoaded = true;
+  addInline(
+    `!function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");pintrk('load','${PINTEREST_TAG_ID}');pintrk('page');`,
+    "pinterest-tag",
+  );
+}
+
 function startPostHog() {
   if (posthogLoaded) return;
   posthogLoaded = true;
@@ -131,6 +144,7 @@ function apply(s: ConsentState, previous: ConsentState) {
 
   if (s.analytics || s.marketing) startGoogle(s);
   if (s.marketing) startMeta();
+  if (s.marketing) startPinterest();
   if (s.analytics) startPostHog();
 }
 
