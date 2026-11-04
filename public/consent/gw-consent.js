@@ -8,7 +8,7 @@
  *   v=1&a=1&m=0&r=optin&t=1760500000
  *   v  schema version — bump to re-ask everyone (e.g. when adding a vendor)
  *   a  analytics granted (GA4, PostHog with persistence)
- *   m  marketing granted (Google Ads, Meta Pixel)
+ *   m  marketing granted (Google Ads, Meta Pixel, Pinterest tag)
  *   r  regime the choice was made under: optin | notice
  *   t  unix seconds when the choice was made
  *
@@ -39,7 +39,7 @@
   "use strict";
   if (window.gwConsent && window.gwConsent.__loaded) return;
 
-  var VERSION = 1;
+  var VERSION = 2; // 2: added Pinterest tag (Nov 2026)
   var COOKIE = "gw_consent";
   var REGION_COOKIE = "gw_region";
   var ACCEPT_DAYS = 365; // re-ask accepted users yearly
@@ -327,7 +327,7 @@
       prefs.appendChild(switchRow("Essential", "Sign-in, security and your settings. Always on.", null));
       prefs.appendChild(switchRow("Analytics", "How features are used, so we can improve them.", "analytics"));
       prefs.appendChild(switchRow("Advertising",
-        "Measures our ads on Google and Meta." + (gpc ? " Off by your browser's privacy signal." : ""),
+        "Measures our ads on Google, Meta and Pinterest." + (gpc ? " Off by your browser's privacy signal." : ""),
         "marketing"));
       card.appendChild(prefs);
 
