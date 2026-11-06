@@ -20,6 +20,7 @@
  *
  * Public API (window.gwConsent):
  *   get()        -> { decided, analytics, marketing, regime } | null while loading
+ *                   (inside an iframe: no banner, everything off, embedded: true)
  *   open()       -> opens the preferences panel
  *   onChange(fn) -> fn(state) whenever a choice is saved; also fires
  *                   `gwconsent:change` on document
@@ -116,7 +117,20 @@
   var readyFns = [];
   var isReady = false;
 
+  // Embedded in another site's iframe (e.g. an app.gatherwise.io form on a
+  // planner's website). Browsers block this frame from storing or reading the
+  // gw_consent cookie, so a choice made here could never be remembered and the
+  // banner would return on every visit. Instead: no banner, no network calls,
+  // and analytics/advertising stay off. A cross-origin parent throws on access,
+  // which also means embedded.
+  var embedded = (function () {
+    try { return window.self !== window.top; } catch (e) { return true; }
+  })();
+
   function publicState() {
+    if (embedded) {
+      return { decided: false, analytics: false, marketing: false, regime: regime || "optin", embedded: true };
+    }
     if (!state) {
       if (!regime) return null;
       // Undecided. Opt-in regime: nothing is allowed yet. Notice regime
@@ -421,7 +435,7 @@
   /* ------------------------------------------------------------- boot */
 
   function boot() {
-    if (state) { markReady(); return; }
+    if (embedded || state) { markReady(); return; }
     if (regime) { render(); markReady(); return; }
     // No region cookie yet (first touch was the Bubble app, or a brand-new
     // visitor before the proxy ran). Ask gatherwise.io; it also sets gw_region.
@@ -449,7 +463,7 @@
     __loaded: true,
     version: VERSION,
     get: publicState,
-    open: function () { render({ prefs: true }); },
+    open: function () { if (!embedded) render({ prefs: true }); },
     onChange: function (fn) { if (typeof fn === "function") changeFns.push(fn); },
     ready: function (fn) {
       if (typeof fn !== "function") return;
@@ -468,7 +482,7 @@
   // <a href="#cookie-settings"> or data-gw-consent="open".
   document.addEventListener("click", function (e) {
     var t = e.target && e.target.closest && e.target.closest('[data-gw-consent="open"],a[href="#cookie-settings"]');
-    if (t) { e.preventDefault(); render({ prefs: true }); }
+    if (t && !embedded) { e.preventDefault(); render({ prefs: true }); }
   });
 
   if (document.readyState === "loading") {

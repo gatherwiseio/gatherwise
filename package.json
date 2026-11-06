@@ -10,7 +10,7 @@
     "prebuild": "npm test",
     "build": "next build",
     "pretest": "node scripts/consent-version.mjs",
-    "test": "node scripts/test-consent-version.mjs",
+    "test": "node scripts/test-consent-version.mjs && node scripts/test-consent-embed.mjs",
     "start": "next start",
     "lint": "eslint"
   },
