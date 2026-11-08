@@ -43,10 +43,22 @@ const nextConfig: NextConfig = {
   // Next only serves public files by exact path, so map the clean URLs here.
   // Being in public/ (not app/) also keeps them out of app/sitemap.ts.
   async rewrites() {
-    return [
-      { source: "/lp/switch", destination: "/lp/switch/index.html" },
-      { source: "/lp/sales", destination: "/lp/sales/index.html" },
-    ];
+    return {
+      beforeFiles: [
+        // Zoom webhook endpoint: proxy (not redirect) to the Bubble extension.
+        // Pinned to deployment 6f92c76 on purpose; don't switch to "latest".
+        {
+          source: "/zoom/webhook",
+          destination:
+            "https://eventplanner-38386.buildprintusercontent.com/zoom-webhooks/6f92c76/live/api/zoom/webhook",
+        },
+      ],
+      afterFiles: [
+        { source: "/lp/switch", destination: "/lp/switch/index.html" },
+        { source: "/lp/sales", destination: "/lp/sales/index.html" },
+      ],
+      fallback: [],
+    };
   },
 };
 
