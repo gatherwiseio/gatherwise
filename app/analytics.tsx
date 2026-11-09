@@ -148,6 +148,62 @@ function apply(s: ConsentState, previous: ConsentState) {
   if (s.analytics) startPostHog();
 }
 
+// Ad click IDs and UTMs to carry from a landing page through to the app's
+// signup link (same list public/lp/lp.js uses, plus gclid). Stored for the
+// browser session so they survive moving between pages before signing up.
+const PASSTHROUGH = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "gclid", "epik"];
+const PASSTHROUGH_KEY = "gw_ad_params";
+
+function rememberAdParams() {
+  try {
+    const incoming = new URLSearchParams(window.location.search);
+    const found: Record<string, string> = {};
+    PASSTHROUGH.forEach((k) => {
+      const v = incoming.get(k);
+      if (v) found[k] = v;
+    });
+    if (Object.keys(found).length) sessionStorage.setItem(PASSTHROUGH_KEY, JSON.stringify(found));
+  } catch {}
+}
+
+function storedAdParams(): Record<string, string> {
+  try {
+    return JSON.parse(sessionStorage.getItem(PASSTHROUGH_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function isSignupLink(a: HTMLAnchorElement) {
+  try {
+    const u = new URL(a.href);
+    return u.hostname === "app.gatherwise.io" && u.pathname.startsWith("/login") && u.searchParams.get("m") === "signup";
+  } catch {
+    return false;
+  }
+}
+
+// On any "Start free trial" link to the app: forward the ad params, and record
+// a Pinterest lead (the event Pinterest campaigns optimize for; /lp/ pages do
+// the same in lp.js). pintrk only exists once marketing consent allowed it.
+function onSignupClick(e: MouseEvent) {
+  const a = (e.target as Element | null)?.closest?.("a") as HTMLAnchorElement | null;
+  if (!a || !isSignupLink(a)) return;
+  try {
+    const u = new URL(a.href);
+    Object.entries(storedAdParams()).forEach(([k, v]) => {
+      if (!u.searchParams.get(k)) u.searchParams.set(k, v);
+    });
+    a.href = u.toString();
+  } catch {}
+  if (window.pintrk) {
+    window.pintrk("track", "lead", {
+      lead_type: "start_trial_click",
+      line_items: [{ product_name: window.location.pathname }],
+    });
+  }
+}
+
 export default function Analytics() {
   useEffect(() => {
     window.gwConsentConfig = window.gwConsentConfig || {
@@ -175,6 +231,11 @@ export default function Analytics() {
     } else {
       addScript("/consent/gw-consent.js", "gw-consent", wire);
     }
+
+    rememberAdParams();
+    // Capture phase so the href is updated before the browser follows it.
+    document.addEventListener("click", onSignupClick, true);
+    return () => document.removeEventListener("click", onSignupClick, true);
   }, []);
 
   return null;
