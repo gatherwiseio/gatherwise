@@ -464,8 +464,8 @@ const PAGE_HTML = `
 
   <!-- mobile / event day -->
   <section id="mobile" style="background: var(--gw-ink); color: var(--gw-parchment); padding: var(--gw-section-y) var(--gw-gutter) 0">
-    <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center">
-      <div>
+    <div class="gw-mobile__grid" style="max-width: 1180px; margin: 0 auto; display: grid; gap: clamp(32px, 4vw, 60px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center">
+      <div class="gw-mobile__text">
         <p class="gw-eyebrow" style="margin: 0 0 18px">Mobile app</p>
         <h2 class="gw-heading gw-heading--section" style="color: var(--gw-parchment)">On the day, it's <span class="gw-heading__accent">in your hand</span>.</h2>
         <p style="font-size: 17.5px; line-height: 1.7; color: rgb(var(--gw-parchment-rgb) / 0.75); margin: 20px 0 0; max-width: 30em; text-wrap: pretty">Real-time notifications, client messages, and the timeline, guest list and vendor contacts with you on the floor.</p>
@@ -495,6 +495,22 @@ const PAGE_HTML = `
          re-creates the gutter as its own padding, so the first card still lines
          up with the content above it while the rest runs off-screen. -->
     <div class="gw-reviews__track" data-review-track tabindex="0" role="group" aria-label="Planner reviews — scroll horizontally">
+      <figure class="gw-review">
+        <div class="gw-review__media">
+          <img class="gw-review__portrait" loading="lazy" src="/index_v2/gretchen-culver.webp" alt="Gretchen Culver of Rocket Science Events smiling in a plaid blazer." style="object-position: 50% 10%">
+        </div>
+        <div class="gw-review__body">
+          <blockquote style="margin: 0">
+            <p class="gw-review__quote">“The planning tool I've been waiting for my whole life. All the elements work seamlessly together — I no longer have my floorplan in a different software than my timeline.”</p>
+          </blockquote>
+          <figcaption class="gw-review__who">
+            <img class="gw-review__logo" loading="lazy" src="/index_v2/rocket-science-events.png" alt="Rocket Science Events" style="background: #fff">
+            <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong style="color: var(--gw-ink); font-weight: 700">Gretchen Culver</strong><br>Experience Creator &amp; Owner, Rocket Science Events</span>
+          </figcaption>
+          <button type="button" class="gw-review__more" data-review-open="review-culver" aria-haspopup="dialog">Read the full review</button>
+        </div>
+      </figure>
+
       <figure class="gw-review">
         <div class="gw-review__media">
           <img class="gw-review__portrait" loading="lazy" src="/index_v2/shelby-martin.png" alt="Shelby Martin of Martin &amp; Co. Premier Event Planning." style="object-position: 50% 15%">
@@ -529,7 +545,7 @@ const PAGE_HTML = `
 
       <figure class="gw-review">
         <div class="gw-review__media">
-            <img class="gw-review__portrait" loading="lazy" src="/index_v2/paige-farkas.jpeg" alt="Paige Farkas of Farkas Events walking with a planning clipboard." style="object-position: 50% 18%; transform: scale(1.2); transform-origin: 50% 22%">
+            <img class="gw-review__portrait" loading="lazy" src="/index_v2/paige-farkas.webp" alt="Paige Farkas of Farkas Events walking with a planning clipboard." style="object-position: 50% 18%; transform: scale(1.2); transform-origin: 50% 22%">
         </div>
         <div class="gw-review__body">
           <blockquote style="margin: 0">
@@ -543,6 +559,22 @@ const PAGE_HTML = `
         </div>
       </figure>
     </div>
+
+    <dialog class="gw-modal" id="review-culver" aria-labelledby="review-culver-name">
+      <div class="gw-modal__panel">
+        <button type="button" class="gw-modal__close" data-review-close aria-label="Close">${CLOSE_ICON}</button>
+        <header class="gw-modal__head">
+          <img class="gw-review__logo" loading="lazy" src="/index_v2/rocket-science-events.png" alt="Rocket Science Events" style="background: #fff">
+          <span style="font-size: 14.5px; line-height: 1.5; color: var(--gw-muted)"><strong id="review-culver-name" style="color: var(--gw-ink); font-weight: 700">Gretchen Culver</strong><br>Experience Creator &amp; Owner, Rocket Science Events</span>
+        </header>
+        <div class="gw-modal__body">
+          <p class="gw-modal__lede">“Simply put, I'm in love with Gatherwise.”</p>
+          <p class="gw-modal__text">Simply put, I'm in love with Gatherwise. It is the planning tool I've been waiting for my whole life! I love how easy it is to use, how good it looks, and all of the thoughtful details that make my job so much easier.</p>
+          <p class="gw-modal__text">You can tell that people who know events are behind Gatherwise because everything makes sense. All the elements work seamlessly together - I no longer have to have my floorplan in a different software than my timeline. Each event contains all the information my team and I need to plan and design effectively.</p>
+          <p class="gw-modal__text">My clients love it too! They actually use it, which I think is the highest compliment that could be paid to an app these days. Finally, I love that every day a new feature is added, making Gatherwise more robust and helpful. This will be the last planning software I ever use.</p>
+        </div>
+      </div>
+    </dialog>
 
     <dialog class="gw-modal" id="review-kelly" aria-labelledby="review-kelly-name">
       <div class="gw-modal__panel">

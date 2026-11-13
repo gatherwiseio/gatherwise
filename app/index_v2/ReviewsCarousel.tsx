@@ -67,49 +67,48 @@ export default function ReviewsCarousel() {
     }
 
     // --- full-review dialogs -------------------------------------------------
-    const openers = document.querySelectorAll<HTMLButtonElement>(
-      "[data-review-open]",
-    );
+    // One delegated listener on the document instead of one per button, so it
+    // keeps working if the section's HTML is re-rendered (dev hot reload
+    // replaces those nodes, which used to leave the buttons dead).
+    let opener: HTMLElement | null = null;
 
-    openers.forEach((btn) => {
-      const id = btn.dataset.reviewOpen;
-      const dialog = id
-        ? document.getElementById(id)
-        : null;
-      if (!(dialog instanceof HTMLDialogElement)) return;
+    const onClick = (e: MouseEvent) => {
+      const target = e.target as Element | null;
+      if (!target || !target.closest) return;
 
-      const closer = dialog.querySelector<HTMLButtonElement>(
-        "[data-review-close]",
-      );
-      const panel = dialog.querySelector<HTMLElement>(".gw-modal__panel");
-
-      const open = () => {
+      const openBtn = target.closest<HTMLElement>("[data-review-open]");
+      if (openBtn) {
+        const dialog = document.getElementById(openBtn.dataset.reviewOpen ?? "");
+        if (!(dialog instanceof HTMLDialogElement) || dialog.open) return;
+        opener = openBtn;
         dialog.showModal();
         document.body.style.overflow = "hidden";
-      };
-      const close = () => dialog.close();
+        return;
+      }
 
-      // Clicking the backdrop closes: the click lands on the <dialog> itself
-      // only when it falls outside the panel.
-      const onDialogClick = (e: MouseEvent) => {
-        if (panel && !panel.contains(e.target as Node)) close();
-      };
-      const onClose = () => {
-        document.body.style.overflow = "";
-        btn.focus();
-      };
+      const dialog = target.closest<HTMLDialogElement>("dialog.gw-modal");
+      if (!dialog) return;
+      // Close button, or a click on the backdrop: that click lands on the
+      // <dialog> itself only when it falls outside the panel.
+      const panel = dialog.querySelector(".gw-modal__panel");
+      if (target.closest("[data-review-close]") || (panel && !panel.contains(target))) {
+        dialog.close();
+      }
+    };
 
-      btn.addEventListener("click", open);
-      closer?.addEventListener("click", close);
-      dialog.addEventListener("click", onDialogClick);
-      dialog.addEventListener("close", onClose);
+    // "close" doesn't bubble, so listen in the capture phase. Also covers Esc.
+    const onClose = (e: Event) => {
+      if (!(e.target instanceof HTMLDialogElement) || !e.target.matches(".gw-modal")) return;
+      document.body.style.overflow = "";
+      opener?.focus();
+      opener = null;
+    };
 
-      cleanups.push(() => {
-        btn.removeEventListener("click", open);
-        closer?.removeEventListener("click", close);
-        dialog.removeEventListener("click", onDialogClick);
-        dialog.removeEventListener("close", onClose);
-      });
+    document.addEventListener("click", onClick);
+    document.addEventListener("close", onClose, true);
+    cleanups.push(() => {
+      document.removeEventListener("click", onClick);
+      document.removeEventListener("close", onClose, true);
     });
 
     return () => {

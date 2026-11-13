@@ -42,11 +42,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // suppressHydrationWarning: browser extensions (Grammarly, ColorZilla, Dark
+    // Reader, password managers) add attributes to <html>/<body> before React
+    // hydrates, which logs a mismatch warning. This only ignores attribute
+    // differences on these two tags, not anything inside them.
     <html
       lang="en"
       className={`${beVietnam.variable} ${sourceSerif.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Analytics />
         {children}
       </body>

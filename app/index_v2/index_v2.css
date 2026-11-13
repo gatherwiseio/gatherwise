@@ -1390,6 +1390,22 @@
   color: var(--gw-gold);
 }
 
+/* ---- mobile app section ---------------------------------------------------
+   The section has top padding but none at the bottom (the phone image sits on
+   the edge), so a plainly centered text column lands below the section's
+   middle. When text and image share a row, pad the text column's bottom by the
+   same amount so it centers on the whole section. 632px = two 300px columns
+   plus the 32px gap, i.e. exactly when the auto-fit grid goes two-up. */
+.gwv2 .gw-mobile__grid {
+  container-type: inline-size;
+}
+
+@container (min-width: 632px) {
+  .gwv2 .gw-mobile__text {
+    padding-bottom: var(--gw-section-y);
+  }
+}
+
 /* ============================================================================
    "From planners" reviews — horizontal snap carousel + full-review modal.
    Arrows and dialog wiring live in ReviewsCarousel.tsx; the track scrolls on
@@ -1587,6 +1603,13 @@
     flex: none;
     width: 100%;
     aspect-ratio: 4 / 3;
+  }
+
+  /* The desktop clamp bottoms out at 26px, too large for a narrow card:
+     about 21px at 320px wide, 23px at 375px, back to 26px from ~450px. */
+  .gwv2 .gw-review__quote {
+    font-size: clamp(20px, 4vw + 8px, 26px);
+    line-height: 1.25;
   }
 }
 
